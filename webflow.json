@@ -1,7 +1,4 @@
 {
-  "buildCommand": "astro build --config clouduser.astro.config.mjs || astro build",
-  "outputDirectory": "dist",
-  "cloud": {
-    "framework": "astro"
-  }
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
