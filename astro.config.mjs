@@ -102,6 +102,7 @@ const sidebar = [
 export default defineConfig({
   output: 'static',
   site: 'https://help.spryhealth.com',
+  base: '/guide',
   integrations: [
 		react(),
 		starlight({
