@@ -9,7 +9,47 @@ import {
   getArticleUrl,
 } from '../lib/webflow';
 
-export const prerender = false;
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const articles = await getAllArticles();
+  const paths = [];
+
+  // Add article paths
+  for (const article of articles) {
+    if (article.slug) {
+      paths.push({ params: { slug: article.slug } });
+    }
+  }
+
+  // Add category and subcategory paths
+  const articleMeta = articles.map(article => ({
+    ...article,
+    segments: getArticleSegments(article),
+  }));
+
+  const categories = new Set();
+  const subcategories = new Set();
+
+  for (const article of articleMeta) {
+    if (article.segments.path) {
+      categories.add(article.segments.path);
+    }
+    if (article.segments.subpath) {
+      subcategories.add(article.segments.subpath);
+    }
+  }
+
+  for (const category of categories) {
+    paths.push({ params: { slug: category } });
+  }
+
+  for (const subcategory of subcategories) {
+    paths.push({ params: { slug: subcategory } });
+  }
+
+  return paths;
+}
 
 const slugParam = Astro.params.slug;
 const segments = Array.isArray(slugParam)

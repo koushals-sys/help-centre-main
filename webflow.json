@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build:webflow",
+  "buildCommand": "astro build --config clouduser.astro.config.mjs || astro build",
   "outputDirectory": "dist",
   "cloud": {
     "framework": "astro"
