@@ -1,7 +1,4 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "cosmic": {
-    "framework": "astro"
-  }
+  "outputDirectory": "dist"
 }
