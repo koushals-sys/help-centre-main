@@ -21,7 +21,7 @@
     "@astrojs/starlight": "^0.37.6",
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.48",
-    "astro": "^5.6.1",
+    "astro": "^5.17.3",
     "axios": "^1.13.5",
     "csv-parser": "^3.2.0",
     "fs-extra": "^11.3.3",
