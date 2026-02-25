@@ -1,10 +1,10 @@
 {
-  "buildCommand": "npx astro build --config clouduser.astro.config.mjs",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cloud": {
-    "framework": "astro"
+    "framework": "node"
   },
   "cosmic": {
-    "framework": "astro"
+    "framework": "node"
   }
 }
