@@ -2,7 +2,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
-import cloudflare from '@astrojs/cloudflare';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -100,10 +99,7 @@ const sidebar = [
 // https://astro.build/config
 
 export default defineConfig({
-  output: 'server',
-  adapter: cloudflare(),
   site: 'https://help.spryhealth.com',
-  base: '/guide',
   integrations: [
 		starlight({
 			title: 'SpryHealth Help Centre',
@@ -124,10 +120,4 @@ export default defineConfig({
 		}),
 		react(),
   ],
-  vite: {
-    ssr: {
-      external: ['node:fs', 'node:path'],
-      noExternal: ['@astrojs/starlight'],
-    },
-  },
 });
