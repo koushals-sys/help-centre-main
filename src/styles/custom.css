@@ -1,0 +1,336 @@
+/* ─── SpryHealth Brand Theme ─────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/recoleta/Recoleta-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/recoleta/Recoleta-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/recoleta/Recoleta-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/recoleta/Recoleta-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFProDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFProDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFProDisplay-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFProDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/*
+ * Accent colour based on the SPRY logo purple: #4B2C68
+ * HSL breakdown: hue 278°, saturation 40%, lightness 29%
+ *
+ * Starlight uses three accent tiers:
+ *   --sl-color-accent-low   subtle tint (backgrounds, hover states)
+ *   --sl-color-accent       main interactive colour (links, active sidebar items)
+ *   --sl-color-accent-high  high-contrast variant (text on light bg)
+ */
+
+/* Light mode */
+:root {
+  --sl-color-accent-low:  #e5d4f0;   /* soft lavender tint */
+  --sl-color-accent:      #4B2C68;   /* SPRY logo purple   */
+  --sl-color-accent-high: #2b1840;   /* deep purple        */
+}
+
+
+/* ─── Modern UI Pass ─────────────────────────────────────────────────────── */
+:root {
+  --spry-ink: #141a24;
+  --spry-ink-muted: #4a5468;
+  --spry-panel: #ffffff;
+  --spry-panel-border: #e6ebf2;
+  --spry-glow: rgba(20, 26, 36, 0.06);
+  --spry-glow-strong: rgba(20, 26, 36, 0.12);
+  --spry-sheen: rgba(255, 255, 255, 0.65);
+  --spry-bg: #f5f7fb;
+  --spry-bg-alt: #eff3f9;
+  --spry-accent: #4b2c68;
+  --spry-accent-2: #1b7f8a;
+  --spry-radius: 16px;
+  --spry-radius-lg: 20px;
+  --spry-shadow: 0 20px 40px -28px rgba(20, 26, 36, 0.5);
+}
+
+body {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--spry-ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(75, 44, 104, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, rgba(27, 127, 138, 0.12), transparent 55%),
+    linear-gradient(180deg, var(--spry-bg), var(--spry-bg-alt));
+}
+
+h1, h2 {
+  font-family: 'Recoleta', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h3, h4, h5, h6 {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.sl-header {
+  backdrop-filter: blur(12px);
+  background: rgba(245, 247, 251, 0.9);
+  border-bottom: 1px solid var(--spry-panel-border);
+}
+
+.sl-sidebar {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(239, 243, 249, 0.95));
+  border-right: 1px solid var(--spry-panel-border);
+}
+
+.sl-sidebar a {
+  color: var(--spry-ink-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.sl-sidebar a:hover {
+  color: var(--spry-ink);
+  transform: translateX(2px);
+}
+
+.sl-content-panel {
+  background: var(--spry-panel);
+  border: 1px solid var(--spry-panel-border);
+  border-radius: var(--spry-radius-lg);
+  box-shadow: var(--spry-shadow);
+}
+
+.sl-content-panel + .sl-content-panel {
+  margin-top: 24px;
+}
+
+.sl-markdown-content {
+  color: var(--spry-ink);
+}
+
+.sl-markdown-content p {
+  color: var(--spry-ink-muted);
+  line-height: 1.8;
+}
+
+.sl-markdown-content a {
+  color: var(--spry-accent-2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(27, 127, 138, 0.25);
+}
+
+.sl-markdown-content a:hover {
+  color: var(--spry-accent);
+  border-bottom-color: rgba(75, 44, 104, 0.4);
+}
+
+/* ─── Category Cards ─────────────────────────────────────────────────────── */
+.spry-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.spry-card {
+  background: var(--spry-panel);
+  border: 1px solid var(--spry-panel-border);
+  border-radius: 18px;
+  padding: 18px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--spry-ink);
+  text-decoration: none;
+  box-shadow: 0 12px 26px -20px rgba(20, 26, 36, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.spry-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(75, 44, 104, 0.12), rgba(27, 127, 138, 0.08));
+  margin-bottom: 12px;
+  box-shadow: inset 0 0 0 1px rgba(27, 35, 50, 0.08);
+}
+
+.spry-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.spry-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--spry-ink);
+}
+
+.spry-card p {
+  margin: 0;
+  color: var(--spry-ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.spry-card-link {
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--spry-accent-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.spry-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(75, 44, 104, 0.35);
+  box-shadow: 0 16px 36px -24px rgba(20, 26, 36, 0.7);
+}
+
+/* ─── Remove "On this page" TOC everywhere ───────────────────────────────── */
+starlight-toc,
+.right-sidebar-panel,
+.sl-mobile-toc {
+  display: none !important;
+}
+
+html[data-has-toc] {
+  --sl-mobile-toc-height: 0rem;
+}
+
+/* Remove right sidebar column space entirely */
+.right-sidebar-container {
+  display: none !important;
+}
+
+[data-has-sidebar][data-has-toc] .main-pane {
+  width: 100% !important;
+  --sl-content-margin-inline: auto !important;
+}
+
+main {
+  animation: spry-fade-in 0.6s ease both;
+}
+
+@keyframes spry-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Remove "Edit this page" footer link ───────────────────────────────── */
+/*
+ * Starlight only renders this link when editLink.baseUrl is configured.
+ * This rule is a belt-and-suspenders guard in case it appears from any source.
+ */
+.sl-link-button[href*='edit'],
+a[href*='/edit/'],
+[class*='edit-link'],
+[data-edit-link] {
+  display: none !important;
+}
+
+/* ─── Video: rounded corners + soft shadow ───────────────────────────────── */
+.sl-markdown-content video {
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 10px 24px -4px rgba(75, 44, 104, 0.18);  /* subtle purple-tinted shadow */
+  display: block;
+  width: 100%;
+}
+
+/* ─── List items: more breathing room ───────────────────────────────────── */
+.sl-markdown-content li {
+  margin-block: 0.45em;
+  line-height: 1.7;
+}
+
+/* ─── Headings: modern weight + spacing ─────────────────────────────────── */
+
+/* h1 — clear primary focus, large and bold */
+.sl-markdown-content h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  color: var(--sl-color-text-title);   /* stays on Starlight's default title colour */
+}
+
+/* h2 — section divider with subtle purple underline */
+.sl-markdown-content h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.35em;
+  border-bottom: 2px solid var(--sl-color-accent-low);
+}
+
+/* h3 — step labels: compact, brand-purple, clearly subordinate to h1 */
+.sl-markdown-content h3 {
+  font-size: 1.05rem;          /* ~17px — readable but not oversized   */
+  font-weight: 600;            /* semi-bold: present without being heavy */
+  line-height: 1.4;
+  margin-top: 2rem;            /* generous space above each step        */
+  margin-bottom: 0.3rem;       /* tight gap before step body text       */
+  color: #4B2C68;              /* SPRY logo purple — pops vs body text  */
+  letter-spacing: 0.01em;
+}
+

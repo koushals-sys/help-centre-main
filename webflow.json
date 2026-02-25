@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm run build:webflow",
+  "outputDirectory": "dist",
+  "cloud": {
+    "framework": "astro"
+  }
+}

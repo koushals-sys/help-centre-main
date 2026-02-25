@@ -1,0 +1,1431 @@
+"Name","Slug","Summary","Body","Path","CategorySlug","CategoryPathSlug","VideoUrl","SourceFile"
+"Adjust Balance testing","adjust-balance-amount","testing ","<p>testing</p>
+","","","","","adjust-balance-amount.md"
+"Adjust Balance Amount","adjust-balance-amount","Guide for Adjust Balance Amount","<p><video controls src=""/videos/adjust-balance-amount.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to adjust a patient&#39;s paid amount to any other date of service. </p>
+<h3>Step 1: Select the patient whose balance you want to adjust. To do this, go to Patients and select the desired patient.</h3>
+<h3>Step 2: View the patient&#39;s profile.</h3>
+<h3>Step 3: Navigate to the Billing tab on the left scroll.</h3>
+<h3>Step 4: Here, you&#39;ll see all the charge IDs for that patient. If a patient payment is available or the patient has paid any amount, the Adjust Balance button will be available. However, if the charge ID is in closed status, you won&#39;t be able to move or adjust that balance to any other date of service. To adjust the balance, click on the Add this balance button.</h3>
+<h3>Step 5: You&#39;ll now see all dates of services for that patient. You can adjust the balance with these dates of service.</h3>
+<h3>Step 6: For instance, let&#39;s say you&#39;re adjusting from the patient&#39;s date of service on the 29th of February 2024, and for that particular charge ID, the patient has paid $310. You can adjust a partial or full amount to any date of service listed in the table.</h3>
+<h3>Step 7: As an example, let&#39;s adjust $10 to this charge ID for a $100 tourist charge ID.</h3>
+<h3>Step 8: Once you click out of the box, you&#39;ll see the total remaining balance, which you can adjust to any other date of services.</h3>
+<h3>Step 9: Once the total amount is adjusted, you won&#39;t be able to adjust any more balances. The button will be disabled and you&#39;ll see that the remaining amount is going to credit balance.</h3>
+<h3>Step 10: When you&#39;re done, click on the Adjust Balance button. The system will automatically adjust these balances to all the charge IDs for which you were adjusting the balances.</h3>
+<h3>Step 11: You can track the payment details under the charge ID that you just set this balance for.</h3>
+<h3>Step 12: To see the payment details, go to Detail View and move to the Payments tab.</h3>
+<h3>Step 13: Here, you&#39;ll see the payment from charge ID 911-3295 and the date of service using which we have adjusted a $200 in discharge ID.</h3>
+<hr>
+<p><em>Thank you for following this tutorial.</em></p>
+","billing-videos","billing-videos","billing-videos","","billing-videos/adjust-balance-amount.md"
+"Billing Dashboard Overview","billing-dashboard-overview","Guide for Billing Dashboard Overview","<p><video controls src=""/videos/billing-dashboard-overview.mp4"" style=""width: 100%""></video></p>
+<p>Explore the Spry billing dashboard and its features. This guide provides a detailed walkthrough of the dashboard, its sections, and functionalities.Start by accessing the billing dashboard. On the left-hand side, click on the money sign labeled Billing.</p>
+<h3>Step 1: Familiarize with the dashboard layout. Notice the different sections at the top: overall billing tab, patient collection tab, reports, and the newly added reports section. These provide a comprehensive overview of the clinic and detailed reports.</h3>
+<h3>Step 2: Use the filters. Filter data by payer name, PP, tags, patient names, charge ID, claim statuses, or set a date range. For this guide, leave these filters empty.</h3>
+<h3>Step 3: Understand the claim buckets. The dashboard displays different buckets where claims can sit. The first one is Draft.</h3>
+<h3>Step 4: Explore the Draft section. This is where claims are prepared before submission. Here, view all claims ready for submission, make edits or changes as needed, update the overall status, submit the claim, write it off, or edit it.</h3>
+<h3>Step 5: Edit a claim. Clicking on edit takes into the actual claim. Click on the edit button at the top.</h3>
+<h3>Step 6: Edit details such as the ICD code or the CPT code. Ensure these are correct before sending them out. Once done, click on done to save changes.</h3>
+<h3>Step 7: To save the changes. Click on save.</h3>
+<h3>Step 8: Return to the dashboard. Click on Draft again. If desired, submit the claim.</h3>
+<h3>Step 9: Understand the Accepted bucket. These are claims that have been accepted by the clearinghouse. Once paid by the insurance payer, they move to the Bill Pending section.</h3>
+<h3>Step 10: Understand the bill pending section. This is where the patient responsibility lies. Once the patient pays their portion, closing the claim, it moves to the Close section.</h3>
+<h3>Step 11: Understand the paper submission buckets. Some payers require a paper submission. These claims are tracked in the Paper Submission and Paper Submitted sections.</h3>
+<h3>Step 12: Understand the Rejected bucket. These are claims that have been rejected by the clearinghouse. The reasons for rejection are provided for review and correction before resubmission.</h3>
+<h3>Step 13: Understand the Pending Review section. This is where claims with partial payments are reviewed to ensure full payment.</h3>
+<h3>Step 14: Understand the Denied section. These are claims denied by the payer, not the clearinghouse. The reasons for denial are provided.</h3>
+<h3>Step 15: Edit a denied claim. Make necessary changes and resubmit the claim.</h3>
+<h3>Step 16: Understand the Self Pay bucket. This is where all self pay claims are tracked.</h3>
+<h3>Step 17: Export data. All data can be exported for further analysis or record-keeping.</h3>
+","billing-videos","billing-videos","billing-videos","","billing-videos/billing-dashboard-overview.md"
+"Claim Submission Process Update","claim-submission-process-update","Guide for Claim Submission Process Update","<p><video controls src=""/videos/claim-submission-process-update.mp4"" style=""width: 100%""></video></p>
+<p>This article will guide you through the process of submitting claims to secondary or tertiary pairs.</p>
+<h3>Step 1: Navigate to the Rejected, Denied, or Pending Status buckets.</h3>
+<h3>Step 2: Click on any bucket and move to the right side of the window. Here, you&#39;ll find the Submit as button.</h3>
+<h3>Step 3: Click on the Submit as button. This will display all the associated claims with that particular charge id. If multiple claims are present, you&#39;ll see all of them.</h3>
+<h3>Step 4: Choose the charge id for which you want to submit the claim. For instance, if there are three claims, you&#39;ll see that in primary claims, you have the option to submit a fresh or a resubmit claim.</h3>
+<h3>Step 5: In the secondary claims, you&#39;ll find the option to submit a new fresh claim. Once you submit a fresh claim, the resubmit option will appear under the same menu. This applies to tertiary claims as well.</h3>
+<h3>Step 6: The same option is available in the Denied and Bill Pending buckets.</h3>
+<p>Please note, if the claim is self-pay,
+the resubmit button or Submit as button won&#39;t be available to click on. For instance, this is an insurance pay claim and the
+Submit as button is available for this claim. And that&#39;s it! You&#39;ve successfully navigated the claim submission process.</p>
+","billing-videos","billing-videos","billing-videos","","billing-videos/claim-submission-process-update.md"
+"Detailed Claim Overview","detailed-claim-overview","Guide for Detailed Claim Overview","<p><video controls src=""/videos/detailed-claim-overview.mp4"" style=""width: 100%""></video></p>
+<p>Dive into a detailed view of each individual point in this guide. </p>
+<h3>Step 1: Click on the pop-up to navigate to the next screen.</h3>
+<h3>Step 2: Observe the overview of the entire claim, including what was allowed, the bill, and the insurance adjusted pay.</h3>
+<h3>Step 3: Navigate to the review section. Note that editing is not possible for closed claims.</h3>
+<h3>Step 4: Explore options such as efax, viewing the actual claim form, and viewing the SOAP note.</h3>
+<h3>Step 5: Scroll down to see the ICD and CPT codes billed.</h3>
+<h3>Step 1: Examine the overall claim, including the ERA ID, total charge amount, insurance, and a broad overview of the claim itself.</h3>
+<h3>Step 2: Navigate to the ERA section. Note that in a sandbox environment, it will say manual. In a live environment, claims are automatically posted.</h3>
+<h3>Step 3: Observe the total billed amount, total allowed amount, total paid amount, and total adjusted amount, as well as the different codes.</h3>
+<h3>Step 1: Review the payment section, which shows all the different payments made during the claim process.</h3>
+<h3>Step 2: Check out the invoices sent to the patient.</h3>
+<h3>Step 1: View the overall history of the claim, including all stages from bill pending to closure.</h3>
+<h3>Step 2: Check the insurance details of the patient.</h3>
+<h3>Step 1: If any documents were uploaded as part of the claim, they will be found here.</h3>
+<h3>Step 2: Review any notes added to the claim.</h3>
+<h3>Step 1: Check eligibility for each individual claim.</h3>
+<h3>Step 2: If the claim is not closed and is in bill pending, collect payment from here. Send a link to the patient for payment or swipe if they are present.</h3>
+<p>Remember, the collect payment button is typically used when sending an invoice of the bill to the patient.</p>
+","billing-videos","billing-videos","billing-videos","","billing-videos/detailed-claim-overview.md"
+"E-Wallet","e-wallet","Guide for E-Wallet","<p><video controls src=""/videos/e-wallet.mp4"" style=""width: 100%""></video></p>
+<p>Explore the feature of the e-wallet with this guide. Start by navigating to the patient&#39;s timeline.</p>
+<h3>Step 1: Locate the e-wallet option on the left-hand side panel.</h3>
+<p>This e-wallet belongs to the patient and displays all the dates of services for that patient. To add an amount into the e-wallet, follow these steps:</p>
+<h3>Step 1: Type in the desired amount in the provided field.</h3>
+<h3>Step 2: Choose the mode of payment.</h3>
+<h3>Step 3: Click on Add to Wallet.</h3>
+<p>After adding the amount, it&#39;s possible to view all transaction details. This includes any previous amounts added to the e-wallet. Access these transactions from this tab.
+To apply charges or the amount to any date of services, follow these steps:</p>
+<h3>Step 1: Select the desired dates of service. For example, the seventh of October and the twenty-fifth of August.</h3>
+<h3>Step 2: Click on Collect from e-wallet.</h3>
+<p>After confirming, the selected amount will be deducted from the wallet and applied to those dates of services. If a patient wishes to withdraw an amount from the e-wallet, follow these steps:</p>
+<h3>Step 1: Navigate to the Withdraw option.</h3>
+<h3>Step 2: Type in the amount to withdraw, for example, fifty dollars.</h3>
+<h3>Step 3: Confirm the withdrawal.</h3>
+<p>After confirming, the specified amount will be deducted from the wallet balance and withdrawn. This transaction will also be reflected in the transaction details as a wallet withdrawal.</p>
+","billing-videos","billing-videos","billing-videos","","billing-videos/e-wallet.md"
+"Missed Copay Feature","missed-copay-feature","Guide for Missed Copay Feature","<p><video controls src=""/videos/missed-copay-feature.mp4"" style=""width: 100%""></video></p>
+<p>This guide explains how to use the &quot;Missed Copay&quot; feature in the Billing tab and the significance of the red and green dollar icons on the scheduler. The scheduler displays two appointments for the therapist, Megan Young. The patient, Ross Helms, has a red dollar sign next to his appointment.
+This red dollar sign indicates that the copay has been entered in the total copay field, but it hasn&#39;t been collected yet.
+On the other hand, the patient, Courtney Butler, has a green dollar sign next to her appointment.
+This green dollar sign signifies that the copay has been collected.
+For instance, Courtney&#39;s copay is twenty dollars, and the collected amount is also twenty dollars. Hence, a collected copay is represented by a green dollar sign.
+Now, let&#39;s consider a scenario where a patient has a copay of thirty dollars, but it was missed during collection.
+To rectify this, navigate to the patient&#39;s timeline.
+Then, proceed to the Billing tab.
+Here, we&#39;ve added a &quot;Missed Copay&quot; feature. It shows a missed copay amount of thirty dollars that needs to be collected from the patient. To collect this payment,
+click on &quot;Collect Payments&quot;. If there are multiple missed copays, select the relevant charge IDs. All copays will be listed in the columns. After selecting the charge IDs for which payment needs to be collected, click on
+&quot;Collect Payment&quot;. This allows you to collect the payment from the patient using different payment methods. After choosing the payment method, click on the &quot;Collect Payment&quot; option.
+If you need to send an invoice to the patient for the missed copay, there&#39;s an option in the total outstanding balance called &quot;Collect Payments&quot;.
+Click on it. The missed copay invoice will appear on the left screen panel. To send the invoice to the patient, click
+on &quot;List Copay List&quot;.</p>
+","billing-videos","billing-videos","billing-videos","","billing-videos/missed-copay-feature.md"
+"Posting Bulk ERA","posting-bulk-era","Guide for Posting Bulk ERA","<p><video controls src=""/videos/posting-bulk-era.mp4"" style=""width: 100%""></video></p>
+<p>This guide provides a step-by-step process for posting bulk ERS.</p>
+<h3>Step 1: Navigate to the billing dashboard.</h3>
+<h3>Step 2: Proceed to the ERS section.</h3>
+<h3>Step 3: Fill in all the mandatory fields from the ERA check.</h3>
+<h3>Step 4: Use the search function to find the pair.</h3>
+<h3>Step 5: After filling in all mandatory details, search for child IDs by the patient.</h3>
+<h3>Step 6: Once a patient is selected, all the charge IDs of that patient will appear in a dropdown menu. Select multiple charge IDs as needed.</h3>
+<h3>Step 7: If a charge ID is selected by mistake, it&#39;s possible to remove it.</h3>
+<h3>Step 8: Search by typing the charge ID.</h3>
+<h3>Step 9: After typing the charge ID, it will appear in the dropdown menu.</h3>
+<h3>Step 10: Proceed to the next screen.</h3>
+<h3>Step 11: On this screen, view all the CPT details of the selected charge ID. It&#39;s also possible to add a charge ID from this screen.</h3>
+<h3>Step 12: If necessary, return to the previous screen to edit details.</h3>
+<h3>Step 13: Add the charge ID again, if needed.</h3>
+<h3>Step 14: Fill in all the required fields.</h3>
+<h3>Step 15: Review all validation errors. It&#39;s necessary to resolve all validation errors before pushing the array. If needed, unselect the charge ID.</h3>
+<h3>Step 16: Once all errors are resolved, click on the &quot;Post ERA&quot; button. If nothing is entered for a specific CPT code, the entire billed amount will be adjusted.</h3>
+<h3>Step 17: Confirm the bulk addition by clicking on &quot;Post ARA&quot;. The bulk ERS has been successfully added.</h3>
+","billing-videos","billing-videos","billing-videos","","billing-videos/posting-bulk-era.md"
+"Refunds & Move Balance to E-wallet","refunds-move-balance-to-e-wallet","Guide for Refunds & Move Balance to E-wallet","<p><video controls src=""/videos/refunds-move-balance-to-e-wallet.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to process refunds on Spry, a feature useful for front desk staff or administrators. </p>
+<h3>Step 1: Start by selecting a patient whose charges you want to refund. Navigate to the billing screen. Here, you&#39;ll see a list of charge IDs for various services.</h3>
+<h3>Step 2: To refund charges for a specific service, locate the refund button next to the service.</h3>
+<h3>Step 3: Clicking the refund button reveals all information related to that particular charge ID, including past transactions, transaction methods, and any refunds previously processed.</h3>
+<h3>Step 4: Let&#39;s assume a transaction occurred on this charge ID on April 16th and the patient paid $25. Now, you need to refund an amount. Enter the amount you wish to refund.</h3>
+<h3>Step 5: After entering the amount, select a reason for the refund.</h3>
+<h3>Step 6: By default, the refund processes using the same method as the original transaction. Click on Refund to finalize the process.</h3>
+<h3>Step 7: You&#39;ll notice that the amount has been successfully refunded. Now, if you want to transfer this balance to the E Wallet instead of a refund, select a specific transaction. For example, if you want to move $10 to the eWallet, choose the move to eWallet option.</h3>
+<h3>Step 8: After selecting the move to eWallet option, select a reason and click on refund to eWallet.</h3>
+<h3>Step 9: The specific transaction moves to the eWallet, updating the balance accordingly.</h3>
+<h3>Step 10: You can view all the refund history, including the total number of refunds processed to date and the refund transactions, in the refund history section.</h3>
+<p>And that&#39;s it! You&#39;ve successfully processed a refund on Spry.</p>
+","billing-videos","billing-videos","billing-videos","","billing-videos/refunds-move-balance-to-e-wallet.md"
+"Adult and Pediatric Speech Therapy Workflow Overview","adult-and-pediatric-speech-therapy-workflow-overview","Guide for Adult and Pediatric Speech Therapy Workflow Overview","<p><video controls src=""/videos/adult-and-pediatric-speech-therapy-workflow-overview.mp4"" style=""width: 100%""></video></p>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/adult-and-pediatric-speech-therapy-workflow-overview.md"
+"Deleting SOAP Notes Guide","deleting-soap-notes-guide","Guide for Deleting SOAP Notes Guide","<p><video controls src=""/videos/deleting-soap-notes-guide.mp4"" style=""width: 100%""></video></p>
+<p>This article will guide you through the process of deleting both open and completed SOAP notes from a patient&#39;s timeline.</p>
+<h3>Step 1: Navigate to the patient&#39;s timeline. Here, you&#39;ll find open SOAP notes, which are identifiable by a trash can icon next to them. To delete an open SOAP note, click on the trash can icon next to the note you wish to delete.</h3>
+<h3>Step 2: After clicking on the trash can icon, you&#39;ll be asked to confirm your decision. Click on delete to remove the SOAP note from the patient&#39;s chart.</h3>
+<h3>Step 3: If you need to delete a completed SOAP note due to an issue in the documentation, you&#39;ll need to do this from the admin dashboard. Access the admin dashboard by visiting privacy.com/admin-dashboard.</h3>
+<h3>Step 4: Copy the patient ID.</h3>
+<h3>Step 5: Once you&#39;re in the admin dashboard, you&#39;ll see all the date of services and scheduled appointments for the patient. Locate the appointment that needs to be deleted.</h3>
+<h3>Step 6: Click on the date of service for the appointment you wish to delete.</h3>
+<h3>Step 7: After clicking on the date of service, you&#39;ll be given the option to delete the SOAP note. Click on delete.</h3>
+<h3>Step 8: You&#39;ll be asked to confirm your decision. Click on delete again, and the SOAP note will be removed from the patient&#39;s chart.</h3>
+<p>By following these steps, you&#39;ll be able to successfully delete both open and completed SOAP notes from a patient&#39;s timeline.</p>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/deleting-soap-notes-guide.md"
+"How to Add an Addendum in Patient Dashboard","how-to-add-an-addendum-in-patient-dashboard","Guide for How to Add an Addendum in Patient Dashboard","<p><video controls src=""/videos/how-to-add-an-addendum-in-patient-dashboard.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Add an addendum, you have to go to the patient dashboard.</h3>
+<h3>Step 2: Once you&#39;re here, you can search for your patient.</h3>
+<h3>Step 3: And view the profile.</h3>
+<h3>Step 4: This way, you will reach the patient timeline. Now you can go to the SOAP note.</h3>
+<h3>Step 5: You will reach the summary. On the right hand upper corner, you will see add addendum.</h3>
+<h3>Step 6: You have to click on it, and you will reach the SOAP documentation.</h3>
+<h3>Step 7: You can make any changes you want.</h3>
+<h3>Step 8:</h3>
+<h3>Step 9:</h3>
+<h3>Step 10:</h3>
+<h3>Step 11:</h3>
+<h3>Step 12:</h3>
+<h3>Step 13:</h3>
+<h3>Step 14: Click save. It will be saved successfully.</h3>
+<h3>Step 15: You can go to the next section and add necessary additions.</h3>
+<h3>Step 16:</h3>
+<h3>Step 17:</h3>
+<h3>Step 18:</h3>
+<h3>Step 19:</h3>
+<h3>Step 20:</h3>
+<h3>Step 21:</h3>
+<h3>Step 22:</h3>
+<h3>Step 23: Once yu reach the summary section, click complete soap.</h3>
+<h3>Step 24:</h3>
+<h3>Step 25:</h3>
+<h3>Step 26:</h3>
+<h3>Step 27: Addendum added.</h3>
+<h3>Step 28: You can see that in Patient&#39;s timeline.</h3>
+<h3>Step 29:</h3>
+<h3>Step 30:  Thank You!</h3>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/how-to-add-an-addendum-in-patient-dashboard.md"
+"How to change the case within a Note","how-to-change-the-case-within-a-note","Guide for How to change the case within a Note","<p><video controls src=""/videos/how-to-change-the-case-within-a-note.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to change the case within a note. </p>
+<h3>Step 1: Navigate to the SOAP notes.</h3>
+<h3>Step 2: View the SOAP notes.</h3>
+<h3>Step 3: Click on the SOAP note you want to change.</h3>
+<h3>Step 4: Look for the case you want to modify.</h3>
+<h3>Step 5: Click on the plus sign to create a new case.</h3>
+<h3>Step 6: Enter the case title.</h3>
+<h3>Step 7: Select the specialty for the case.</h3>
+<h3>Step 8: Choose the body part related to the case.</h3>
+<h3>Step 9: Fill in the mandatory details.</h3>
+<h3>Step 10: Click on &quot;Create&quot; to create the new case.</h3>
+<h3>Step 11: Click on &quot;S&quot; to save your changes.</h3>
+<p>Your case with the new updates is now ready. Thank you for following this tutorial.</p>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/how-to-change-the-case-within-a-note.md"
+"How To Create an Exercise Program_HEP","how-to-create-an-exercise-programhep","Guide for How To Create an Exercise Program_HEP","<p><video controls src=""/videos/how-to-create-an-exercise-programhep.mp4"" style=""width: 100%""></video></p>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/how-to-create-an-exercise-programhep.md"
+"How to Use Flowsheets","how-to-use-flowsheets","Guide for How to Use Flowsheets","<p><video controls src=""/videos/how-to-use-flowsheets.mp4"" style=""width: 100%""></video></p>
+<p>This article will guide you on how to use Flowsheets effectively.</p>
+<h3>Step 1: Begin in the Planning section. Here, add your CPT codes.</h3>
+<h3>Step 2: Include any exercises or programs performed.</h3>
+<h3>Step 3: Feel free to add any notes.</h3>
+<h3>Step 4: Click on Sync to Flowsheet.</h3>
+<p>You&#39;ll find the flowsheet in the documentation or in the patient&#39;s chart.</p>
+<h3>Step 5: After syncing, the flowsheet is ready. You&#39;re also able to add exercises from the Flowsheet view.</h3>
+<h3>Step 6: Adjust the reps, the sets, and add any additional notes.</h3>
+<h3>Step 7: Choose the status to show that the exercise was performed.</h3>
+<p>Remember, you&#39;re able to sync back to your SOAP note as long as the SOAP note is open for the day.</p>
+<h3>Step 8: Once the SOAP note is synced back in your documentation, click Refresh. You&#39;ll then see the updated exercises synced from the flowsheet.</h3>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/how-to-use-flowsheets.md"
+"Introducing AI Scribe: Automate Your SOAP Note Creation","introducing-ai-scribe-automate-your-soap-note-creation","Guide for Introducing AI Scribe: Automate Your SOAP Note Creation","<p><video controls src=""/videos/introducing-ai-scribe-automate-your-soap-note-creation.mp4"" style=""width: 100%""></video></p>
+<p>Spry serves as a personal assistant, streamlining and automating the process of note creation. This allows for more focus on patient care. Spry is fast, accurate, and eliminates the need for manual documentation. Here&#39;s how to use it:Accessing Spry</p>
+<h3>Step 1: Select the scheduled appointment.</h3>
+<h3>Step 2: This will lead to the documentation screen.</h3>
+<p>Using AI Scribe</p>
+<h3>Step 3: Locate the AI scribe icon in the top right corner and click on it to open the scribe and begin documentation.</h3>
+<p>AI Scribe provides two methods for creating spoken notes: recording the entire conversation with the patient, or quickly dictating notes into the system.
+Quick Dictation</p>
+<h3>Step 4: Try the quick dictation option. Speak the observations directly into the system.</h3>
+<p>For instance, &quot;Pain level at six out of ten, difficulty fully straightening and bending knee, quadriceps muscle strength graded three out of five. Gait affected with noticeable discomfort and weakness. Difficulty standing on one leg due to instability. Plan for pain management, gentle exercises, strengthening quadriceps, improving gait and balance.&quot;</p>
+<h3>Step 5: Click on &#39;stop recording&#39;</h3>
+<p>and then &#39;apply transcript&#39;.
+The notes will automatically fill in the SOAP format. The transcript can be reapplied at any time if necessary.Finalizing Notes</p>
+<h3>Step 6: Review the summary, complete the assessment and plan section. Once done, the process is complete.</h3>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/introducing-ai-scribe-automate-your-soap-note-creation.md"
+"Note Types","note-types","Guide for Note Types","<p><video controls src=""/videos/note-types.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1:  Click on appointment tile, select - Add documentation.</h3>
+<h3>Step 2:  Select note type from following options - initial evaluation, reevaluation, follow-up, progress note, discharge note, extended, and discharge note simple.</h3>
+<h3>Step 3:</h3>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/note-types.md"
+"Occupational Therapy Workflow Overview","occupational-therapy-workflow-overview","Guide for Occupational Therapy Workflow Overview","<p><video controls src=""/videos/occupational-therapy-workflow-overview.mp4"" style=""width: 100%""></video></p>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/occupational-therapy-workflow-overview.md"
+"SOAP Control Panel Overview","soap-control-panel-overview","Guide for SOAP Control Panel Overview","<p><video controls src=""/videos/soap-control-panel-overview.mp4"" style=""width: 100%""></video></p>
+<p>This guide provides a walkthrough on how to use the Soap Control Panel. This tool allows users to view and modify parameters of a soap node, which in turn fetches the corresponding template.Begin by opening the Soap Control Panel. </p>
+<h3>Step 1: Click on the header to open the Soap Control Panel.</h3>
+<p>This reveals all the parameters based on which the soap node and template are fetched.</p>
+<h3>Step 2: Observe the template name. This is determined by the selected parameters.</h3>
+<p>The parameters include case insurance, cardinal case insurance card, apartment type, and note type.
+To modify a parameter:</p>
+<h3>Step 3: Select the parameter to change. For instance, if the insurance card is not matching, change the insurance card.</h3>
+<h3>Step 4: Apply the changes. The new template will then be fetched based on the updated parameters.</h3>
+<p>The parameters of a specific sub-node of the node type can also be altered.</p>
+<h3>Step 5: Change the parameters of the sub-node.</h3>
+<h3>Step 6: Hit apply to implement the changes.</h3>
+<p>The node will now reflect the updated parameters. For example, it may change to a progress node.</p>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/soap-control-panel-overview.md"
+"SOAP Notes Dashboard Overview","soap-notes-dashboard-overview","Guide for SOAP Notes Dashboard Overview","<p><video controls src=""/videos/soap-notes-dashboard-overview.mp4"" style=""width: 100%""></video></p>
+<p>This guide provides a detailed walkthrough of the SOAP notes tab, a staging area for all dates of services. It&#39;s a comprehensive tool for tracking SOAP completion status, accessing and editing notes, and monitoring billing and claim submission errors.Start by exploring the SOAP notes tab:</p>
+<h3>Step 1: Look at the SOAP completion status, indicated by the status check mark, and the details about each section of the note.</h3>
+<h3>Step 2: Access the note by clicking on the eye icon.</h3>
+<p>Alternatively, access the note from the patient chart:</p>
+<h3>Step 1: Click on the patient name.</h3>
+<p>Filters are available on the right hand side for easy viewing.Next, learn how to keep track of unbilled notes:</p>
+<h3>Step 1: Click on &quot;not initiated&quot; to track any notes that haven&#39;t been started yet.The SOAP note tab also helps improve your clean claim pass rate:</h3>
+<h3>Step 1: Click on the error to view errors that can be edited prior to claim submission.</h3>
+<h3>Step 2: Monitor these errors with your team.</h3>
+<h3>Step 3: Add tags for appropriate follow-up.</h3>
+<h3>Step 4: Edit errors from this section.</h3>
+<p>Finally, explore other features of the SOAP notes tab:</p>
+<h3>Step 1: Use the option to bulk cosign notes.</h3>
+<h3>Step 2: Download reports or print.</h3>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/soap-notes-dashboard-overview.md"
+"Structure of the SOAP Note - Daily Note Workflow","structure-of-the-soap-note-daily-note-workflow","Guide for Structure of the SOAP Note - Daily Note Workflow","<p><video controls src=""/videos/structure-of-the-soap-note-daily-note-workflow.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Create a daily note.</h3>
+<h3>Step 2:</h3>
+<h3>Step 3: Select appropriate note type.</h3>
+<h3>Step 4: Data from previous visit note will feed forward. Enter any data as necessary.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6:</h3>
+<h3>Step 7:</h3>
+<h3>Step 8:</h3>
+<h3>Step 9:</h3>
+<h3>Step 10:</h3>
+<h3>Step 11: Objective information feeds forward from the previous visit.</h3>
+<h3>Step 12: Make changes as necessary, or add further parameters.</h3>
+<h3>Step 13:</h3>
+<h3>Step 14:</h3>
+<h3>Step 15:</h3>
+<h3>Step 16:</h3>
+<h3>Step 17:</h3>
+<h3>Step 18:</h3>
+<h3>Step 19: Assessment page, data feeds forward from previous visit.</h3>
+<h3>Step 20: Make changes as necessary.</h3>
+<h3>Step 21:</h3>
+<h3>Step 22: Plan section, data feeds forward. Make changes as necessary for that date of service billing.</h3>
+<h3>Step 23:</h3>
+<h3>Step 24:</h3>
+<h3>Step 25:</h3>
+<h3>Step 26:</h3>
+<h3>Step 27:</h3>
+<h3>Step 28:</h3>
+<h3>Step 29:</h3>
+<h3>Step 30:</h3>
+<h3>Step 31:</h3>
+<h3>Step 32:</h3>
+<h3>Step 33:</h3>
+<h3>Step 34:</h3>
+<h3>Step 35:</h3>
+<h3>Step 36: Send HEP as necessary.</h3>
+<h3>Step 37: Summary page, subjective, objective, assessment, and plan. Make edits as necessary. Complete soap.</h3>
+<h3>Step 38:</h3>
+<h3>Step 39:</h3>
+<h3>Step 40:</h3>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/structure-of-the-soap-note-daily-note-workflow.md"
+"Structure of the SOAP Note - Evaluation Workflow","structure-of-the-soap-note-evaluation-workflow","Guide for Structure of the SOAP Note - Evaluation Workflow","<p><video controls src=""/videos/structure-of-the-soap-note-evaluation-workflow.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Start your physical therapy initial evaluation.</h3>
+<h3>Step 2:</h3>
+<h3>Step 3:</h3>
+<h3>Step 4: Fill in your details for subjective section.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6:</h3>
+<h3>Step 7:</h3>
+<h3>Step 8:</h3>
+<h3>Step 9:</h3>
+<h3>Step 10:</h3>
+<h3>Step 11:</h3>
+<h3>Step 12:</h3>
+<h3>Step 13: Objective section next.</h3>
+<h3>Step 14:</h3>
+<h3>Step 15:</h3>
+<h3>Step 16:</h3>
+<h3>Step 17:</h3>
+<h3>Step 18:</h3>
+<h3>Step 19:</h3>
+<h3>Step 20:</h3>
+<h3>Step 21:</h3>
+<h3>Step 22:</h3>
+<h3>Step 23: Assessment tab next.</h3>
+<h3>Step 24:</h3>
+<h3>Step 25:</h3>
+<h3>Step 26:</h3>
+<h3>Step 27: Clinical presentation Enter any specific details as necessary.</h3>
+<h3>Step 28:</h3>
+<h3>Step 29:</h3>
+<h3>Step 30:</h3>
+<h3>Step 31:</h3>
+<h3>Step 32:</h3>
+<h3>Step 33:</h3>
+<h3>Step 34:</h3>
+<h3>Step 35:</h3>
+<h3>Step 36: Goals.</h3>
+<h3>Step 37:</h3>
+<h3>Step 38:</h3>
+<h3>Step 39:</h3>
+<h3>Step 40:</h3>
+<h3>Step 41:</h3>
+<h3>Step 42:</h3>
+<h3>Step 43: Plan section next.</h3>
+<h3>Step 44:</h3>
+<h3>Step 45:</h3>
+<h3>Step 46:</h3>
+<h3>Step 47:</h3>
+<h3>Step 48:</h3>
+<h3>Step 49:</h3>
+<h3>Step 50:</h3>
+<h3>Step 51:</h3>
+<h3>Step 52:</h3>
+<h3>Step 53:</h3>
+<h3>Step 54:</h3>
+<h3>Step 55:</h3>
+<h3>Step 56:</h3>
+<h3>Step 57: Enter CPT codes to bill for that visit.</h3>
+<h3>Step 58:</h3>
+<h3>Step 59:</h3>
+<h3>Step 60:</h3>
+<h3>Step 61: Enter time, tab for units.</h3>
+<h3>Step 62: Enter details as necessary.</h3>
+<h3>Step 63:</h3>
+<h3>Step 64:</h3>
+<h3>Step 65:</h3>
+<h3>Step 66:</h3>
+<h3>Step 67:</h3>
+<h3>Step 68:</h3>
+<h3>Step 69:</h3>
+<h3>Step 70:</h3>
+<h3>Step 71:</h3>
+<h3>Step 72:</h3>
+<h3>Step 73:</h3>
+<h3>Step 74:</h3>
+<h3>Step 75:</h3>
+<h3>Step 76:</h3>
+<h3>Step 77:</h3>
+<h3>Step 78:</h3>
+<h3>Step 79:</h3>
+<h3>Step 80:</h3>
+<h3>Step 81:</h3>
+<h3>Step 82:</h3>
+<h3>Step 83:</h3>
+<h3>Step 84:</h3>
+<h3>Step 85:</h3>
+<h3>Step 86:</h3>
+<h3>Step 87: Toggle on or off your billing rules based on AMA or CMS. Assign H E P.</h3>
+<h3>Step 88:</h3>
+<h3>Step 89:</h3>
+<h3>Step 90:</h3>
+<h3>Step 91:</h3>
+<h3>Step 92: Pull down the exercises if completed within the clinic to HEP, email to patient.</h3>
+<h3>Step 93:</h3>
+<h3>Step 94:</h3>
+<h3>Step 95:</h3>
+<h3>Step 96: Summary. Details entered into subjective section, objective, Assessment, and Plan will be visible here. Edit as necessary. Complete SOAP</h3>
+<h3>Step 97:</h3>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/structure-of-the-soap-note-evaluation-workflow.md"
+"Using Flow Sheets","using-flow-sheets","Guide for Using Flow Sheets","<p><video controls src=""/videos/using-flow-sheets.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Scroll down to where you can add in your CPT codes along with your interventions of exercise.</h3>
+<h3>Step 2: Sync to flow sheet and  go to flow sheet to visualize the data that has been synced.</h3>
+<h3>Step 3: Add exercises in the flow sheet with reps, sets, time, and resistance.</h3>
+<h3>Step 5: Indicate if the exercises were performed and sync it to your soap Note.</h3>
+","clinicians-module/documentation-features","clinicians-module","clinicians-module-documentation-features","","clinicians-module/documentation-features/using-flow-sheets.md"
+"Clinician's Overview","clinicians-overview","Guide for Clinician's Overview","<p><video controls src=""/videos/clinicians-overview.mp4"" style=""width: 100%""></video></p>
+<p>This guide provides an overview of the appointment dashboard, patient waitlist, completed appointments, patient dashboard, analytics, and patient details form. Start with the appointment dashboard:</p>
+<h3>Step 1: View the therapist&#39;s name, appointment tile, and timing blocks on the appointment dashboard.</h3>
+<h3>Step 2: Navigate to the title &#39;Verify Eligibility&#39;. Add the required information to check eligibility and verify benefits.</h3>
+<h3>Step 3: Next, view the patient waitlist using the therapist filter.</h3>
+<h3>Step 4:</h3>
+<h3>Step 5: Delete or edit patient information. Check their availability.</h3>
+<p>Moving on to completed appointments:</p>
+<h3>Step 6: View the patient tile and timeline in the completed appointments section.</h3>
+<h3>Step 7: Send reminders or cancel appointments. Check the next appointment due and patient status. View upcoming appointments as well.</h3>
+<h3>Step 8: In Upcoming Appointments, view appointment due, status, and other information.</h3>
+<p>Next, explore the patient dashboard:</p>
+<h3>Step 1: View the list of patients and search using search bar. You can switch between list view and grid view.</h3>
+<h3>Step 2: Search for patients based on joints, tags, or patient status.</h3>
+<h3>Step 3: Apply filters as needed.</h3>
+<p>Now, delve into the analytics:</p>
+<h3>Step 1: Navigate to analytics to view data by primary pair, location, cancellation reasons, new vs. old patients, total visits, patient intake, arrival rate, and doctor time utilization.</h3>
+<h3>Step 2: Apply filters, download export visit count by appointment type, or switch to table view for visualization. Click on Reports to view patient reports.</h3>
+<h3>Step 3: Visualize the data.</h3>
+<p>Once you click on &#39;View&#39; for a patient, you are directed to Patient&#39;s timeline. Check out Personal details form, given on the left side.</p>
+<h3>Step 1: Patient fills the personal details, therapist can add any additional information if required.</h3>
+<h3>Step 2: Next, Check medical details form filled by the patient. You can make changes if required and save it.</h3>
+<h3>Step 3: View the exercises given to the patient in the HEP. End date, view, send, or print the HEP.</h3>
+<h3>Step 4: View the Saved Card, it has credit card details. View Insurance Details and edit or add new insurance details.</h3>
+<h3>Step 5: View, edit, or delete outcome measures. Create or send tests.</h3>
+<h3>Step 6: View the POC and its status. Download the certified or uncertified POC.</h3>
+<h3>Step 7: View billing and overall payment collected. Check the patient ledger and invoice history.</h3>
+<h3>Step 8: View created communication notes.</h3>
+<h3>Step 9: View or add exercises to the patient&#39;s flow sheet, if not added in the SOAP note.</h3>
+<h3>Step 10: Add reps, sets, resistance and status here and it will automatically be updated in the SOAP note.</h3>
+<h3>Step 11: Add modalities and view them.</h3>
+<h3>Step 12: Add minutes and comments.</h3>
+<h3>Step 13: View outcome measures.</h3>
+<h3>Step 14: Upload or view patient documents. Add filters for documents for more streamlined experience.</h3>
+<h3>Step 15: Filter by case title, document type, sign status, or document category. Save your changes.</h3>
+<h3>Step 16: Delete documents if needed. View all communications, such as emails or SMS.</h3>
+<h3>Step 17: View eligibility report, follow-up, booking mail. Check bounce and miss status.</h3>
+<h3>Step 18: Navigate to soap notes to view patient&#39;s status or bill. Check if soap is complete. View the appointment or soap. Delete if needed. Use filters.</h3>
+<h3>Step 19: You can even check status and errors, using one of the filters given on the right side.</h3>
+","clinicians-module/overview","clinicians-module","clinicians-module-overview","","clinicians-module/overview/clinicians-overview.md"
+"Adding a Communication Note","adding-a-communication-note","Guide for Adding a Communication Note","<p><video controls src=""/videos/adding-a-communication-note.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to add a Communication Note to a patient&#39;s profile. </p>
+<h3>Step 1: Navigate to the patient&#39;s profile.</h3>
+<h3>Step 2: Click on View Profile to access the Patient Timeline.</h3>
+<h3>Step 3: Locate and click on the Communication Note option.</h3>
+<h3>Step 4: A new window for your Communication Note will open.</h3>
+<h3>Step 5: Choose a subject for your note. In this example, we&#39;re selecting Reschedule.</h3>
+<h3>Step 6: Save your note by clicking on Save.</h3>
+<h3>Step 7: Your Communication Note is now saved. You&#39;ll find it on the left side of the scroll view.</h3>
+<h3>Step 8: Click on your saved Communication Note to view it. From here, you&#39;re also able to download the note.</h3>
+<h3>Step 9: To see the most recent Communication Note, navigate to the Timeline.</h3>
+<h3>Step 10: Here, you&#39;ll find the latest Communication Note.</h3>
+<p>And that&#39;s it! You&#39;ve successfully added a Communication Note to a patient&#39;s profile. Thank you for following along.</p>
+","clinicians-module/patient-management","clinicians-module","clinicians-module-patient-management","","clinicians-module/patient-management/adding-a-communication-note.md"
+"Adding Insurance Card Details in Patient Profile","adding-insurance-card-details-in-patient-profile","Guide for Adding Insurance Card Details in Patient Profile","<p><video controls src=""/videos/adding-insurance-card-details-in-patient-profile.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to add your insurance card details.</p>
+<h3>Step 1: Navigate to the patient section.</h3>
+<h3>Step 2: Find the operation name.</h3>
+<h3>Step 3: Click on View Profile.</h3>
+<h3>Step 4: Scroll down and select Insurance Car.</h3>
+<h3>Step 5: Click on Add new insurance card.</h3>
+<h3>Step 6: Upload the front side of your insurance card.</h3>
+<h3>Step 7: Review your insurance card details or let them auto-populate.</h3>
+<p>That&#39;s it! You&#39;ve successfully added your insurance card details.</p>
+","clinicians-module/patient-management","clinicians-module","clinicians-module-patient-management","","clinicians-module/patient-management/adding-insurance-card-details-in-patient-profile.md"
+"Assigning HEP to Patients","assigning-hep-to-patients","Guide for Assigning HEP to Patients","<p><video controls src=""/videos/assigning-hep-to-patients.mp4"" style=""width: 100%""></video></p>
+","clinicians-module/patient-management","clinicians-module","clinicians-module-patient-management","","clinicians-module/patient-management/assigning-hep-to-patients.md"
+"Generate POC","generate-poc","Guide for Generate POC","<p><video controls src=""/videos/generate-poc.mp4"" style=""width: 100%""></video></p>
+<p>This guide provides a step-by-step process on how to generate a Plan of Care (POC) after completing the Subjective, Objective, Assessment, and Plan (SOAP) pages.</p>
+<h3>Step 1: Complete the Subjective, Objective, Assessment, and Plan pages.</h3>
+<h3>Step 2: Proceed to the Summary page and complete the SOAP.</h3>
+<h3>Step 3: Scroll to the top of the page.</h3>
+<p>Upon completion, the Plan of Care will be automatically created. </p>
+<h3>Step 4: Download the POC or send it via eFax. The POC will be automatically attached.</h3>
+","clinicians-module/patient-management","clinicians-module","clinicians-module-patient-management","","clinicians-module/patient-management/generate-poc.md"
+"HEP - Wibbi Flow","hep-wibbi-flow","Guide for HEP - Wibbi Flow","<p><video controls src=""/videos/hep-wibbi-flow.mp4"" style=""width: 100%""></video></p>
+<p>This guide provides a step-by-step process to create and assign a new Home Exercise Program (HEP) for a patient in the Spry system.Start by selecting the patient&#39;s appointment.</p>
+<h3>Step 1: Click on the patient&#39;s appointment.</h3>
+<p>Next, navigate to the planning tab.</p>
+<h3>Step 2: Go to the planning tab.</h3>
+<p>In the planning tab, scroll down to the HEP section to create a new program or assign a preselected one.</p>
+<h3>Step 3: Scroll down to the HEP section.</h3>
+<h3>Step 4: Click on create new program to redirect to VB.</h3>
+<p>In VB, update the title of the program.</p>
+<h3>Step 5: Update the title of the program.</h3>
+<h3>Step 6: Click on the title shown above.</h3>
+<p>Set the start and end dates for the program and add an exercise.</p>
+<h3>Step 7: Enter the start date and end date for the program (optional).</h3>
+<h3>Step 8: Click on add exercise.</h3>
+<p>Select the appropriate cohort.</p>
+<h3>Step 9: Select the cohort.</h3>
+<p>Search for the exercise.</p>
+<h3>Step 10: Click on search.</h3>
+<h3>Step 11: Select the exercise.</h3>
+<p>View the program and assign the rep and set count.</p>
+<h3>Step 12: Click on view program.</h3>
+<h3>Step 13: Assign the rep and set count.</h3>
+<p>Save the program.</p>
+<h3>Step 14: Click on save.</h3>
+<p>Close the VB editor window and sync the HEP in Spry.</p>
+<h3>Step 15: Close the VB editor window and click on sync HEP in Spry.</h3>
+<p>The created program will be automatically assigned. View the PDF of the program or the assigned exercises.</p>
+<h3>Step 16: Click on show PDF to view the program.</h3>
+<h3>Step 17: Click on the I button to view the assigned exercises (optional).</h3>
+<p>That concludes the guide.</p>
+","clinicians-module/patient-management","clinicians-module","clinicians-module-patient-management","","clinicians-module/patient-management/hep-wibbi-flow.md"
+"How To Create an Exercise Program_","how-to-create-an-exercise-program","Guide for How To Create an Exercise Program_","<p><video controls src=""/videos/how-to-create-an-exercise-program.mp4"" style=""width: 100%""></video></p>
+","clinicians-module/patient-management","clinicians-module","clinicians-module-patient-management","","clinicians-module/patient-management/how-to-create-an-exercise-program.md"
+"How to E-fax to a Physician","how-to-e-fax-to-a-physician","Guide for How to E-fax to a Physician","<p><video controls src=""/videos/how-to-e-fax-to-a-physician.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: This video demonstrates how to e-fax a patient to a physician. Go to the patient dashboard.</h3>
+<h3>Step 2: You can view here or search for the patient name.</h3>
+<h3>Step 3: Once you get the name, View profile.</h3>
+<h3>Step 4: You have reached the patient&#39;s timeline.</h3>
+<h3>Step 5:   Now scroll down and go to the POC section</h3>
+<h3>Step 6:  Click on eFax option.</h3>
+<h3>Step 7: You can add the physician&#39;s number directly or select them from the dropdown if they&#39;re already in the system.</h3>
+<h3>Step 8: Now add the subject and add comments.</h3>
+<h3>Step 9:  As you can see, Plan of care adds up as an attachment.</h3>
+<h3>Step 10:  Now click on send.</h3>
+<hr>
+<p><em>Thank you.</em></p>
+","clinicians-module/patient-management","clinicians-module","clinicians-module-patient-management","","clinicians-module/patient-management/how-to-e-fax-to-a-physician.md"
+"SPRY HEP Feature Updates","spry-hep-feature-updates","Guide for SPRY HEP Feature Updates","<p><video controls src=""/videos/spry-hep-feature-updates.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to use the updated features of the Spry HEP effectively.</p>
+<h3>Step 1: Navigate to the HEP tab.</h3>
+<h3>Step 2: Use the search bar to filter by specialties.</h3>
+<h3>Step 3: Mark your favorite exercises.</h3>
+<h3>Step 4: Create programs using your favorite exercises.</h3>
+<h3>Step 5: Search for specific programs and exercises within your documentation.</h3>
+<h3>Step 6: Select exercises for your program.</h3>
+<h3>Step 7: Choose either all exercises</h3>
+<p>or individual exercises.</p>
+<h3>Step 8: Search for exercises by most recent use.</h3>
+<h3>Step 9: Access your favorite exercises.</h3>
+<h3>Step 10: Use custom exercises you&#39;ve added.</h3>
+<h3>Step 11: Rearrange the order of the selected exercises.</h3>
+<h3>Step 12: Include the rearranged exercises in the HEP.</h3>
+<h3>Step 13: Apply the same steps for Clinic exercises within the HEP.</h3>
+<h3>Step 14: Search by programs, most recent favorites, and custom exercises.</h3>
+<h3>Step 15: Filter exercises by body parts and specialty.</h3>
+<h3>Step 16: Rearrange and reorder the exercises as needed.</h3>
+","clinicians-module/patient-management","clinicians-module","clinicians-module-patient-management","","clinicians-module/patient-management/spry-hep-feature-updates.md"
+"Track Certified POC","track-certified-poc","Guide for Track Certified POC","<p><video controls src=""/videos/track-certified-poc.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Certified Plan of Care Tracking. Enter patient&#39;s chart, scroll POC tab,</h3>
+<h3>Step 2:  Upload signed plan of care, drag and drop or browse.</h3>
+<h3>Step 4:  Add notes if required.</h3>
+<h3>Step 5:  Tick the Certify POC box.</h3>
+<h3>Step 6:</h3>
+<h3>Step 7:  Status changed to certified.</h3>
+<h3>Step 8: Status changed to certified based on plan of care created.</h3>
+<h3>Step 9:</h3>
+","clinicians-module/patient-management","clinicians-module","clinicians-module-patient-management","","clinicians-module/patient-management/track-certified-poc.md"
+"Appointment Booking: Commercial Insurance Pay with Referral Physician Options","appointment-booking-commercial-insurance-pay-with-referral-physician-options","Guide for Appointment Booking: Commercial Insurance Pay with Referral Physician Options","<p><video controls src=""/videos/appointment-booking-commercial-insurance-pay-with-referral-physician-options.mp4"" style=""width: 100%""></video></p>
+","front-desk-module/appointment-booking","front-desk-module","front-desk-module-appointment-booking","","front-desk-module/appointment-booking/appointment-booking-commercial-insurance-pay-with-referral-physician-options.md"
+"Book an Appointment with Self-Pay","book-an-appointment-with-self-pay","Guide for Book an Appointment with Self-Pay","<p><video controls src=""/videos/book-an-appointment-with-self-pay.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Hi. How to book an appointment with self pay? Under the respected therapist&#39;s name, go to the time slot you want to book the appointment.</h3>
+<h3>Step 2: Left click on it.</h3>
+<h3>Step 3:</h3>
+<h3>Step 4: Fill the mandatory details.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6:</h3>
+<h3>Step 7: You can see the timings are auto set after the appointment type. Now under payment type, click on self pay.</h3>
+<h3>Step 8:</h3>
+<h3>Step 9:</h3>
+<h3>Step 10:</h3>
+<h3>Step 11: Send link and reserve the appointment.</h3>
+<p>You can see your appointment on the dashboard. Thank you.</p>
+","front-desk-module/appointment-booking","front-desk-module","front-desk-module-appointment-booking","","front-desk-module/appointment-booking/book-an-appointment-with-self-pay.md"
+"Booking Appointments for Workers' Comp and Auto Insurance Claims","booking-appointments-for-workers-comp-and-auto-insurance-claims","Guide for Booking Appointments for Workers' Comp and Auto Insurance Claims","<p><video controls src=""/videos/booking-appointments-for-workers-comp-and-auto-insurance-claims.mp4"" style=""width: 100%""></video></p>
+","front-desk-module/appointment-booking","front-desk-module","front-desk-module-appointment-booking","","front-desk-module/appointment-booking/booking-appointments-for-workers-comp-and-auto-insurance-claims.md"
+"Booking Recurring Appointments","booking-recurring-appointments","Guide for Booking Recurring Appointments","<p><video controls src=""/videos/booking-recurring-appointments.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Hi. How to book a recurring appointment for a patient? Left click.</h3>
+<h3>Step 2:</h3>
+<h3>Step 3: Search for the patient.</h3>
+<h3>Step 4: Verify all the details, enter the necessary information.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6:</h3>
+<h3>Step 7: Click on next.</h3>
+<h3>Step 8: Select yes to book for recurrent appointment.</h3>
+<h3>Step 9:</h3>
+<h3>Step 10: Select the frequency.</h3>
+<h3>Step 11: Select the end date, select the days on which you want the appointment to recur.</h3>
+<h3>Step 12:</h3>
+<h3>Step 13:</h3>
+<h3>Step 14:</h3>
+<h3>Step 15:</h3>
+<h3>Step 16: Click on send link and reserve appointment.</h3>
+<h3>Step 17:</h3>
+<h3>Step 18: Your appointment will be booked successfully.</h3>
+<h3>Step 19: Click on the appointment dialogue box.</h3>
+<h3>Step 20: You&#39;ll be able to view your future appointments.</h3>
+<h3>Step 21:</h3>
+","front-desk-module/appointment-booking","front-desk-module","front-desk-module-appointment-booking","","front-desk-module/appointment-booking/booking-recurring-appointments.md"
+"How to Book an Appointment for New and Existing Patients","how-to-book-an-appointment-for-new-and-existing-patients","Guide for How to Book an Appointment for New and Existing Patients","<p><video controls src=""/videos/how-to-book-an-appointment-for-new-and-existing-patients.mp4"" style=""width: 100%""></video></p>
+","front-desk-module/appointment-booking","front-desk-module","front-desk-module-appointment-booking","","front-desk-module/appointment-booking/how-to-book-an-appointment-for-new-and-existing-patients.md"
+"Printing Appointment Copies","printing-appointment-copies","Guide for Printing Appointment Copies","<p><video controls src=""/videos/printing-appointment-copies.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to print a paper copy of your appointments. </p>
+<h3>Step 1: Start by clicking on the three dots on your appointment card.</h3>
+<h3>Step 2: Next, select Print and Download.</h3>
+<h3>Step 3: Choose whether you want to print all appointments or only future appointments.</h3>
+<h3>Step 4: Decide on the items you want to be printed.</h3>
+<h3>Step 5: Now, select Print or Download.</h3>
+<h3>Step 6: Note that the columns are editable.</h3>
+<h3>Step 7: Finally, click on Print to get your paper copy.</h3>
+","front-desk-module/appointment-booking","front-desk-module","front-desk-module-appointment-booking","","front-desk-module/appointment-booking/printing-appointment-copies.md"
+"Adding Recurring Blocks to Calendar","adding-recurring-blocks-to-calendar","Guide for Adding Recurring Blocks to Calendar","<p><video controls src=""/videos/adding-recurring-blocks-to-calendar.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Hi. This video demonstrates how to add a recurring block to your calendar. Go to the therapist column and in the required time slot, right click and add a block.</h3>
+<h3>Step 2:</h3>
+<h3>Step 3: The name of the doctor, date and the time gets auto populated.</h3>
+<h3>Step 4: Now you can even go and add the end date.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6:</h3>
+<h3>Step 7: You can add the comments if required.</h3>
+<h3>Step 8: Now once you come to the reasons, select from the drop down.</h3>
+<h3>Step 9: I am adding staff meetings.</h3>
+<h3>Step 10: Now click on the recurrence and select the frequency.</h3>
+<h3>Step 11:</h3>
+<h3>Step 12:</h3>
+<h3>Step 13: Add the end time and save.</h3>
+<h3>Step 14:</h3>
+<h3>Step 15:</h3>
+<h3>Step 16: This gets seen on the dashboard. You can even check it for the week.</h3>
+<h3>Step 17: You will see it here.</h3>
+<h3>Step 18:</h3>
+<h3>Step 19:</h3>
+<h3>Step 20:</h3>
+<h3>Step 21: Now if you want to edit the block, you can by making necessary changes and choose to update in all blocks or this block.</h3>
+<h3>Step 22:</h3>
+<h3>Step 23:</h3>
+<h3>Step 24:</h3>
+<h3>Step 25:</h3>
+<h3>Step 26: I am going ahead with all blocks and update.</h3>
+<h3>Step 27: Now you can even copy the block and paste it in other therapist schedule or in your own schedule.</h3>
+<h3>Step 28:</h3>
+<h3>Step 29: I am going to paste it here.</h3>
+<h3>Step 30:</h3>
+<h3>Step 31: You can see the name of the doctor, the date, and time gets auto populated, check and save.</h3>
+<h3>Step 32: If you want to delete the block, you can go ahead and even delete it.</h3>
+<h3>Step 33:</h3>
+<h3>Step 34: A prompt appears to delete the current block or all the blocks. I&#39;m going to delete the current block.</h3>
+<hr>
+<p><em>Thank you.</em></p>
+","front-desk-module/calendar-block-features","front-desk-module","front-desk-module-calendar-block-features","","front-desk-module/calendar-block-features/adding-recurring-blocks-to-calendar.md"
+"How to Add a Block in a Calendar.","how-to-add-a-block-in-a-calendar","Guide for How to Add a Block in a Calendar.","<p><video controls src=""/videos/how-to-add-a-block-in-a-calendar.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Hi. This video demonstrates how to add a block. Under the therapist&#39;s name in the required timeline, right click, add a block.</h3>
+<h3>Step 2:</h3>
+<h3>Step 3: You can see the name of the doctor, the date, and time are auto populated.</h3>
+<h3>Step 4: Now you can decide till when do you want it, add necessary comments if required.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6: You can select from the options.</h3>
+<h3>Step 7: I&#39;m opting as out of office.</h3>
+<h3>Step 8: You can select the end time.</h3>
+<h3>Step 9:</h3>
+<h3>Step 10:</h3>
+<h3>Step 11:</h3>
+<h3>Step 12: Check the AM and PM, and then save.</h3>
+<h3>Step 13:</h3>
+<h3>Step 14: You can see it on the dashboard. Now if you want to edit it, go to edit block.</h3>
+<h3>Step 15:</h3>
+<h3>Step 16: Make the necessary changes and update.</h3>
+<h3>Step 17:</h3>
+<h3>Step 18:</h3>
+<h3>Step 19: Now you can even copy the block and either paste it in the other therapist coloumn or you can even paste it here in your timeline.</h3>
+<h3>Step 20:</h3>
+<h3>Step 21:</h3>
+<h3>Step 22:</h3>
+<h3>Step 23: Paste. Check the time and save.</h3>
+<h3>Step 24: Similarly, You can delete block using these options.</h3>
+<h3>Step 25:</h3>
+<h3>Step 26:</h3>
+<hr>
+<p><em>Thank you.</em></p>
+","front-desk-module/calendar-block-features","front-desk-module","front-desk-module-calendar-block-features","","front-desk-module/calendar-block-features/how-to-add-a-block-in-a-calendar.md"
+"Canceling Future Appointments During Case Discharge","canceling-future-appointments-during-case-discharge","Guide for Canceling Future Appointments During Case Discharge","<p><video controls src=""/videos/canceling-future-appointments-during-case-discharge.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to cancel future appointments when discharging a case in the Patient timeline.</p>
+<h3>Step 1: Navigate to the Patient timeline.</h3>
+<h3>Step 2: If you&#39;ve created a discharge note for the patient, you&#39;ll have the ability to cancel future appointments from this section.</h3>
+<h3>Step 3: Begin by completing the SOAP. Once you&#39;ve done this, you&#39;ll see the option to cancel appointments.</h3>
+<h3>Step 4: Click on Cancel Appointments.</h3>
+<h3>Step 5: Choose the appropriate reason for the cancellation.</h3>
+<h3>Step 6: Finally, save your changes.</h3>
+<p>Your appointment cancellation is now successful. Thank you for following this guide.</p>
+","front-desk-module/cancel-appointments","front-desk-module","front-desk-module-cancel-appointments","","front-desk-module/cancel-appointments/canceling-future-appointments-during-case-discharge.md"
+"How to Cancel Future Appointments","how-to-cancel-future-appointments","Guide for How to Cancel Future Appointments","<p><video controls src=""/videos/how-to-cancel-future-appointments.mp4"" style=""width: 100%""></video></p>
+<p>This article will guide you through the process of cancelling future appointments.</p>
+<h3>Step 1: Begin by clicking on the three dots. This will reveal the Cancel appointment button.</h3>
+<h3>Step 2: Alternatively, you can click directly on the appointment. This will also bring up the Cancel appointment option.</h3>
+<h3>Step 3: Click on Cancel appointment. A purple dialog box will appear.</h3>
+<h3>Step 4: Select the reason for cancellation.</h3>
+<h3>Step 5: Look for the option Cancel the future appointments.</h3>
+<h3>Step 6: Click on Cancel the future appointments.</h3>
+<h3>Step 7: Select the appointments you wish to cancel.</h3>
+<h3>Step 8: Confirm your cancellation and then save your changes.</h3>
+<p>Congratulations! You&#39;ve successfully cancelled your future appointments.</p>
+","front-desk-module/cancel-appointments","front-desk-module","front-desk-module-cancel-appointments","","front-desk-module/cancel-appointments/how-to-cancel-future-appointments.md"
+"How to Cancel Recurring Appointments","how-to-cancel-recurring-appointments","Guide for How to Cancel Recurring Appointments","<p><video controls src=""/videos/how-to-cancel-recurring-appointments.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to cancel recurring appointments in two different ways.</p>
+<h3>Step 1: Start by clicking on the dots shown in the image below.</h3>
+<h3>Step 2: Find and click on the Cancel appointment option.</h3>
+<p>Alternatively, you can click directly on the appointment to cancel it.</p>
+<h3>Step 3: After clicking on the appointment,</h3>
+<h3>Step 4: Choose the reason for cancellation.</h3>
+<h3>Step 5: Now, you&#39;ll see the Cancel recurring appointments option.</h3>
+<h3>Step 6: Click on it.</h3>
+<h3>Step 7: Next, select Appointments.</h3>
+<h3>Step 8: You&#39;ll have the option to select all appointments or select a particular one.</h3>
+<h3>Step 9: Choose Recurring appointments.</h3>
+<h3>Step 10: After making your selection, click on the Save</h3>
+","front-desk-module/cancel-appointments","front-desk-module","front-desk-module-cancel-appointments","","front-desk-module/cancel-appointments/how-to-cancel-recurring-appointments.md"
+"Patient Case Management Guide","patient-case-management-guide","Guide for Patient Case Management Guide","<p><video controls src=""/videos/patient-case-management-guide.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Case ID feature. To create a new case for a patient, left click.</h3>
+<h3>Step 2: Follow the steps for booking an appointment, Enter the case title.</h3>
+<h3>Step 3:</h3>
+<h3>Step 4: Select the body part.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6:</h3>
+<h3>Step 7: Fill in the other mandatory details.</h3>
+<h3>Step 8:</h3>
+<h3>Step 9:</h3>
+<h3>Step 10:</h3>
+<h3>Step 11:</h3>
+<h3>Step 12:</h3>
+<h3>Step 13:</h3>
+<h3>Step 14: Click on send link and reserve appointment.</h3>
+<h3>Step 15:</h3>
+<h3>Step 16: You can see a new case has been registered for the patient.</h3>
+<h3>Step 17:</h3>
+<h3>Step 18: To merge cases for a patient for an existing patient, left click.</h3>
+<h3>Step 19:</h3>
+<h3>Step 20: Select the patient.</h3>
+<h3>Step 21:</h3>
+<h3>Step 22:</h3>
+<h3>Step 23:</h3>
+<h3>Step 24:</h3>
+<h3>Step 25:</h3>
+<h3>Step 26: Select the body part.</h3>
+<h3>Step 27:</h3>
+<h3>Step 28:</h3>
+<h3>Step 29:</h3>
+<h3>Step 30: The system asks you if you want to create a separate case or you want to update the case. Currently, we are updating the case.</h3>
+<h3>Step 31:</h3>
+<h3>Step 32:</h3>
+<h3>Step 33: Fill in the mandatory details. Click on send link and reserve appointment.</h3>
+<h3>Step 34: When you view the patient, you will be able to see that the case has been updated, And you can see the body parts have been updated.</h3>
+<h3>Step 35:</h3>
+<h3>Step 36:</h3>
+<h3>Step 37: To merge cases for an existing patient.</h3>
+<h3>Step 38:</h3>
+<h3>Step 39: Select the patient.</h3>
+<h3>Step 40:</h3>
+<h3>Step 41:</h3>
+<h3>Step 42:</h3>
+<h3>Step 43:</h3>
+<h3>Step 44: To create a new case for an existing patient, left click.</h3>
+<h3>Step 45:</h3>
+<h3>Step 46: Select the patient.</h3>
+<h3>Step 47:</h3>
+<h3>Step 48: Update the case title.</h3>
+<h3>Step 49: Select the body part.</h3>
+<h3>Step 50:</h3>
+<h3>Step 51:</h3>
+<h3>Step 52: Click separate case.</h3>
+<h3>Step 53:</h3>
+<h3>Step 54: Fill in the other mandatory information.</h3>
+<h3>Step 55: Click on sending a reserve appointment.</h3>
+<h3>Step 56: You would have created a new case for an existing patient.</h3>
+<h3>Step 57: To view the cases of the patient, click on the patient&#39;s name.</h3>
+<h3>Step 58: Click on the drop down here.</h3>
+<h3>Step 59: You will be able to see the cases that are available for an existing patients.</h3>
+<h3>Step 60:</h3>
+","front-desk-module/case-id","front-desk-module","front-desk-module-case-id","","front-desk-module/case-id/patient-case-management-guide.md"
+"Appointment Management Guide(Edit Appointment)","appointment-management-guideedit-appointment","Guide for Appointment Management Guide(Edit Appointment)","<p><video controls src=""/videos/appointment-management-guideedit-appointment.mp4"" style=""width: 100%""></video></p>
+","front-desk-module/edit-appointments","front-desk-module","front-desk-module-edit-appointments","","front-desk-module/edit-appointments/appointment-management-guideedit-appointment.md"
+"Collecting Co-Pay and Self-Pay Amounts","collecting-co-pay-and-self-pay-amounts","Guide for Collecting Co-Pay and Self-Pay Amounts","<p><video controls src=""/videos/collecting-co-pay-and-self-pay-amounts.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Hi, this video shows how you can collect the co pay amount and how you can collect the self pay amount for a patient.  To collect the co pay amount, click on the appointment card.</h3>
+<h3>Step 2: Go to the billing info section.</h3>
+<h3>Step 3: The copay amount has auto populated.  Enter that copay amount here.</h3>
+<h3>Step 4: Click collect payment.</h3>
+<h3>Step 5: Select the payment method.</h3>
+<h3>Step 6: Click collect payment and your payment will be collected successfully.</h3>
+<h3>Step 7:</h3>
+<h3>Step 8: You will be able to see that the amount paid is $35.  Next, for the self pay amount.  Click on the appointment card.</h3>
+<h3>Step 9: Go to the billing info section.</h3>
+<h3>Step 10: You can see the total charge for the appointment is $70.  Select the amount to be collect it.</h3>
+<h3>Step 11: Click Collect payment.</h3>
+<h3>Step 12: You can send out an invoice to the patient from here or you can collect the payment here itself.</h3>
+<h3>Step 13: Select the payment method click Collect payment.</h3>
+<h3>Step 14:</h3>
+<h3>Step 15: You can see that the collected amount has been updated.  If you go over the appointment card you can see that the amount has been updated here as well.</h3>
+<hr>
+<p><em>Thank you.</em></p>
+","front-desk-module/features-video","front-desk-module","front-desk-module-features-video","","front-desk-module/features-video/collecting-co-pay-and-self-pay-amounts.md"
+"Digital Patient Intake Form Process","digital-patient-intake-form-process","Guide for Digital Patient Intake Form Process","<p><video controls src=""/videos/digital-patient-intake-form-process.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to send digital intake forms to your patients. This feature allows patients to fill out their details, which will then be visible in their chart and documentation sections.</p>
+<h3>Step 1: Schedule your patient on the calendar. Make sure to input their email address and phone number.</h3>
+<h3>Step 2: After entering the email address and phone number, the patient will receive an email to complete the intake form. This form includes sections for personal details, medical details, insurance, outcome measures, and the reason for the visit.</h3>
+<h3>Step 3: The patient fills out their personal details.</h3>
+<h3>Step 4: Next, they provide their medical details.</h3>
+<h3>Step 5: The patient then adds their insurance information.</h3>
+<h3>Step 6: Outcome measures are assigned for the patient to complete. They also fill out the reason for their visit. This information helps clinicians understand why the patient is coming in.</h3>
+<h3>Step 7: Once the patient submits the form, the information becomes visible in their chart and the documentation sections.</h3>
+","front-desk-module/features-video","front-desk-module","front-desk-module-features-video","","front-desk-module/features-video/digital-patient-intake-form-process.md"
+"Drag and Drop Appointment Feature","drag-and-drop-appointment-feature","Guide for Drag and Drop Appointment Feature","<p><video controls src=""/videos/drag-and-drop-appointment-feature.mp4"" style=""width: 100%""></video></p>
+","front-desk-module/features-video","front-desk-module","front-desk-module-features-video","","front-desk-module/features-video/drag-and-drop-appointment-feature.md"
+"How to Add Non-Visit Payments","how-to-add-non-visit-payments","Guide for How to Add Non-Visit Payments","<p><video controls src=""/videos/how-to-add-non-visit-payments.mp4"" style=""width: 100%""></video></p>
+<p>In this tutorial, you&#39;ll learn how to add non-visit payments in the system. </p>
+<h3>Step 1: Navigate to the Patient tab.</h3>
+<h3>Step 2: Click on View Profile on the left side of the screen.</h3>
+<h3>Step 3: Scroll down until you find a non-patient. Look for the Non Visit Payments section.</h3>
+<h3>Step 4: Click on Non Visit Payments. Then, click on Add Payments.</h3>
+<h3>Step 5: Enter the payment amount.</h3>
+<h3>Step 6: Select your payment method, then click on Collect Non Visit Payment.</h3>
+<h3>Step 7: After collecting the payment, you have the option to download the payment receipt.Please note that non-visit payments cannot be included in insurance. These payments must be collected directly from the patients and are not related to any specific appointment. This feature is useful for managing patient payments that are not tied to a specific appointment.</h3>
+","front-desk-module/features-video","front-desk-module","front-desk-module-features-video","","front-desk-module/features-video/how-to-add-non-visit-payments.md"
+"How to Add Patient Authorization","how-to-add-patient-authorization","Guide for How to Add Patient Authorization","<p><video controls src=""/videos/how-to-add-patient-authorization.mp4"" style=""width: 100%""></video></p>
+","front-desk-module/features-video","front-desk-module","front-desk-module-features-video","","front-desk-module/features-video/how-to-add-patient-authorization.md"
+"Spry Admin Dashboard","spry-admin-dashboard","Guide for Spry Admin Dashboard","<p><video controls src=""/videos/spry-admin-dashboard.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Spry admin dashboard features.</h3>
+<h3>Step 2: Enter the patient ID. Click on the date of service.</h3>
+<h3>Step 3: You will be able to change the date of service of the note.</h3>
+<h3>Step 4: You will be able to delete the soap note, change the rendering therapist, change supervising therapist, change the note type, close or open the note.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6:</h3>
+<h3>Step 7:</h3>
+<h3>Step 8: You can reverse the check-in of the appointment.</h3>
+<h3>Step 9:</h3>
+<h3>Step 10: You can change the payment method as well. Another feature that we have is the ability to merge cases.</h3>
+<h3>Step 11:</h3>
+<h3>Step 12: So you can select the case number, and you can select which case you would like to merge it with.</h3>
+<h3>Step 13:</h3>
+<h3>Step 14:</h3>
+<h3>Step 15: Once you click on save, the two cases will be merged successfully. Thank you.</h3>
+","front-desk-module/features-video","front-desk-module","front-desk-module-features-video","","front-desk-module/features-video/spry-admin-dashboard.md"
+"Verify Insurance Eligibility","verify-insurance-eligibility","Guide for Verify Insurance Eligibility","<p><video controls src=""/videos/verify-insurance-eligibility.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Verify eligibility. This feature allows you to check a patient&#39;s insurance eligibility even before booking an appointment. Click on verify eligibility.</h3>
+<h3>Step 2: Enter the patient&#39;s details.</h3>
+<h3>Step 3:</h3>
+<h3>Step 4:</h3>
+<h3>Step 5: Select the NBI.</h3>
+<h3>Step 6:</h3>
+<h3>Step 7: Click on verify benefits, and you will be able to view your in network benefits and your out of network benefits with just one click.</h3>
+<h3>Step 8:</h3>
+<h3>Step 9: You can also preview the benefits in a PDF with all the details available.</h3>
+<h3>Step 10: You can print it. You can download it, or you can send the PDF to the patient&#39;s email address.</h3>
+<h3>Step 11:</h3>
+<h3>Step 12:</h3>
+","front-desk-module/features-video","front-desk-module","front-desk-module-features-video","","front-desk-module/features-video/verify-insurance-eligibility.md"
+"Appointment Viewing, Configurations and Dashboard Filters","appointment-viewing-configurations-and-dashboard-filters","Guide for Appointment Viewing, Configurations and Dashboard Filters","<p><video controls src=""/videos/appointment-viewing-configurations-and-dashboard-filters.mp4"" style=""width: 100%""></video></p>
+","front-desk-module/viewing-configurations-filters","front-desk-module","front-desk-module-viewing-configurations-filters","","front-desk-module/viewing-configurations-filters/appointment-viewing-configurations-and-dashboard-filters.md"
+"Example Guide","example","A guide in my new Starlight docs site.","<p>Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
+Writing a good guide requires thinking about what your users are trying to do.</p>
+<h2>Further reading</h2>
+<ul>
+<li>Read <a href=""https://diataxis.fr/how-to-guides/"">about how-to guides</a> in the Diátaxis framework</li>
+</ul>
+","guides","guides","guides","","guides/example.md"
+"SpryHealth Help Centre","index","Browse guides, tutorials, and step-by-step videos for every feature in SpryHealth.","<p>Welcome to the <strong>SpryHealth Help Centre</strong>. Use the sidebar to browse guides by category, or use the search bar above to find a specific topic.</p>
+<h2>Categories</h2>
+<ul>
+<li><strong>Billing Videos</strong> — Claims, ERA, invoices, payments, and e-wallet guides</li>
+<li><strong>Clinician&#39;s Module</strong> — SOAP notes, documentation workflows, patient management, and exercise programs</li>
+<li><strong>Front Desk Module</strong> — Appointment booking, calendar management, and patient intake</li>
+<li><strong>New Features</strong> — The latest additions to SpryHealth</li>
+<li><strong>New Updates</strong> — Recent improvements and changes</li>
+<li><strong>Packages</strong> — Creating and assigning treatment packages</li>
+<li><strong>Profile Management</strong> — User accounts, schedules, and referring physicians</li>
+</ul>
+","","","","","index.mdx"
+"Accessing SPRY Scribe  from Your EMR","accessing-spry-scribe-from-your-emr","Guide for Accessing SPRY Scribe  from Your EMR","<p><video controls src=""/videos/accessing-spry-scribe-from-your-emr.mp4"" style=""width: 100%""></video></p>
+<p>This guide explains how to access and use Scribe Ally from your Electronic Medical Record (EMR). Scribe Ally is a tool that allows you to dictate or record conversations with patients, which it then transcribes and fills into your documentation template.Accessing Scribe Ally</p>
+<h3>Step 1: Locate the Scribe Ally icon within the documentation template in your EMR.</h3>
+<h3>Step 2: Click on the Scribe Ally icon.Using Scribe Ally</h3>
+<h3>Step 3: Choose to dictate a quick note or record the full conversation with your patient.</h3>
+<h3>Step 4: Click on the &#39;Start Recording&#39; option.</h3>
+<h3>Step 5: For this guide, a transcript of a patient-provider conversation has been uploaded. Click &#39;Stop Recording&#39; once the conversation is complete.</h3>
+<h3>Step 6: Click &#39;Apply Transcript&#39;. Scribe Ally will then fill in your template.</h3>
+<p>Reviewing the Transcription</p>
+<h3>Step 7: Review the filled-in details in the &#39;Subjective&#39; form. Scribe Ally fills in the details per field where applicable.</h3>
+<h3>Step 8: Check the &#39;Objective&#39; template. It&#39;s also filled in per field where applicable.</h3>
+<h3>Step 9: In the &#39;Assessment&#39; tab, review the clinical presentation of the patient. The assessment codes and therapist goals will be filled in after using the system for some time. Scribe Ally learns from your preferences over time.</h3>
+<h3>Step 10: Review the &#39;Plan&#39; section. Scribe Ally also fills this in based on your preferences.</h3>
+<p>Remember, the templating in your &#39;Subjective&#39; and &#39;Objective&#39; sections is completely customizable. You decide what kinds of fields you want and how you want the output to present.</p>
+","new-features","new-features","new-features","","new-features/accessing-spry-scribe-from-your-emr.md"
+"Alerts in SOAP Notes","alerts-in-soap-notes","Guide for Alerts in SOAP Notes","<p><video controls src=""/videos/alerts-in-soap-notes.mp4"" style=""width: 100%""></video></p>
+<p>In this tutorial, you&#39;ll learn how to view alerts on the soap note, a feature that assists therapists in tracking care-related or authorization-related alerts while documenting patient notes.</p>
+<h3>Step 1: Begin documenting from the appointment card. Notice the alerts visible on the appointment card.</h3>
+<h3>Step 2: In addition to the appointment card, also check for alerts on the soap documentation.</h3>
+<h3>Step 3: Look for bullet points that are present for specific patients. The alert icon will appear in this area.</h3>
+<h3>Step 4: Click on the alert icon to view all alerts for that particular patient. These may include alerts for plan of care expiry, authorization expiry, or progress note view. This feature ensures you don&#39;t miss any compliance.</h3>
+<hr>
+<p><em>Thank you for following this tutorial.</em></p>
+","new-features","new-features","new-features","","new-features/alerts-in-soap-notes.md"
+"Auto Debit Feature Introduction","auto-debit-feature-introduction","Guide for Auto Debit Feature Introduction","<p><video controls src=""/videos/auto-debit-feature-introduction.mp4"" style=""width: 100%""></video></p>
+","new-features","new-features","new-features","","new-features/auto-debit-feature-introduction.md"
+"Bulk Add Tag Feature Instructions","bulk-add-tag-feature-instructions","Guide for Bulk Add Tag Feature Instructions","<p><video controls src=""/videos/bulk-add-tag-feature-instructions.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to use the Bulk Add Tag feature to update tags for multiple charge IDs at once.</p>
+<h3>Step 1: Navigate to the Billing tab.</h3>
+<h3>Step 2: Under the Billing Dashboard, you&#39;ll find the option to update tags for one or multiple charge IDs simultaneously.</h3>
+<h3>Step 3: Select more than one charge ID. Once you do this, the Bulk Add Tag button will appear.</h3>
+<h3>Step 4: Click on the Bulk Add Tag button. Here, you&#39;re allowed to select one or multiple tags at the same time.</h3>
+<h3>Step 5: After selecting the tags, click on Save to apply them.</h3>
+<h3>Step 6: The tags are now updated for the selected charge IDs. You&#39;ll see the status displayed.</h3>
+<h3>Step 7: If you wish to update all charge IDs on the Billing Dashboard, simply select all charge IDs by clicking the check button. The Bulk Add Tags button will appear.</h3>
+<p>Note: If you&#39;ve already added any tags and try to apply them again, they won&#39;t be duplicated.</p>
+<h3>Step 8: If you need to stop the operation midway, click on the Cancel button. This will halt the action and display which charge IDs have been successfully updated and which have failed.</h3>
+<p>That&#39;s it! You&#39;ve now mastered the Bulk Add Tag feature.</p>
+","new-features","new-features","new-features","","new-features/bulk-add-tag-feature-instructions.md"
+"Bulk Invoice Overview","bulk-invoice-overview","Guide for Bulk Invoice Overview","<p><video controls src=""/videos/bulk-invoice-overview.mp4"" style=""width: 100%""></video></p>
+<p>Explore the new feature, Invoices. This guide will walk through the process of setting up, scheduling, and managing invoices.</p>
+<h3>Step 1: Navigate to the Invoices feature by clicking on Billing.</h3>
+<h3>Step 2: Click on Invoice.</h3>
+<h3>Step 3: Configure the invoices by clicking on Billing Setting.</h3>
+<p>Here, there are multiple options to explore. </p>
+<h3>Step 4: View the Generated Date dropdown to see the dates when invoices were generated.</h3>
+<h3>Step 5: Select a date to view the number of invoices generated, the total invoice value, and the total amount paid by patients.</h3>
+<h3>Step 1: Choose a frequency for invoice generation from the available options: once a month, every month, every fifteen days, or weekly.</h3>
+<h3>Step 2: Select a date to send the invoices.</h3>
+<h3>Step 3: Click on Save.</h3>
+<h3>Step 4: Choose a day to schedule sending invoices from the dropdown, up to ten days in advance.</h3>
+<h3>Step 5: After selecting a day, the system will alert you when the invoices will be sent.</h3>
+<h3>Step 1: Enter an admin email for communication and alerts.</h3>
+<h3>Step 2: Use the Patient Exclusion List to exclude any patients from receiving invoices. Add a patient by searching their name or insurance.</h3>
+<h3>Step 3: Filter patients using plan types and select those to exclude from invoice generation.</h3>
+<h3>Step 4: If a patient is added mistakenly, remove them from the list.</h3>
+<h3>Step 5: View all generated invoices on the main screen.</h3>
+<h3>Step 6: Review pending invoices in the Pending Approval section. Once approved, invoices will move to the Approved section and will be sent on the scheduled date.</h3>
+<h3>Step 7: If an invoice is incorrect, reject it by clicking on the Reject button. The invoice will move to the Rejected section, where it can be corrected and approved.</h3>
+<h3>Step 8: View all invoices, including their status, in the All Invoices section.</h3>
+<h3>Step 9: Once an invoice has been sent to a patient, find it in the Sent section. Search for an invoice by patient name and view details such as the invoice ID, patient ID, total amount, and payment status.</h3>
+<h3>Step 10: Resend or view the invoice.</h3>
+<h3>Step 1: Use filters to search for data using the invoice ID.</h3>
+<h3>Step 2: Filter data using the start and end date, which will be the send date.</h3>
+<h3>Step 3: View the Paid Invoices section to find all invoices that have been paid, along with the amount, paid date, generated date, and other information.</h3>
+<h3>Step 4: Search for a patient by name and use filters to refine the patients and invoice list.</h3>
+<p>This concludes the guide on using the Invoices feature. Thank you.</p>
+","new-features","new-features","new-features","","new-features/bulk-invoice-overview.md"
+"Collecting Payments with Square","collecting-payments-with-square","Guide for Collecting Payments with Square","<p><video controls src=""/videos/collecting-payments-with-square.mp4"" style=""width: 100%""></video></p>
+<p>This guide explains how to collect payment using Square.Start by clicking on the appointment card.</p>
+<h3>Step 1: Enter the amount to be collected.</h3>
+<h3>Step 2: Click on Collect Payment.</h3>
+<h3>Step 3: Click on Send Invoice to trigger an invoice to the patient.</h3>
+<p>The patient will receive an invoice like this:
+The patient has the option to download the invoice or click on Pay Remaining Balance.
+The payment can be made via the online terminal.
+Alternatively, there&#39;s another method to collect the payment.</p>
+<h3>Step 1: Click on the appointment card and enter the payment amount.</h3>
+<h3>Step 2: Click on Collect Payment and select Square Terminal.</h3>
+<h3>Step 3: Click on Safeguard to collect the payment via the terminal. If there are any comments to add, include them here.</h3>
+<p>After clicking on Collect Payment, the Square terminal will process the payment.</p>
+","new-features","new-features","new-features","","new-features/collecting-payments-with-square.md"
+"Copying Text from PDFs: Tips and Techniques","copying-text-from-pdfs-tips-and-techniques","Guide for Copying Text from PDFs: Tips and Techniques","<p><video controls src=""/videos/copying-text-from-pdfs-tips-and-techniques.mp4"" style=""width: 100%""></video></p>
+<p>This guide explains how to copy text from a PDF document.Start by opening the document. </p>
+<h3>Step 1: Triple click on a line to select it.</h3>
+<h3>Step 2: Drag to select the desired portion of text. If the selection spills over, adjust the cursor accordingly.</h3>
+<h3>Step 3: After adjusting the cursor, copy the selected text. When dealing with column sections, copying directly from the document might pose a challenge. If the text spans multiple columns on the same page, it&#39;ll select the horizontal line first before moving to the next, instead of selecting from the vertical column. In such cases, it&#39;s advisable to:</h3>
+<h3>Step 4: Select and copy multiple parts separately. This concludes the guide on how to copy text from a PDF document.</h3>
+","new-features","new-features","new-features","","new-features/copying-text-from-pdfs-tips-and-techniques.md"
+"Create Exercises In Wibbi","create-exercises-in-wibbi","Guide for Create Exercises In Wibbi","<p><video controls src=""/videos/create-exercises-in-wibbi.mp4"" style=""width: 100%""></video></p>
+<p>Welcome to this tutorial on how to create and manage client programs in the dashboard. You’ll start on the main dashboard as the platform loads
+and displays your upcoming appointments. Next, you navigate
+to the Assigned Programs section using the sidebar menu, where you can easily find all your client assignments. Here, you select
+the program list to view available assignments. After that, the page loads
+as you transition to the next section, and you access
+the client’s detailed program interface to review and manage their modules.From here, you navigate
+to the module creation page, where you can start building a new module for your client. You’ll review
+the available input fields, making sure you understand each option before proceeding. Next, you enter
+information into the description field—if you’re unsure what to include, you can always refer to previous modules for inspiration. You scroll
+down to the media upload section, where you can add helpful resources or skip this step if not needed. Finally, you prepare
+to save the exercise, ensuring all details are correct before completing the process.By following these steps, you’ll be able to confidently create and manage client programs in your dashboard, helping you deliver a seamless experience for your clients every time.</p>
+","new-features","new-features","new-features","","new-features/create-exercises-in-wibbi.md"
+"Empower Your Patients with Our New Patient Portal","empower-your-patients-with-our-new-patient-portal","Guide for Empower Your Patients with Our New Patient Portal","<p><video controls src=""/videos/empower-your-patients-with-our-new-patient-portal.mp4"" style=""width: 100%""></video></p>
+<p>Logging In</p>
+<h3>Step 1: Patients log in securely and effortlessly, gaining seamless access to their personal health information. They have the option to log in using email verification or sign in with Google.</h3>
+<p>Navigating the Home Screen</p>
+<h3>Step 2: After logging in, patients encounter a user-friendly home screen that provides quick access to all essential features, facilitating interaction with the clinic.</h3>
+<p>Scheduling an Appointment</p>
+<h3>Step 3: If a patient needs to schedule a new appointment, they click on the New Appointment.</h3>
+<h3>Step 4: They then select the required details such as Clinic Location,Preferred Therapist, Appointment Type, and Payment Method.</h3>
+<h3>Step 5: With just a few taps, their appointment request is created, reducing the administrative workload for clinic staff.</h3>
+<p>Updating Insurance Information</p>
+<h3>Step 6: If a patient needs to update their insurance information, they can easily add their insurance card using the smart AI capture feature.</h3>
+<h3>Step 7: By taking a picture of their insurance card, the system automatically captures most of the insurance details, prefilling the information. They just need to review and submit, saving time for everyone.</h3>
+<p>Updating Personal and Medical Information</p>
+<h3>Step 8: Keeping personal and medical information current is crucial for providing quality care. Patients have a clear view of their profile submissions, including personal and medical details.</h3>
+<h3>Step 9: If any information is incomplete or needs updating, they can access and edit it anytime before their appointment.</h3>
+<p>These details remain with them across multiple appointments, ensuring continuity of care. Managing Billing</p>
+<h3>Step 10: Simplifying billing processes benefits both the patient and the clinic. If a patient has a pending balance to pay, they can handle it swiftly. By going to the Billing tab, they can view their pending amount and pay it upfront with just a few clicks.</h3>
+<p>This improves cash flow and reduces overdue payments. Completing Intake Forms</p>
+<h3>Step 11: Enhance efficiency by allowing patients to complete intake forms ahead of time. From their appointment details, they see that their intake is not submitted yet. They can quickly access and complete their paperwork before the appointment.</h3>
+<h3>Step 12: Personal, medical, and insurance information are already filled if previously provided. They proceed directly to subjective</h3>
+<p>All their paperwork is done ensuring appointments start on time. Viewing Appointments</p>
+<h3>Step 13: Staying organized helps reduce no shows and missed appointments. Patients can view all their upcoming and completed appointments in one place.</h3>
+<h3>Step 14: By accessing the My Appointment section, they can see their schedule without hassles.</h3>
+<p>The patient portal enhances patient satisfaction by making healthcare management straightforward. All essential information is at their fingertips, whether it&#39;s booking appointments, updating profiles, handling bills, or completing their paperwork. It&#39;s all streamlined for their convenience. This not only benefits your patient, but also optimizes your clinic&#39;s operation. Experience how the patient portal can enhance patient engagement and streamline your clinic&#39;s workflow. Empower your patients and take your healthcare services to the next level.</p>
+","new-features","new-features","new-features","","new-features/empower-your-patients-with-our-new-patient-portal.md"
+"Enhanced Eligibility Service with ERA Integration","enhanced-eligibility-service-with-era-integration","Guide for Enhanced Eligibility Service with ERA Integration","<p><video controls src=""/videos/enhanced-eligibility-service-with-era-integration.mp4"" style=""width: 100%""></video></p>
+<p>Explore the recent enhancements in the eligibility service.
+Experience seamless eligibility check integration with Drive Three Sixty.
+Leverage powerful data for crucial billing decisions in clinics and for physicians.</p>
+<h3>Step 1: Use the service to determine if a patient&#39;s treatment is covered by their insurance.</h3>
+<h3>Step 2: Track covered visits and prior authorization requirements.</h3>
+<p>Gain insights into expected patient responsibility components such as co-pay, coinsurance, and deductible.
+Understand that the current eligibility implementation relies on data from service partners, ClaimMD, and Pwify.
+Acknowledge the variations in plans across numerous payers.
+Recognize the challenges in extracting benefits for each case.
+To enhance eligibility check accuracy, Spry integrates data from RCM.
+The new version&#39;s highlight is its integration of data from ERA for more detailed information on benefits and coverage limitations. ERA data, reflecting actual reimbursement from the payer, is a reliable source. It confirms patient data accuracy, indicates higher claim approval certainty, shows the co-pay in point six percent, helps determine if the deductible is exhausted, tracks if the out-of-pocket limit is reached, and identifies if prior authorization is needed or if the Medicare cap is exhausted.</p>
+<h3>Step 1: Navigate to the appointment dashboard and book an appointment.</h3>
+<h3>Step 2: Open the new appointment and proceed to the insurance info.</h3>
+<p>In the insurance info section, view all the patient&#39;s insurance cards. Each card has an option to check eligibility details.
+Click on the option to view eligibility benefits and limitation information. Notice the new button to access the newer version.
+In the newer version, observe the patient&#39;s coinsurance percent and copay amount.
+Question the difference in data between versions.
+Understand that the difference arises from integrating data from ERA. In the patient&#39;s reimbursement history, find an ERA. Review the ERA details.Notice that the ERA details are reflected in the newer version, enhancing the eligibility service&#39;s accuracy.</p>
+","new-features","new-features","new-features","","new-features/enhanced-eligibility-service-with-era-integration.md"
+"Improved ICD Code Search Functionality","improved-icd-code-search-functionality","Guide for Improved ICD Code Search Functionality","<p><video controls src=""/videos/improved-icd-code-search-functionality.mp4"" style=""width: 100%""></video></p>
+<p>This guide provides a walkthrough of the improved ICD search feature, which allows for faster and more efficient searching of NICD code sets. The feature includes options to search by code, description, and even corrects for spelling errors. Start by searching using the code:</p>
+<h3>Step 1: Enter the desired code into the search bar.</h3>
+<h3>Step 2: View the results that match the entered code.</h3>
+<p>Alternatively, search using a description:</p>
+<h3>Step 1: Type the description into the search bar.</h3>
+<h3>Step 2: Even if the spelling is incorrect, the search feature will suggest the correct description from the dropdown menu.</h3>
+<p>The search feature also allows for a combination of code and description:</p>
+<h3>Step 1: Enter the code and description into the search bar.</h3>
+<h3>Step 2: Even if there are errors such as extra spaces, dots, or colons, the search feature will still provide the correct results.</h3>
+<h3>Step 3: View the correct results from the dropdown menu.</h3>
+","new-features","new-features","new-features","","new-features/improved-icd-code-search-functionality.md"
+"Insurance Card Copay Feature","insurance-card-copay-feature","Guide for Insurance Card Copay Feature","<p><video controls src=""/videos/insurance-card-copay-feature.mp4"" style=""width: 100%""></video></p>
+","new-features","new-features","new-features","","new-features/insurance-card-copay-feature.md"
+"Policy Visit Tracking and Alerts","policy-visit-tracking-and-alerts","Guide for Policy Visit Tracking and Alerts","<p><video controls src=""/videos/policy-visit-tracking-and-alerts.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to use the policy visit tracking feature to monitor the number of visits authorized by a specific payer within a year or any selected date range.</p>
+<h3>Step 1: Start by opening the patient&#39;s appointment card. We&#39;ve added an insurance pay appointment with Aetna Better Insurance for this example. It&#39;s possible to add policy visits directly from the appointment card.</h3>
+<h3>Step 2: Click on the plus button to add policy visits.</h3>
+<h3>Step 3: Enter the limits of the policy visits in the provided field.</h3>
+<h3>Step 4: The date range for the current year is selected by default. However, you&#39;re free to edit the date range if needed.</h3>
+<p>After saving, the system will display the number of consumed visits within these policy visits. For instance, between January 1 and December 31, two visits out of 10 have been consumed.</p>
+<h3>Step 5: You can also access this feature from the Insurance tab.</h3>
+<p>From here, you&#39;re able to edit or delete the policy visits date range. The value will be recalculated based on the consumed visits to date.</p>
+<h3>Step 6: Check the alerts. We display alerts based on the number of visits consumed and the policy&#39;s expiry date. This ensures you don&#39;t miss any compliance requirements.</h3>
+<p>For example, if the total visit limit was two and both visits have been consumed, an alert will be triggered notifying that this is the final visit covered under the current policy. Similarly, an alert will be issued if a policy is about to expire, stating that the policy visit has expired. This way, we ensure that these policy widgets do not interfere with compliance.</p>
+","new-features","new-features","new-features","","new-features/policy-visit-tracking-and-alerts.md"
+"PT Co-Signature_Process Overview","pt-co-signatureprocess-overview","Guide for PT Co-Signature_Process Overview","<p><video controls src=""/videos/pt-co-signatureprocess-overview.mp4"" style=""width: 100%""></video></p>
+<p>How to send note for co signature. After completing the SOAP note, you will have the option need co signature. If a therapist needs a co signature, they can activate this feature by clicking on
+this checkbox. A list of therapists will then appear. From this list, they can choose the therapist to whom they want to send the note for approval. Right now, we&#39;ve chosen a specific therapist and sent the note for approval. Once you&#39;ve sent the note for approval, the respective therapist can review it from their
+dashboard. They can either send it for revision or complete the note. Thank you.</p>
+","new-features","new-features","new-features","","new-features/pt-co-signatureprocess-overview.md"
+"Quick Slot Finder","quick-slot-finder","Guide for Quick Slot Finder","<p><video controls src=""/videos/quick-slot-finder.mp4"" style=""width: 100%""></video></p>
+<p>This guide explains how to utilize the newly added Quick Slot Finder feature. This tool assists in finding available therapy slots based on specialty or specific dates.</p>
+<h3>Step 1: Initiate the Quick Slot Finder by clicking on it.</h3>
+<h3>Step 2: Notice the filter for therapists.</h3>
+<h3>Step 3: Choose the therapist or the specialty to find available slots.</h3>
+<p>For instance, to find slots for a physical therapist for a thirty-minute appointment:</p>
+<h3>Step 4: View all available therapists and their respective time slots.</h3>
+<h3>Step 5: Select the desired therapist.</h3>
+<h3>Step 6: Proceed to book the appointment.</h3>
+<p>Upon clicking, an appointment card will appear.</p>
+<h3>Step 7: Enter the patient&#39;s details and schedule the appointment.</h3>
+","new-features","new-features","new-features","","new-features/quick-slot-finder.md"
+"SPRY AI Fax","spry-ai-fax","Guide for SPRY AI Fax","<p><video controls src=""/videos/spry-ai-fax.mp4"" style=""width: 100%""></video></p>
+<p>Explore the AI-enhanced eFax feature in this guide. This feature includes an AI analyzer for faxes, providing information about the sender, recipient, and a summary of the fax content. </p>
+<h3>Step 1: Navigate to the eFax section.</h3>
+<h3>Step 2: Choose efax.</h3>
+<h3>Step 3: Click on analyze. The AI analyzer identifies the sender and recipient of the fax. Hover over the analyzed fax to view a summary.</h3>
+<h3>Step 4: Open the fax by clicking on it. The AI creates a patient profile based on the information from the fax.</h3>
+<h3>Step 5: Ensure all mandatory details are filled in. If any information is missing, fill it in.</h3>
+<h3>Step 6: Click on add patient. The AI prepopulates the data, and the patient is added successfully.</h3>
+<h3>Step 7: Verify the addition of the patient by going to your patient dashboard.</h3>
+<h3>Step 8: Search for the patient&#39;s name. The new patient should now be visible in the system.</h3>
+<h3>Step 9: Return to the eFax section to analyze the second document.</h3>
+<h3>Step 10: Open the eFax.</h3>
+<h3>Step 11: Select the patient from the drop-down menu. The AI identifies the patient.</h3>
+<h3>Step 12: Select the case.</h3>
+<h3>Step 13: If applicable, write any notes.</h3>
+<h3>Step 14: Click on submit.</h3>
+<h3>Step 15: Return to the patient tab to see the updated status.</h3>
+<h3>Step 16: Analyze the third document. The AI identifies the sender and recipient of the fax.</h3>
+<h3>Step 17: Open the fax and select the patient.</h3>
+<h3>Step 18: View the fax. When you click on compose fax, the AI identifies which document to send.</h3>
+<h3>Step 19: Click on the identified document.</h3>
+<h3>Step 20: Click on save.</h3>
+<h3>Step 21: Enter the fax number and other details, then click send to send the efax.</h3>
+<h3>Step 22: Analyze the fourth document.</h3>
+<h3>Step 23: Open the fax. The AI identifies the patient and the reference ID from the authorization.</h3>
+<h3>Step 24: Select the case and verify the other information which the AI has auto-populated.</h3>
+<h3>Step 25: Click on add authorization. The authorization is added to the patient&#39;s dashboard.</h3>
+<h3>Step 26: Return to the eFax dashboard. The AI updates the status of all your faxes.</h3>
+<p>This concludes the guide on using the AI-enhanced eFax feature.</p>
+","new-features","new-features","new-features","","new-features/spry-ai-fax.md"
+"SPRY Business Intelligence Tool Overview","spry-business-intelligence-tool-overview","Guide for SPRY Business Intelligence Tool Overview","<p><video controls src=""/videos/spry-business-intelligence-tool-overview.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to navigate and utilize the Spry Business Intelligence (BI) Tool to optimize your clinic&#39;s performance and improve patient outcomes.</p>
+<h3>Step 1: Open the Spry BI Tool and click on Reports.</h3>
+<h3>Step 2: Explore features like scheduling, revenue, and account receivable. Let&#39;s start with scheduling. On the scheduling page, you&#39;ll find multiple reports or views in pie charts or bar graphs. For instance, you&#39;ll see a count of appointments per payment mode, such as self-pay appointments and insurance pay appointments.</h3>
+<h3>Step 3: Check out the widgets per month. For example, the visit count in December 2024 is 1.41k. You&#39;ll also see cancelled widgets and the cancellation ratio.</h3>
+<h3>Step 4: Look at the distribution of CPT codes per billed units. For example, code 97110 has been billed 50.67% of the time. You&#39;ll also see the provider&#39;s time utilization. For instance, one provider has utilized 476 hours.</h3>
+<h3>Step 5: Drill down to each view for more detailed information. Click on a specific item, then click on Drill by. This will allow you to see more specific data, such as the referring physician&#39;s names or the doctors who have appointments with specific insurance payers.</h3>
+<h3>Step 6: Move to the revenue screen. Here, you&#39;ll see total revenue by category on paid date, including patient paid, insurance paid, and patient self-pay. You&#39;ll also see total monthly revenue.</h3>
+<h3>Step 7: Check out the comparison of average self-pay amount and average insurance paid amount. You&#39;ll also see reimbursement per appointment types.</h3>
+<h3>Step 8: Look at the therapist collected amount. This is the amount that the therapist has collected.</h3>
+<h3>Step 9: Check out reimbursements per payer. This shows how much reimbursement the clinic has received from a particular payer.</h3>
+<h3>Step 10: Move to account receivable (AR). Here, you can track primary and secondary AR and drill down for more details.</h3>
+<p>Remember, these reports can be customized on demand. The provider can see their own data, while the clinic&#39;s admin or front desk can see the whole clinic&#39;s data. That&#39;s all about the Spry BI Tool. Thank you for reading!</p>
+","new-features","new-features","new-features","","new-features/spry-business-intelligence-tool-overview.md"
+"Telehealth Video Link Feature Update","telehealth-video-link-feature-update","Guide for Telehealth Video Link Feature Update","<p><video controls src=""/videos/telehealth-video-link-feature-update.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to use the Telehealth feature to update and manage your video appointments.</p>
+<h3>Step 1: Navigate to the Timeline and click on it.</h3>
+<h3>Step 2: Select an Appointment slot.</h3>
+<h3>Step 3: Provide all the required information.</h3>
+<h3>Step 4: Input your email address.</h3>
+<p>Remember, it&#39;s crucial to input the correct email address as you&#39;ll receive the telehealth link via this email.</p>
+<h3>Step 5: Locate the Telehealth video link option.</h3>
+<h3>Step 6: Paste your video link in the provided field and click on Send Link and Reserve Appointment.</h3>
+<p>Congratulations! You&#39;ve successfully added your appointment. </p>
+<h3>Step 7: To verify your email, navigate to your email account.</h3>
+<p>You should have received an email with the Telehealth link. Click on the link to open it directly.If you need to change the video link:</p>
+<h3>Step 8: Go back to the Appointment card and open it.</h3>
+<h3>Step 9: Navigate to Basic info.</h3>
+<h3>Step 10: Here, you&#39;re able to modify your Telehealth video link.</h3>
+<h3>Step 11: Make the necessary changes.</h3>
+<p>You&#39;re now able to reschedule your appointment. Thank you for following this guide!</p>
+","new-features","new-features","new-features","","new-features/telehealth-video-link-feature-update.md"
+"Bulk Download and Print Patient Documents and SOAP Notes Guide","bulk-download-and-print-patient-documents-and-soap-notes-guide","Guide for Bulk Download and Print Patient Documents and SOAP Notes Guide","<p><video controls src=""/videos/bulk-download-and-print-patient-documents-and-soap-notes-guide.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to use the new feature for bulk downloading and printing of patient documents, SOAP notes, previous EMR notes, and POCs.</p>
+<h3>Step 1: Navigate to the patient&#39;s timeline and select Patient Documents. These are the documents attached for the patient.</h3>
+<h3>Step 2: To download or print all documents at once, click on the Checkbox. This action selects all documents.</h3>
+<h3>Step 3: If you only want to select a few documents, click on the Checkbox next to each document you want to include.</h3>
+<h3>Step 4: After selecting the documents, click on Download. The selected files will download as a zip file on your system.</h3>
+<h3>Step 5: To print the selected documents, click on Print. The selected documents will print out.</h3>
+<h3>Step 6: To download SOAP notes or legacy notes in bulk, navigate to the patient&#39;s timeline and click on Export at the top.</h3>
+<h3>Step 7: On the left side, you&#39;ll see all the document types for the patient. To download all the SOAP notes, click on SOAP Notes. The SOAP notes for the last six months will display.</h3>
+<h3>Step 8: If you want to extend the date range, adjust it in the Date Range Filter.</h3>
+<h3>Step 9: With all documents selected, you have the option to download, print, or send Effects directly to the MD from this screen.</h3>
+<h3>Step 10: To download the POC for the patient, click on POC. The SOAP notes and plan of care will download together.</h3>
+<p>And that&#39;s it! You&#39;ve successfully learned how to bulk download and print patient documents, SOAP notes, previous EMR notes, and POCs.</p>
+","new-updates","new-updates","new-updates","","new-updates/bulk-download-and-print-patient-documents-and-soap-notes-guide.md"
+"Claim Assist Overview","claim-assist-overview","Guide for Claim Assist Overview","<p><video controls src=""/videos/claim-assist-overview.mp4"" style=""width: 100%""></video></p>
+","new-updates","new-updates","new-updates","","new-updates/claim-assist-overview.md"
+"Client Onboarding via Slack","client-onboarding-via-slack","Guide for Client Onboarding via Slack","<p><video controls src=""/videos/client-onboarding-via-slack.mp4"" style=""width: 100%""></video></p>
+<p>This article will guide you through the process of using Slack for seamless client onboarding and efficient query resolution.</p>
+<h3>Step 1: Start by understanding the onboarding process. Once a client is onboarded, we create a group and add the clients to a specific Slack channel. This ensures smooth onboarding.</h3>
+<h3>Step 2: If you have any queries or questions, simply post them on the channel. This way, everyone can assist you with a suitable resolution.</h3>
+<h3>Step 3: To initiate a conversation, simply say &quot;Hi team, kindly resolve the query.&quot; Inform us about your issue and the responsible team will take over and help you with a resolution.</h3>
+<h3>Step 4: Ensure not to ask another query on the same thread. If another query is asked on the same thread, there&#39;s a chance of missing out on the query. Always start a fresh conversation for each new query.</h3>
+<h3>Step 5: To keep track of your first query and its resolution, check the replies from the team members. This will give you an idea of the progress towards resolving your query. You can raise your second query in the same manner.</h3>
+<h3>Step 6: Remember, using Slack is simple. Whenever a new conversation is initiated, ensure it&#39;s not under any other query&#39;s thread. It should always be a new conversation.</h3>
+<h3>Step 7: Keep in mind that every new query should initiate a new conversation on Slack.</h3>
+","new-updates","new-updates","new-updates","","new-updates/client-onboarding-via-slack.md"
+"Clover Payment Process Guide","clover-payment-process-guide","Guide for Clover Payment Process Guide","<p><video controls src=""/videos/clover-payment-process-guide.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to use Clover Inspiring for both terminal and online payments.</p>
+<h3>Step 1: Start by observing the Clover terminal and Clover Online interface.</h3>
+<h3>Step 2: The terminal is designed for offline payments. Simply tap or swipe your card to initiate the payment process.</h3>
+<h3>Step 3: For online payments, notice the save card option. If you&#39;d like to save your card for future transactions, select this option.</h3>
+<h3>Step 4: To proceed with the payment, input your card number, expiration date, and CVV. Once you&#39;ve entered these details, the payment processing will begin.</h3>
+<h3>Step 5: Upon successful payment, you&#39;ll see a confirmation message. That&#39;s it! You&#39;ve now learned how to use Clover for terminal and online payments.</h3>
+","new-updates","new-updates","new-updates","","new-updates/clover-payment-process-guide.md"
+"Co-treatment Workflow","co-treatment-workflow","Guide for Co-treatment Workflow","<p><video controls src=""/videos/co-treatment-workflow.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to add CO treatment to a SOAP Note and view the treatment summary.</p>
+<h3>Step 1: Start by clicking on the SOAP Note where you want to add CO treatment.</h3>
+<h3>Step 2: Proceed to fill the subjective section.</h3>
+<h3>Step 3: Next, fill the objective section.</h3>
+<h3>Step 4: Continue with the assessment workflow.</h3>
+<h3>Step 5: Now, you&#39;re in the planning section.</h3>
+<h3>Step 6: Here, locate the CO treatment button.</h3>
+<h3>Step 7: Activate the toggle.</h3>
+<h3>Step 8: Scroll down to the cross procedure section. Under this section, you&#39;ll find two options: one for the therapist and one for the therapist assistant.</h3>
+<h3>Step 9: Add the minute. Once you do this, the unit will be up.</h3>
+<h3>Step 10: Ensure Auto Popul is active.</h3>
+<h3>Step 11: This step is crucial if you want to see the treatment summary.</h3>
+<h3>Step 12: To view the treatment summary, click on the Billing section.</h3>
+<h3>Step 13: Here, you&#39;ll see the CPT codes and the modifiers for the patients.</h3>
+<hr>
+<p><em>Thank you for following this tutorial.</em></p>
+","new-updates","new-updates","new-updates","","new-updates/co-treatment-workflow.md"
+"Discount Workflow","discount-workflow","Guide for Discount Workflow","<p><video controls src=""/videos/discount-workflow.mp4"" style=""width: 100%""></video></p>
+<p>In this tutorial, you&#39;ll learn how to apply a discount to all appointments in a case more efficiently. </p>
+<h3>Step 1: Navigate to the patient profile.</h3>
+<h3>Step 2: Click on View Profile.</h3>
+<h3>Step 3: Click to create a new case.</h3>
+<h3>Step 4: Fill in the mandatory information for the case.</h3>
+<h3>Step 5: After filling in the mandatory information, locate the case discount toggle.</h3>
+<h3>Step 6: Enter the discount value.</h3>
+<h3>Step 7: Provide a reason for the discount.</h3>
+<h3>Step 8: Click on Create Case. This action creates your case with the applied discount.</h3>
+<h3>Step 9: To view the discount in the billing section, navigate to the Timeline.</h3>
+<h3>Step 10: Click on Billing.</h3>
+<h3>Step 11: Click on Charge id to view the amount of the discount.</h3>
+<h3>Step 12: Click on View Superbuild to see the total charge discount and patient balance. This is where you&#39;ll see the applied discount.</h3>
+<p>And that&#39;s it! You&#39;ve successfully applied a discount to all appointments in a case.</p>
+","new-updates","new-updates","new-updates","","new-updates/discount-workflow.md"
+"eFax Cover Page Template","efax-cover-page-template","Guide for eFax Cover Page Template","<p><video controls src=""/videos/efax-cover-page-template.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to create a template for an eFax cover page.</p>
+<h3>Step 1: Start by navigating to the eFax tab.</h3>
+<h3>Step 2: Proceed to the Template tab.</h3>
+<h3>Step 3: Click on Create.</h3>
+<h3>Step 4: Begin creating your template.</h3>
+<h3>Step 5: Fill in the template name, subject, and body.</h3>
+<h3>Step 6: Click on Save.</h3>
+<p>Now, whenever you&#39;re composing a fax, you&#39;re able to use this template by selecting it.</p>
+","new-updates","new-updates","new-updates","","new-updates/efax-cover-page-template.md"
+"Explainer Video: Two-Way Messaging","explainer-video-two-way-messaging","Guide for Explainer Video: Two-Way Messaging","<p><video controls src=""/videos/explainer-video-two-way-messaging.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to view and respond to patient messages received via SMS from the clinic.</p>
+<h3>Step 1: Look for a message notification on your screen when a patient receives an SMS from the clinic. It should look something like this:</h3>
+<h3>Step 2: Click on the notification to view the patient&#39;s message.</h3>
+<h3>Step 3: Click on Reply.</h3>
+<h3>Step 4: This action takes you to the emitter dashboard where you&#39;ll see all messages from the patient. From here, you&#39;re able to respond.</h3>
+<h3>Step 5: After typing your response, click on the Send button. The patient will receive your reply and it will be displayed on your screen.</h3>
+","new-updates","new-updates","new-updates","","new-updates/explainer-video-two-way-messaging.md"
+"Insurance and Self-Pay UI Update","insurance-and-self-pay-ui-update","Guide for Insurance and Self-Pay UI Update","<p><video controls src=""/videos/insurance-and-self-pay-ui-update.mp4"" style=""width: 100%""></video></p>
+","new-updates","new-updates","new-updates","","new-updates/insurance-and-self-pay-ui-update.md"
+"Insurance Card Mapping Tutorial","insurance-card-mapping-tutorial","Guide for Insurance Card Mapping Tutorial","<p><video controls src=""/videos/insurance-card-mapping-tutorial.mp4"" style=""width: 100%""></video></p>
+<p>This article guides you through the process of changing the insurance card mapping on a case-by-case basis. </p>
+<h3>Step 1: Begin by understanding the new section on the insurance card. This section indicates the type or status of the insurance card for each case. For instance, Aetna may be primary in case 2 and case 1, while Signal is secondary in both cases.</h3>
+<h3>Step 2: To change the mapping, navigate to the appropriate section.</h3>
+<h3>Step 3: Make your changes. These will automatically update across all cases. For example, if you make Aetna secondary in case 1, Signal will not be allocated by default.</h3>
+<h3>Step 4: If you change the default type from secondary to tertiary, the system will ask if you want to update this in all cases.</h3>
+<h3>Step 5: You have the option to update all cases or maintain the status quo for some.</h3>
+<h3>Step 6: In this example, we&#39;re updating all cases.</h3>
+<h3>Step 7: Once you save, the tertiary type will update across all cases.</h3>
+<p>And that&#39;s it! You&#39;ve successfully changed the insurance card mapping.</p>
+","new-updates","new-updates","new-updates","","new-updates/insurance-card-mapping-tutorial.md"
+"NPS Feedback Workflow for Clinics","nps-feedback-workflow-for-clinics","Guide for NPS Feedback Workflow for Clinics","<p><video controls src=""/videos/nps-feedback-workflow-for-clinics.mp4"" style=""width: 100%""></video></p>
+<p>This article will guide you through the process of using the NPS Net Promoter Score Feedback workflow, a tool designed to enhance your clinic&#39;s online presence and provide valuable insights for internal improvement.</p>
+<h3>Step 1: After a patient has attended a pre-set number of appointments, the clinic automatically sends them an email.</h3>
+<h3>Step 2: The email prompts the patient to rate their experience using a simple NPS scale. To provide feedback, click on the feedback button.</h3>
+<h3>Step 3: If the feedback is negative or neutral, the workflow redirects the patient to a feedback form.</h3>
+<p>This process ensures that the clinic hears any concerns without impacting its public reputation, and it provides actionable insights to improve services.</p>
+<h3>Step 4: After completing the feedback form, click on the Submit feedback button.</h3>
+<h3>Step 5: If the feedback is positive, the workflow guides the patient directly to the clinic&#39;s Google review page, showcasing their positive experience to the public.</h3>
+<h3>Step 6: After clicking on Submit feedback, you&#39;re redirected directly to a Google review page.</h3>
+<hr>
+<p><em>Thank you for participating in this process. Your feedback is invaluable in helping us improve our services.</em></p>
+","new-updates","new-updates","new-updates","","new-updates/nps-feedback-workflow-for-clinics.md"
+"Scribe SOAP Documentation Improvements","scribe-soap-documentation-improvements","Guide for Scribe SOAP Documentation Improvements","<p><video controls src=""/videos/scribe-soap-documentation-improvements.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn about the enhanced features of Scribe that make your SOAP documentation process smoother and more flexible.</p>
+<h3>Step 1: Begin with the Settings window.</h3>
+<h3>Step 2: Click on the Settings window.</h3>
+<h3>Step 3: Choose the level of notes - high, medium, or low, based on your preference.</h3>
+<h3>Step 4: Utilize the Custom Instructions feature.</h3>
+<p>Here, you&#39;re able to add your own guidance beyond presets, allowing Scribe to document in specific scenarios. This feature empowers you to personalize your notes to suit your practice style.</p>
+<h3>Step 5: Enable or disable the Review window using a simple checkbox.</h3>
+<p>When enabled, every output will first go to a review screen before entering your note, providing you with full control and peace of mind.</p>
+<h3>Step 6: Once settings are saved, proceed to use Scribe. For this demonstration, we&#39;ll select Quick Dictation.</h3>
+<p>You&#39;re not limited to using a predefined transcription, you&#39;re also able to record live with your patient. During recording, you have the ability to pause,
+navigate to different SOAP sections,
+or add extra instructions at any time.</p>
+<h3>Step 7: After finishing, click Generate Review.</h3>
+<p>Scribe will process the transcript and open the review window. Here, you have the option to select or
+deselect sections you want
+applied,
+edit values directly if needed,
+and view extra
+notes that Scribe couldn&#39;t map into fields, ensuring nothing is lost. </p>
+<h3>Step 8: Once satisfied, click Push to SOAP.</h3>
+<p>Your selected content will instantly fill into your notes.
+For future use, you have the option to build on
+an existing Transcript
+or refine it to further enhance outputs, or
+start a fresh new one.
+That&#39;s it! With these improvements, Scribe offers smoother navigation, personalized settings, and a review-first process, giving you complete control over your documentation.</p>
+","new-updates","new-updates","new-updates","","new-updates/scribe-soap-documentation-improvements.md"
+"How to Create A Package  and Assign","how-to-create-a-package-and-assign","Guide for How to Create A Package  and Assign","<p><video controls src=""/videos/how-to-create-a-package-and-assign.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to create and assign a package to a patient. </p>
+<h3>Step 1: Navigate to the Packages tab and select Templates.</h3>
+<h3>Step 2: Click on Add New Template.</h3>
+<h3>Step 3: Choose the Frequency.</h3>
+<h3>Step 4: If applicable, set the Start Date.</h3>
+<h3>Step 5: If applicable, set the Expiration Date.</h3>
+<h3>Step 6: Choose a payment style.</h3>
+<h3>Step 7: Enter the offer price of the package and the total number of sessions.</h3>
+<p>Once you&#39;ve created the template, it&#39;ll be saved for future use.</p>
+<h3>Step 8: Go to the All Packages tab. To assign a package to your patient, click on Add New Package.</h3>
+<h3>Step 9: Select the appropriate Template.</h3>
+<h3>Step 10: Click Next.</h3>
+<h3>Step 11: Assign the package to the patient.</h3>
+<p>You don&#39;t have to schedule all appointments at this stage. It&#39;s up to you.
+The package price is split equally, but you can make edits if needed.</p>
+<h3>Step 12: Click Assign Package. The package is now assigned to the patient and will be tracked accordingly.</h3>
+<h3>Step 13: Click on the patient&#39;s name to view the assigned package and its details. You can also edit the package here if necessary.</h3>
+<h3>Step 14: Navigate to the Appointments page to schedule the patient from the package.</h3>
+<h3>Step 15: To schedule the patient based on the package, select the appropriate slot.</h3>
+<h3>Step 16: Find the patient&#39;s name.</h3>
+<p>You&#39;ll see an alert about the appointment scheduled for the package.
+You can decide whether to continue scheduling this patient off of the package or for other types of visits. </p>
+<h3>Step 17: To check which package the patient&#39;s been scheduled under, click on Appointment info.</h3>
+<p>You&#39;ll see the assigned packages.</p>
+<h3>Step 18: Select the appropriate appointment type.</h3>
+<h3>Step 19: Click Send Link and Reserve Appointment.</h3>
+<p>You can view the appointment as a package appointment if you click on the Appointment tile. In the summary, you&#39;ll see the package name and the count that was applied.</p>
+","packages","packages","packages","","packages/how-to-create-a-package-and-assign.md"
+"Adding a Referring Physician to Dashboard","adding-a-referring-physician-to-dashboard","Guide for Adding a Referring Physician to Dashboard","<p><video controls src=""/videos/adding-a-referring-physician-to-dashboard.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Add a referring physician to the dashboard. Click on the profile icon here.</h3>
+<h3>Step 2: Go to - Manage Referring Physicians.</h3>
+<h3>Step 3: Click on Add Referring Physician.</h3>
+<h3>Step 4: Fill in the details.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6: Enter the mandatory information.</h3>
+<h3>Step 7:</h3>
+<h3>Step 8: Enter the address.</h3>
+<h3>Step 9:</h3>
+<h3>Step 10:</h3>
+<h3>Step 11: Click on save.</h3>
+<h3>Step 12:</h3>
+<h3>Step 13:</h3>
+<p>And it will be added successfully.</p>
+","profile-management","profile-management","profile-management","","profile-management/adding-a-referring-physician-to-dashboard.md"
+"Adding a User to the Dashboard","adding-a-user-to-the-dashboard","Guide for Adding a User to the Dashboard","<p><video controls src=""/videos/adding-a-user-to-the-dashboard.mp4"" style=""width: 100%""></video></p>
+<p>This guide explains how to add a new user to the dashboard.Start by clicking on the profile icon.</p>
+<h3>Step 1: Select manage users.</h3>
+<h3>Step 2: Choose add user.</h3>
+<h3>Step 3: Input the user&#39;s name and email address.</h3>
+<h3>Step 4: Choose the clinics where the new user should be visible.</h3>
+<h3>Step 5: Define the user&#39;s role.</h3>
+<h3>Step 6: Decide between sending an invite or creating the profile yourself. If you select send invite, the user receives an email to create their own profile. If you choose continue, you&#39;ll create the user profile.</h3>
+<h3>Step 7: Fill in the mandatory details.</h3>
+<h3>Step 8: Review all the details. Here, you&#39;re also able to upload a picture of the therapist. Click save when done.</h3>
+<p>The new user now appears on the staff management dashboard. Return to your dashboard and refresh the screen. </p>
+<h3>Step 9: Click manage activity. The new user is currently inactive.</h3>
+<h3>Step 10: Click active and then save changes.</h3>
+<p>Finally, select the user to confirm they&#39;ve been added to the dashboard.
+That&#39;s it! You&#39;ve successfully added a new user to the dashboard.</p>
+","profile-management","profile-management","profile-management","","profile-management/adding-a-user-to-the-dashboard.md"
+"Editing Therapist Schedule","editing-therapist-schedule","Guide for Editing Therapist Schedule","<p><video controls src=""/videos/editing-therapist-schedule.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: Hi. How to edit the schedule of a therapist? Click on the profile icon.</h3>
+<h3>Step 2: Click on manage users.</h3>
+<h3>Step 3: Select modify.</h3>
+<h3>Step 4: If you want to update the timings of the therapist for specific days, deselect that date.</h3>
+<h3>Step 5:</h3>
+<h3>Step 6: Click on add new.</h3>
+<h3>Step 7:</h3>
+<h3>Step 8: Select the date.</h3>
+<h3>Step 9: Select the timings.</h3>
+<h3>Step 10:</h3>
+<h3>Step 11: Select submit.</h3>
+<h3>Step 12:</h3>
+<h3>Step 13: As you can see on the dashboard, the Wednesday tab is full. If you go to Tuesday where we made the change, the therapist will be available from twelve to six.</h3>
+","profile-management","profile-management","profile-management","","profile-management/editing-therapist-schedule.md"
+"How to Add Multiple Offices and Fax Numbers to Referring Physicians","how-to-add-multiple-offices-and-fax-numbers-to-referring-physicians","Guide for How to Add Multiple Offices and Fax Numbers to Referring Physicians","<p><video controls src=""/videos/how-to-add-multiple-offices-and-fax-numbers-to-referring-physicians.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to add multiple offices and faxes to reference physicians.</p>
+<h3>Step 1: Navigate to the profile and select Manage Referring Physician.</h3>
+<h3>Step 2: Search for the reference physicians and select Edit.</h3>
+<h3>Step 3: View the existing address. To add multiple offices and faxes, click on Add Office.</h3>
+<h3>Step 4: Enter the Office Name and Fax Number.</h3>
+<h3>Step 5: Add multiple offices by clicking on Add Office again.</h3>
+<h3>Step 6: After adding all the offices and fax numbers, click on Save.</h3>
+<p>Now, you&#39;re able to see the number of offices and faxes you&#39;ve added. Thank you.</p>
+","profile-management","profile-management","profile-management","","profile-management/how-to-add-multiple-offices-and-fax-numbers-to-referring-physicians.md"
+"Password Reset Instructions","password-reset-instructions","Guide for Password Reset Instructions","<p><video controls src=""/videos/password-reset-instructions.mp4"" style=""width: 100%""></video></p>
+<h3>Step 1: How to reset your password?  Click on &quot;Forgot password.&quot;</h3>
+<h3>Step 2: Enter your username, which would be your email ID from which you log in.</h3>
+<h3>Step 3: Click on submit.</h3>
+<h3>Step 4: The email will be triggered to your registered email ID. Click on the password reset link.</h3>
+<h3>Step 5: It&#39;ll take you to this screen.  Enter your new password.  Confirm the new password.</h3>
+<h3>Step 6: Click on reset, and your password will be changed successfully.</h3>
+","profile-management","profile-management","profile-management","","profile-management/password-reset-instructions.md"
+"Patient Registration Process","patient-registration-process","Guide for Patient Registration Process","<p><video controls src=""/videos/patient-registration-process.mp4"" style=""width: 100%""></video></p>
+<p>In this article, you&#39;ll learn how to register a new patient in the system.</p>
+<h3>Step 1: Start by clicking on the Patients tab.</h3>
+<h3>Step 2: Next, click on Add New Patient.</h3>
+<h3>Step 3: Now, it&#39;s time to enter the mandatory information.</h3>
+<h3>Step 4: After entering the necessary details, click on Add Patient.</h3>
+<h3>Step 5: A new window will open where you&#39;re allowed to enter the patient&#39;s insurance card details, if available.</h3>
+<h3>Step 6: If the insurance card details are not applicable, simply select Skip.</h3>
+<h3>Step 7: The system will then direct you to the newly created patient&#39;s chart in the Personal Details page. Here, you&#39;re free to enter any additional information you prefer. If you don&#39;t have all the details at the moment, don&#39;t worry. The patient will also receive this form on their side during intake, so it&#39;s not mandatory for the clinic to fill out this form during registration.</h3>
+","profile-management","profile-management","profile-management","","profile-management/patient-registration-process.md"
+"Updating Therapist Shift Schedule","updating-therapist-shift-schedule","Guide for Updating Therapist Shift Schedule","<p><video controls src=""ERROR: Video transfer failed"" style=""width: 100%""></video></p>
+<h3>Step 1: How to update the schedule of an individual therapist for that day? Click on the therapist&#39;s name.</h3>
+<h3>Step 2:</h3>
+<h3>Step 3: Enter the start time of the shift.</h3>
+<h3>Step 4:</h3>
+<h3>Step 5:</h3>
+<h3>Step 6: Enter the end time of the shift, Click on save, and your shift will be updated successfully For making recurring shift time changes, select the time.</h3>
+<h3>Step 7:</h3>
+<h3>Step 8:</h3>
+<h3>Step 9:</h3>
+<h3>Step 10:</h3>
+<h3>Step 11:</h3>
+<h3>Step 12:</h3>
+<h3>Step 13:</h3>
+<h3>Step 14:</h3>
+<h3>Step 15:</h3>
+<h3>Step 16:</h3>
+<h3>Step 17:</h3>
+<h3>Step 18:</h3>
+<h3>Step 19: Select the end time.</h3>
+<h3>Step 20:</h3>
+<h3>Step 21:</h3>
+<h3>Step 22:</h3>
+<h3>Step 23:</h3>
+<h3>Step 24: Select yes for Recurrence.</h3>
+<h3>Step 25:</h3>
+<h3>Step 26: Select the frequency.</h3>
+<h3>Step 27: Select the start date.</h3>
+<h3>Step 28:</h3>
+<h3>Step 29:</h3>
+<h3>Step 30: Select the end date.</h3>
+<h3>Step 31: Select the days.</h3>
+<h3>Step 32:</h3>
+<h3>Step 33:</h3>
+<h3>Step 34: Click on save.</h3>
+<h3>Step 35:</h3>
+<h3>Step 36:</h3>
+<h3>Step 37: To view the single therapist schedule, select there name only and uncheck others.</h3>
+<h3>Step 38:</h3>
+<h3>Step 39:</h3>
+<h3>Step 40: You will be able to see that Monday, Wednesday till the twenty fourth, you have modified shift note timings.</h3>
+","profile-management","profile-management","profile-management","","profile-management/updating-therapist-shift-schedule.md"
+"Updating Your Profile Picture and Description","updating-your-profile-picture-and-description","Guide for Updating Your Profile Picture and Description","<p><video controls src=""/videos/updating-your-profile-picture-and-description.mp4"" style=""width: 100%""></video></p>
+","profile-management","profile-management","profile-management","","profile-management/updating-your-profile-picture-and-description.md"
+"Example Reference","example","A reference page in my new Starlight docs site.","<p>Reference pages are ideal for outlining how things work in terse and clear terms.
+Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what you&#39;re documenting.</p>
+<h2>Further reading</h2>
+<ul>
+<li>Read <a href=""https://diataxis.fr/reference/"">about reference</a> in the Diátaxis framework</li>
+</ul>
+","reference","reference","reference","","reference/example.md"
+"Welcome Note from Team SPRY","welcome-note-from-team-spry","Guide for Welcome Note from Team SPRY","<p><video controls src=""ERROR: Video transfer failed"" style=""width: 100%""></video></p>
+","","","","","welcome-note-from-team-spry.md"

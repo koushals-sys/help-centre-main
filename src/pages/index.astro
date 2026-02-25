@@ -1,0 +1,89 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import {
+  buildWebflowSidebar,
+  formatSegmentLabel,
+  getAllArticles,
+  getAllTags,
+  getArticleSegments,
+  getArticleUrl,
+} from '../lib/webflow';
+
+export const prerender = false;
+
+const articles = await getAllArticles();
+const tags = await getAllTags();
+const tagMap = new Map(tags.map(tag => [tag.id, tag]));
+const sidebar = buildWebflowSidebar(articles, tagMap);
+
+const articleMeta = articles.map(article => ({
+  ...article,
+  segments: getArticleSegments(article),
+}));
+
+const categoryMap = new Map();
+for (const article of articleMeta) {
+  const pathSegment = article.segments.path;
+  if (!pathSegment) continue;
+  if (!categoryMap.has(pathSegment)) {
+    categoryMap.set(pathSegment, {
+      label: formatSegmentLabel(pathSegment),
+      description: article.summary || 'Browse related guides and tutorials.',
+      href: `/${pathSegment}`,
+      thumbnailUrl: article.thumbnailUrl,
+    });
+  }
+}
+
+const categoryCards = Array.from(categoryMap.values()).sort((a, b) =>
+  a.label.localeCompare(b.label)
+);
+
+const sortedArticles = [...articles].sort((a, b) => {
+  const aKey = `${a.path || ''}/${a.subpath || ''}/${a.slug || ''}`;
+  const bKey = `${b.path || ''}/${b.subpath || ''}/${b.slug || ''}`;
+  return aKey.localeCompare(bKey);
+});
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Webflow Articles',
+    description: 'Browse articles pulled from Webflow CMS.',
+  }}
+  sidebar={sidebar}
+>
+  <section>
+    <h2>Categories</h2>
+    <div class="spry-card-grid">
+      {categoryCards.map(card => (
+        <a class="spry-card" href={card.href}>
+          {card.thumbnailUrl && (
+            <div class="spry-card-media">
+              <img src={card.thumbnailUrl} alt={card.label} loading="lazy" />
+            </div>
+          )}
+          <h3>{card.label}</h3>
+          <p>{card.description}</p>
+          <span class="spry-card-link">Explore</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2>All Articles</h2>
+    <ul>
+      {sortedArticles.map(article => (
+        <li>
+          <a href={getArticleUrl(article)}>
+            {article.name || article.slug}
+          </a>
+          {(article.path || article.subpath) && (
+            <span> ({[article.path, article.subpath].filter(Boolean).join(' / ')})</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+</StarlightPage>

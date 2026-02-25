@@ -1,0 +1,157 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import {
+  buildWebflowSidebar,
+  formatSegmentLabel,
+  getAllArticles,
+  getAllTags,
+  getArticleSegments,
+  getArticleUrl,
+} from '../../lib/webflow';
+
+export const prerender = false;
+
+const slugParam = Astro.params.slug;
+const segments = Array.isArray(slugParam)
+  ? slugParam
+  : String(slugParam || '').split('/');
+const articleSlug = segments.filter(Boolean).pop() || '';
+
+const articles = await getAllArticles();
+const tags = await getAllTags();
+const tagMap = new Map(tags.map(tag => [tag.id, tag]));
+const sidebar = buildWebflowSidebar(articles, tagMap);
+
+const match = articles.find(article => article.slug === articleSlug);
+
+const categorySegments = segments.filter(Boolean);
+const [primarySegment, secondarySegment] = categorySegments;
+const articleMeta = articles.map(article => ({
+  ...article,
+  segments: getArticleSegments(article),
+}));
+
+const hasPathSegment = !!primarySegment && articleMeta.some(article => article.segments.path === primarySegment);
+const hasSubpathSegment = !!primarySegment && articleMeta.some(article => article.segments.subpath === primarySegment);
+const hasLegacySubpath =
+  !!primarySegment &&
+  !!secondarySegment &&
+  articleMeta.some(
+    article => article.segments.path === primarySegment && article.segments.subpath === secondarySegment
+  );
+
+let viewMode: 'article' | 'category' | 'subcategory' = 'article';
+let viewTitle = '';
+let viewDescription = '';
+let cards: Array<{ title: string; description: string; href: string }> = [];
+
+if (!match) {
+  if (!primarySegment) {
+    return Astro.redirect('/');
+  }
+
+  if (hasLegacySubpath) {
+    return Astro.redirect(`/${secondarySegment}`);
+  }
+
+  if (hasSubpathSegment) {
+    viewMode = 'subcategory';
+    viewTitle = formatSegmentLabel(primarySegment);
+    viewDescription = 'Browse articles in this subcategory.';
+
+    cards = articleMeta
+      .filter(article => article.segments.subpath === primarySegment)
+      .map(article => ({
+        title: article.name || article.slug,
+        description: article.summary || 'Read the full guide for details.',
+        href: getArticleUrl(article),
+        thumbnailUrl: article.thumbnailUrl,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title));
+  } else if (hasPathSegment) {
+    viewMode = 'category';
+    viewTitle = formatSegmentLabel(primarySegment);
+    viewDescription = 'Browse subcategories in this section.';
+
+    const subpathMap = new Map();
+    for (const article of articleMeta) {
+      if (article.segments.path !== primarySegment) continue;
+      const subpath = article.segments.subpath || '';
+      const tagLabel = (article.tagIds || [])
+        .map(tagId => tagMap.get(tagId)?.name)
+        .find(Boolean);
+      const label = tagLabel || formatSegmentLabel(subpath || 'General');
+      if (!subpathMap.has(subpath)) {
+        subpathMap.set(subpath, {
+          title: label,
+          description: article.summary || 'Browse related guides and tutorials.',
+          href: subpath ? `/${subpath}` : `/${primarySegment}`,
+          thumbnailUrl: article.thumbnailUrl,
+        });
+      }
+    }
+
+    const subpathCards = Array.from(subpathMap.values()).sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+
+    const hasRealSubpaths = Array.from(subpathMap.keys()).some((key) => key !== '');
+    if (hasRealSubpaths) {
+      cards = subpathCards;
+    } else {
+      viewDescription = 'Browse articles in this category.';
+      cards = articleMeta
+        .filter(article => article.segments.path === primarySegment)
+        .map(article => ({
+          title: article.name || article.slug,
+          description: article.summary || 'Read the full guide for details.',
+          href: getArticleUrl(article),
+          thumbnailUrl: article.thumbnailUrl,
+        }))
+        .sort((a, b) => a.title.localeCompare(b.title));
+    }
+  } else {
+    return Astro.redirect('/');
+  }
+}
+---
+
+<StarlightPage
+  frontmatter={{
+    title: viewMode === 'article' ? (match?.name || match?.slug || 'Article') : viewTitle,
+    description: viewMode === 'article' ? (match?.summary || undefined) : viewDescription,
+  }}
+  sidebar={sidebar}
+>
+  {viewMode === 'article' ? (
+    <>
+      {match?.videoUrl && (
+        <section class="spry-video-section">
+          <video controls preload="metadata" src={match.videoUrl}></video>
+        </section>
+      )}
+      <p>
+        <a href="/">&larr; Back to list</a>
+      </p>
+      {match?.body && <div set:html={match.body} />}
+    </>
+  ) : (
+    <section>
+      <h2>{viewMode === 'category' ? 'Subcategories' : 'Articles'}</h2>
+      <div class="spry-card-grid">
+        {cards.map(card => (
+          <a class="spry-card" href={card.href}>
+            {card.thumbnailUrl && (
+              <div class="spry-card-media">
+                <img src={card.thumbnailUrl} alt={card.title} loading="lazy" />
+              </div>
+            )}
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+            <span class="spry-card-link">Explore</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</StarlightPage>

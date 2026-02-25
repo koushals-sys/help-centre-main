@@ -1,0 +1,36 @@
+{
+  "name": "help-centre",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "build:webflow": "if [ -f clouduser.astro.config.mjs ]; then astro build --config clouduser.astro.config.mjs; else astro build; fi",
+    "preview": "astro preview",
+    "astro": "astro",
+    "export:webflow": "node export_webflow_csv.cjs",
+    "strapi:import": "node strapi_import.cjs",
+    "strapi:export": "node strapi_export.cjs",
+    "webflow:update-paths": "node webflow_update_paths.cjs"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/node": "^9.5.4",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/starlight": "^0.37.6",
+    "@keystatic/astro": "^5.0.6",
+    "@keystatic/core": "^0.5.48",
+    "astro": "^5.6.1",
+    "axios": "^1.13.5",
+    "csv-parser": "^3.2.0",
+    "fs-extra": "^11.3.3",
+    "gray-matter": "^4.0.3",
+    "marked": "^12.0.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "rtf-parser": "^1.3.3",
+    "sharp": "^0.34.2",
+    "tslib": "2.6.2"
+  }
+}

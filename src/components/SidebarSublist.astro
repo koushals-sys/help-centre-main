@@ -1,0 +1,288 @@
+---
+import type { SidebarEntry } from '@astrojs/starlight/utils/routing/types';
+
+interface Props {
+  sublist: SidebarEntry[];
+  nested?: boolean;
+}
+
+const { sublist, nested } = Astro.props;
+
+function flattenSidebar(entries: SidebarEntry[]) {
+  const result: SidebarEntry[] = [];
+  for (const entry of entries) {
+    result.push(entry);
+    if (entry.type === 'group') {
+      result.push(...flattenSidebar(entry.entries));
+    }
+  }
+  return result;
+}
+
+function splitLabel(label: string) {
+  const parts = label.split('||');
+  if (parts.length < 2) return { text: label, href: '' };
+  return { text: parts[0] || label, href: parts.slice(1).join('||') };
+}
+
+const iconMap = {
+  user: { viewBox: '0 0 24 24', path: 'M12 12a4 4 0 1 0-4-4a4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2-8 4v2h16v-2c0-2-3.58-4-8-4Z' },
+  calendar: { viewBox: '0 0 24 24', path: 'M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2Zm12 8H5V8h14Z' },
+  clipboard: { viewBox: '0 0 24 24', path: 'M16 4h-1.18A3 3 0 0 0 12 2a3 3 0 0 0-2.82 2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-4-1a1 1 0 1 1-1 1a1 1 0 0 1 1-1Z' },
+  billing: { viewBox: '0 0 24 24', path: 'M4 4h16a2 2 0 0 1 2 2v4H2V6a2 2 0 0 1 2-2Zm18 8v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6Zm-4 3H6v2h12Z' },
+  settings: { viewBox: '0 0 24 24', path: 'M19.14 12.94a7.14 7.14 0 0 0 .05-.94a7.14 7.14 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.3 7.3 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54a7.3 7.3 0 0 0-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.75 8.84a.5.5 0 0 0 .12.64l2.03 1.58a7.14 7.14 0 0 0-.05.94a7.14 7.14 0 0 0 .05.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32a.5.5 0 0 0 .6.22l2.39-.96a7.3 7.3 0 0 0 1.63.94l.36 2.54a.5.5 0 0 0 .5.42h3.84a.5.5 0 0 0 .5-.42l.36-2.54a7.3 7.3 0 0 0 1.63-.94l2.39.96a.5.5 0 0 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.64ZM12 15.5A3.5 3.5 0 1 1 15.5 12A3.5 3.5 0 0 1 12 15.5Z' },
+  mobile: { viewBox: '0 0 24 24', path: 'M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm5 18a1.25 1.25 0 1 0-1.25-1.25A1.25 1.25 0 0 0 12 20Z' },
+  briefcase: { viewBox: '0 0 24 24', path: 'M8 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v3H2V8a2 2 0 0 1 2-2h4Zm6 2V4h-4v2Zm8 7v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7h7v2h6v-2Z' },
+  spark: { viewBox: '0 0 24 24', path: 'M12 2l1.9 4.6L18 8l-4.1 1.4L12 14l-1.9-4.6L6 8l4.1-1.4ZM5 14l1.2 2.8L9 18l-2.8 1.2L5 22l-1.2-2.8L1 18l2.8-1.2Z' },
+  refresh: { viewBox: '0 0 24 24', path: 'M12 6V3L8 7l4 4V8a5 5 0 1 1-4.58 2.8H5.26A7 7 0 1 0 12 6Z' },
+  box: { viewBox: '0 0 24 24', path: 'M21 8l-9 5L3 8l9-5Zm-18 2v8l9 5v-8Zm18 0l-9 5v8l9-5Z' },
+  book: { viewBox: '0 0 24 24', path: 'M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 0-2 2V6a2 2 0 0 1 2-2Zm0 2v12h11V6Z' },
+  bookmark: { viewBox: '0 0 24 24', path: 'M6 3h12a1 1 0 0 1 1 1v17l-7-3-7 3V4a1 1 0 0 1 1-1Z' },
+};
+
+function getIconKey(label: string) {
+  const text = label.toLowerCase();
+  if (text.includes('front desk')) return 'briefcase';
+  if (text.includes('clinician')) return 'user';
+  if (text.includes('billing')) return 'billing';
+  if (text.includes('profile')) return 'user';
+  if (text.includes('settings') || text.includes('configuration')) return 'settings';
+  if (text.includes('mobile')) return 'mobile';
+  if (text.includes('appointment') || text.includes('calendar')) return 'calendar';
+  if (text.includes('new features')) return 'spark';
+  if (text.includes('new updates')) return 'refresh';
+  if (text.includes('packages')) return 'box';
+  if (text.includes('guides')) return 'book';
+  if (text.includes('reference')) return 'bookmark';
+  if (text.includes('documentation') || text.includes('guide') || text.includes('notes')) return 'clipboard';
+  if (text.includes('general')) return 'clipboard';
+  return '';
+}
+---
+
+<ul class:list={{ 'top-level': !nested }}>
+  {
+    sublist.map((entry) => (
+      <li>
+        {entry.type === 'link' ? (
+          <a
+            href={entry.href}
+            aria-current={entry.isCurrent ? 'page' : undefined}
+            class:list={[{ large: !nested }, entry.attrs.class]}
+            {...entry.attrs}
+          >
+            {(() => {
+              if (nested) return null;
+              const iconKey = getIconKey(entry.label);
+              const icon = iconMap[iconKey as keyof typeof iconMap];
+              return icon ? (
+                <span class="sidebar-icon" aria-hidden="true">
+                  <svg viewBox={icon.viewBox} role="presentation" focusable="false">
+                    <path d={icon.path} />
+                  </svg>
+                </span>
+              ) : null;
+            })()}
+            <span>{entry.label}</span>
+            {entry.badge && (
+              <span class:list={['spry-badge', entry.badge.class]}>
+                {entry.badge.text}
+              </span>
+            )}
+          </a>
+        ) : (
+          <details
+            open={flattenSidebar(entry.entries).some((i) => i.isCurrent) || !entry.collapsed}
+          >
+            <summary>
+              <span class="group-label">
+                {(() => {
+                  if (nested) return null;
+                  const data = splitLabel(entry.label);
+                  const iconKey = getIconKey(data.text || entry.label);
+                  const icon = iconMap[iconKey as keyof typeof iconMap];
+                  return icon ? (
+                    <span class="sidebar-icon" aria-hidden="true">
+                      <svg viewBox={icon.viewBox} role="presentation" focusable="false">
+                        <path d={icon.path} />
+                      </svg>
+                    </span>
+                  ) : null;
+                })()}
+                {(() => {
+                  const data = splitLabel(entry.label);
+                  return data.href ? (
+                    <a class="group-link" href={data.href}>
+                      <span class="large">{data.text}</span>
+                    </a>
+                  ) : (
+                    <span class="large">{entry.label}</span>
+                  );
+                })()}
+                {entry.badge && (
+                  <span class:list={['spry-badge', entry.badge.class]}>
+                    {entry.badge.text}
+                  </span>
+                )}
+              </span>
+              <span class="caret" aria-hidden="true">▸</span>
+            </summary>
+            <Astro.self sublist={entry.entries} nested />
+          </details>
+        )}
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  @layer starlight.core {
+    ul {
+      --sl-sidebar-item-padding-inline: 0.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      overflow-wrap: anywhere;
+    }
+
+    ul ul li {
+      margin-inline-start: var(--sl-sidebar-item-padding-inline);
+      border-inline-start: 1px solid var(--sl-color-hairline-light);
+      padding-inline-start: var(--sl-sidebar-item-padding-inline);
+    }
+
+    .large {
+      font-size: var(--sl-text-lg);
+      font-weight: 600;
+      color: var(--sl-color-white);
+    }
+
+    .sidebar-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: currentColor;
+      opacity: 0.55;
+      flex-shrink: 0;
+    }
+
+    .sidebar-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .group-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .group-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .group-link:hover,
+    .group-link:focus {
+      color: var(--sl-color-white);
+    }
+
+    .spry-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.4rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.16);
+      color: var(--sl-color-white);
+    }
+
+    .top-level > li + li {
+      margin-top: 0.75rem;
+    }
+
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.2em var(--sl-sidebar-item-padding-inline);
+      line-height: 1.4;
+      cursor: pointer;
+      user-select: none;
+    }
+    summary::marker,
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .caret {
+      transition: transform 0.2s ease-in-out;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      color: var(--sl-color-gray-3);
+    }
+    :global([dir='rtl']) .caret {
+      transform: rotateZ(180deg);
+    }
+    [open] > summary .caret {
+      transform: rotateZ(90deg);
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      color: var(--sl-color-gray-2);
+      padding: 0.3em var(--sl-sidebar-item-padding-inline);
+      line-height: 1.4;
+      width: 100%;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--sl-color-white);
+    }
+
+    [aria-current='page'],
+    [aria-current='page']:hover,
+    [aria-current='page']:focus {
+      font-weight: 600;
+      color: var(--sl-color-text-invert);
+      background-color: var(--sl-color-text-accent);
+    }
+
+    [aria-current='page'] .sidebar-icon {
+      opacity: 0.9;
+    }
+
+    a > *:not(:last-child),
+    .group-label > *:not(:last-child) {
+      margin-inline-end: 0.25em;
+    }
+
+    @media (min-width: 50rem) {
+      .top-level > li + li {
+        margin-top: 0.5rem;
+      }
+      .large {
+        font-size: var(--sl-text-base);
+      }
+      a {
+        font-size: var(--sl-text-sm);
+      }
+
+      .sidebar-icon {
+        width: 1.05rem;
+        height: 1.05rem;
+      }
+    }
+  }
+</style>
