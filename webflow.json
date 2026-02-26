@@ -1,0 +1,4 @@
+{
+  "framework": "astro",
+  "mountPath": "/guide"
+}
