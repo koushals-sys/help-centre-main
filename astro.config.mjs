@@ -2,8 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
-import cloudflare from '@astrojs/cloudflare';
-import starlightSSRFix from './starlight-ssr-fix.mjs';
+import vercel from '@astrojs/vercel/serverless';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -102,9 +101,8 @@ const sidebar = [
 
 export default defineConfig({
   site: 'https://help.spryhealth.com',
-  base: '/guide',
   output: 'server',
-  adapter: cloudflare(),
+  adapter: vercel(),
   vite: {
     ssr: {
       external: ['node:fs', 'node:path'],
@@ -112,7 +110,6 @@ export default defineConfig({
     },
   },
   integrations: [
-		starlightSSRFix(),
 		starlight({
 			title: 'SpryHealth Help Centre',
 			logo: {

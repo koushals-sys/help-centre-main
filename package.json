@@ -15,10 +15,10 @@
     "webflow:update-paths": "node webflow_update_paths.cjs"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/node": "^9.5.4",
     "@astrojs/react": "^4.4.2",
     "@astrojs/starlight": "^0.37.6",
+    "@astrojs/vercel": "^9.0.4",
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.48",
     "astro": "^5.17.3",
