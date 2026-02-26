@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
 import cloudflare from '@astrojs/cloudflare';
+import starlightSSRFix from './starlight-ssr-fix.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -111,6 +112,7 @@ export default defineConfig({
     },
   },
   integrations: [
+		starlightSSRFix(),
 		starlight({
 			title: 'SpryHealth Help Centre',
 			logo: {
