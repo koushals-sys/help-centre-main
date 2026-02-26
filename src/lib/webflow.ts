@@ -6,6 +6,9 @@ const WEBFLOW_CATEGORIES_COLLECTION_ID = import.meta.env.WEBFLOW_CATEGORIES_COLL
 const WEBFLOW_TAGS_COLLECTION_ID = import.meta.env.WEBFLOW_TAGS_COLLECTION_ID;
 const WEBFLOW_ASSET_HOST = import.meta.env.WEBFLOW_ASSET_HOST || 'https://uploads-ssl.webflow.com';
 
+// Build-time cache to avoid hitting rate limits
+const buildCache = new Map<string, any>();
+
 const labelOverrides: Record<string, string> = {
   'clinicians-module': "Clinician's Module",
   'front-desk-module': 'Front Desk Module',
@@ -198,13 +201,18 @@ async function getCollectionItems(collectionId: string) {
 }
 
 export async function getAllArticles() {
+  const cacheKey = 'articles';
+  if (buildCache.has(cacheKey)) {
+    return buildCache.get(cacheKey);
+  }
+
   const collectionId = requireEnv(
     WEBFLOW_ARTICLES_COLLECTION_ID,
     'WEBFLOW_ARTICLES_COLLECTION_ID'
   );
   const items = await getCollectionItems(collectionId);
 
-  return items.map(item => ({
+  const articles = items.map(item => ({
     id: item.id,
     name: getField(item, ['name', 'title']),
     slug: getField(item, ['slug']),
@@ -221,35 +229,54 @@ export async function getAllArticles() {
     thumbnailUrl: resolveThumbnailUrl(item),
     raw: item,
   }));
+
+  buildCache.set(cacheKey, articles);
+  return articles;
 }
 
 export async function getAllCategories() {
+  const cacheKey = 'categories';
+  if (buildCache.has(cacheKey)) {
+    return buildCache.get(cacheKey);
+  }
+
   if (!WEBFLOW_CATEGORIES_COLLECTION_ID) {
     return [];
   }
   const items = await getCollectionItems(WEBFLOW_CATEGORIES_COLLECTION_ID);
 
-  return items.map(item => ({
+  const categories = items.map(item => ({
     id: item.id,
     name: getField(item, ['name', 'title']),
     slug: getField(item, ['slug']),
     parent: getField(item, ['parent', 'parent-category']),
     raw: item,
   }));
+
+  buildCache.set(cacheKey, categories);
+  return categories;
 }
 
 export async function getAllTags() {
+  const cacheKey = 'tags';
+  if (buildCache.has(cacheKey)) {
+    return buildCache.get(cacheKey);
+  }
+
   if (!WEBFLOW_TAGS_COLLECTION_ID) {
     return [];
   }
   const items = await getCollectionItems(WEBFLOW_TAGS_COLLECTION_ID);
 
-  return items.map(item => ({
+  const tags = items.map(item => ({
     id: item.id,
     name: getField(item, ['name', 'title']),
     slug: getField(item, ['slug']),
     raw: item,
   }));
+
+  buildCache.set(cacheKey, tags);
+  return tags;
 }
 
 function deriveSegmentsFromSource(sourceFile?: string) {
