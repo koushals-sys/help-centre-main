@@ -1,5 +1,11 @@
 {
   "cloud": {
-    "framework": "astro"
+    "framework": "astro",
+    "buildCommand": "astro build --verbose",
+    "vite": {
+      "ssr": {
+        "noExternal": ["@astrojs/starlight"]
+      }
+    }
   }
 }
