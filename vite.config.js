@@ -5,4 +5,9 @@ export default defineConfig({
     external: ['node:fs', 'node:path'],
     noExternal: ['@astrojs/starlight'],
   },
+  build: {
+    rollupOptions: {
+      external: [],
+    },
+  },
 });
