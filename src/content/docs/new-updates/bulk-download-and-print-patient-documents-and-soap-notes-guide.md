@@ -1,6 +1,7 @@
 ---
 title: "Bulk Download and Print Patient Documents and SOAP Notes Guide"
 description: "Guide for Bulk Download and Print Patient Documents and SOAP Notes Guide"
+pagefind: false
 ---
 
 <video controls src="/videos/bulk-download-and-print-patient-documents-and-soap-notes-guide.mp4" style="width: 100%"></video>

@@ -1,6 +1,7 @@
 ---
 title: "Adding Recurring Blocks to Calendar"
 description: "Guide for Adding Recurring Blocks to Calendar"
+pagefind: false
 ---
 
 <video controls src="/videos/adding-recurring-blocks-to-calendar.mp4" style="width: 100%"></video>

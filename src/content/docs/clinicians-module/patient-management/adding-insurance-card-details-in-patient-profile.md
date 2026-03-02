@@ -1,6 +1,7 @@
 ---
 title: "Adding Insurance Card Details in Patient Profile"
 description: "Guide for Adding Insurance Card Details in Patient Profile"
+pagefind: false
 ---
 
 <video controls src="/videos/adding-insurance-card-details-in-patient-profile.mp4" style="width: 100%"></video>

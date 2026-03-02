@@ -1,6 +1,7 @@
 ---
 title: "Refunds & Move Balance to E-wallet"
 description: "Guide for Refunds & Move Balance to E-wallet"
+pagefind: false
 ---
 
 <video controls src="/videos/refunds-move-balance-to-e-wallet.mp4" style="width: 100%"></video>

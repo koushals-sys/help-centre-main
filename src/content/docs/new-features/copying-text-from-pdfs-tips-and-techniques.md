@@ -1,6 +1,7 @@
 ---
 title: "Copying Text from PDFs: Tips and Techniques"
 description: "Guide for Copying Text from PDFs: Tips and Techniques"
+pagefind: false
 ---
 
 <video controls src="/videos/copying-text-from-pdfs-tips-and-techniques.mp4" style="width: 100%"></video>

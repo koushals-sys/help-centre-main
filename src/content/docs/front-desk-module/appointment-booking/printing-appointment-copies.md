@@ -1,6 +1,7 @@
 ---
 title: "Printing Appointment Copies"
 description: "Guide for Printing Appointment Copies"
+pagefind: false
 ---
 
 <video controls src="/videos/printing-appointment-copies.mp4" style="width: 100%"></video>

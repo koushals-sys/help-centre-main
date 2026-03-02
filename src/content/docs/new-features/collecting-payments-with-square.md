@@ -1,6 +1,7 @@
 ---
 title: "Collecting Payments with Square"
 description: "Guide for Collecting Payments with Square"
+pagefind: false
 ---
 
 <video controls src="/videos/collecting-payments-with-square.mp4" style="width: 100%"></video>

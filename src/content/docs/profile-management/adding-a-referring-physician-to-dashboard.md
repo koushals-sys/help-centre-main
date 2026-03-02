@@ -1,6 +1,7 @@
 ---
 title: "Adding a Referring Physician to Dashboard"
 description: "Guide for Adding a Referring Physician to Dashboard"
+pagefind: false
 ---
 
 <video controls src="/videos/adding-a-referring-physician-to-dashboard.mp4" style="width: 100%"></video>

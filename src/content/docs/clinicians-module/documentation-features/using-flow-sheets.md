@@ -1,6 +1,7 @@
 ---
 title: "Using Flow Sheets"
 description: "Guide for Using Flow Sheets"
+pagefind: false
 ---
 
 <video controls src="/videos/using-flow-sheets.mp4" style="width: 100%"></video>

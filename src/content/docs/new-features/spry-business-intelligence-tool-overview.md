@@ -1,6 +1,7 @@
 ---
 title: "SPRY Business Intelligence Tool Overview"
 description: "Guide for SPRY Business Intelligence Tool Overview"
+pagefind: false
 ---
 
 <video controls src="/videos/spry-business-intelligence-tool-overview.mp4" style="width: 100%"></video>

@@ -1,6 +1,7 @@
 ---
 title: "Adding a Communication Note"
 description: "Guide for Adding a Communication Note"
+pagefind: false
 ---
 
 <video controls src="/videos/adding-a-communication-note.mp4" style="width: 100%"></video>

@@ -1,6 +1,7 @@
 ---
 title: "Explainer Video: Two-Way Messaging"
 description: "Guide for Explainer Video: Two-Way Messaging"
+pagefind: false
 ---
 
 <video controls src="/videos/explainer-video-two-way-messaging.mp4" style="width: 100%"></video>

@@ -1,6 +1,7 @@
 ---
 title: "Introducing AI Scribe: Automate Your SOAP Note Creation"
 description: "Guide for Introducing AI Scribe: Automate Your SOAP Note Creation"
+pagefind: false
 ---
 
 <video controls src="/videos/introducing-ai-scribe-automate-your-soap-note-creation.mp4" style="width: 100%"></video>

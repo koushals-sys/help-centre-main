@@ -1,6 +1,7 @@
 ---
 title: "Clover Payment Process Guide"
 description: "Guide for Clover Payment Process Guide"
+pagefind: false
 ---
 
 <video controls src="/videos/clover-payment-process-guide.mp4" style="width: 100%"></video>

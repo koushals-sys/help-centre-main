@@ -1,6 +1,7 @@
 ---
 title: "Booking Recurring Appointments"
 description: "Guide for Booking Recurring Appointments"
+pagefind: false
 ---
 
 <video controls src="/videos/booking-recurring-appointments.mp4" style="width: 100%"></video>

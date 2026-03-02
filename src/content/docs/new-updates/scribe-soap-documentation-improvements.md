@@ -1,6 +1,7 @@
 ---
 title: "Scribe SOAP Documentation Improvements"
 description: "Guide for Scribe SOAP Documentation Improvements"
+pagefind: false
 ---
 
 <video controls src="/videos/scribe-soap-documentation-improvements.mp4" style="width: 100%"></video>

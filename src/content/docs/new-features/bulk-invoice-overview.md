@@ -1,6 +1,7 @@
 ---
 title: "Bulk Invoice Overview"
 description: "Guide for Bulk Invoice Overview"
+pagefind: false
 ---
 
 <video controls src="/videos/bulk-invoice-overview.mp4" style="width: 100%"></video>

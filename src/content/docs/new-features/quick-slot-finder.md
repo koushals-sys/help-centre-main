@@ -1,6 +1,7 @@
 ---
 title: "Quick Slot Finder"
 description: "Guide for Quick Slot Finder"
+pagefind: false
 ---
 
 <video controls src="/videos/quick-slot-finder.mp4" style="width: 100%"></video>

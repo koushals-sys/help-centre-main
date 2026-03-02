@@ -1,6 +1,7 @@
 ---
 title: "Updating Therapist Shift Schedule"
 description: "Guide for Updating Therapist Shift Schedule"
+pagefind: false
 ---
 
 <video controls src="ERROR: Video transfer failed" style="width: 100%"></video>

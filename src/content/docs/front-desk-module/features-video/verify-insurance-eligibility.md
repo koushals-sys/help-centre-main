@@ -1,6 +1,7 @@
 ---
 title: "Verify Insurance Eligibility"
 description: "Guide for Verify Insurance Eligibility"
+pagefind: false
 ---
 
 <video controls src="/videos/verify-insurance-eligibility.mp4" style="width: 100%"></video>

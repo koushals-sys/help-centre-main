@@ -1,6 +1,7 @@
 ---
 title: "NPS Feedback Workflow for Clinics"
 description: "Guide for NPS Feedback Workflow for Clinics"
+pagefind: false
 ---
 
 <video controls src="/videos/nps-feedback-workflow-for-clinics.mp4" style="width: 100%"></video>

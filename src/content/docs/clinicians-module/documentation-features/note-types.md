@@ -1,6 +1,7 @@
 ---
 title: "Note Types"
 description: "Guide for Note Types"
+pagefind: false
 ---
 
 <video controls src="/videos/note-types.mp4" style="width: 100%"></video>

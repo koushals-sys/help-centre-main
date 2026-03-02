@@ -1,6 +1,7 @@
 ---
 title: "Empower Your Patients with Our New Patient Portal"
 description: "Guide for Empower Your Patients with Our New Patient Portal"
+pagefind: false
 ---
 
 <video controls src="/videos/empower-your-patients-with-our-new-patient-portal.mp4" style="width: 100%"></video>

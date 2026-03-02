@@ -1,6 +1,7 @@
 ---
 title: "SPRY HEP Feature Updates"
 description: "Guide for SPRY HEP Feature Updates"
+pagefind: false
 ---
 
 <video controls src="/videos/spry-hep-feature-updates.mp4" style="width: 100%"></video>

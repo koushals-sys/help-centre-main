@@ -1,6 +1,7 @@
 ---
 title: "How to Add a Block in a Calendar."
 description: "Guide for How to Add a Block in a Calendar."
+pagefind: false
 ---
 
 <video controls src="/videos/how-to-add-a-block-in-a-calendar.mp4" style="width: 100%"></video>

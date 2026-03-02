@@ -1,6 +1,7 @@
 ---
 title: "Book an Appointment with Self-Pay"
 description: "Guide for Book an Appointment with Self-Pay"
+pagefind: false
 ---
 
 <video controls src="/videos/book-an-appointment-with-self-pay.mp4" style="width: 100%"></video>

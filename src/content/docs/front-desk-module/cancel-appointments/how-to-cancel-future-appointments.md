@@ -1,6 +1,7 @@
 ---
 title: "How to Cancel Future Appointments"
 description: "Guide for How to Cancel Future Appointments"
+pagefind: false
 ---
 
 <video controls src="/videos/how-to-cancel-future-appointments.mp4" style="width: 100%"></video>

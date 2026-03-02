@@ -1,6 +1,7 @@
 ---
 title: "Policy Visit Tracking and Alerts"
 description: "Guide for Policy Visit Tracking and Alerts"
+pagefind: false
 ---
 
 <video controls src="/videos/policy-visit-tracking-and-alerts.mp4" style="width: 100%"></video>

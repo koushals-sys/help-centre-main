@@ -1,6 +1,7 @@
 ---
 title: "Digital Patient Intake Form Process"
 description: "Guide for Digital Patient Intake Form Process"
+pagefind: false
 ---
 
 <video controls src="/videos/digital-patient-intake-form-process.mp4" style="width: 100%"></video>

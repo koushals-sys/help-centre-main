@@ -1,6 +1,7 @@
 ---
 title: "Co-treatment Workflow"
 description: "Guide for Co-treatment Workflow"
+pagefind: false
 ---
 
 <video controls src="/videos/co-treatment-workflow.mp4" style="width: 100%"></video>

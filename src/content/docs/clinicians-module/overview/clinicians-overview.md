@@ -1,6 +1,7 @@
 ---
 title: "Clinician's Overview"
 description: "Guide for Clinician's Overview"
+pagefind: false
 ---
 
 <video controls src="/videos/clinicians-overview.mp4" style="width: 100%"></video>

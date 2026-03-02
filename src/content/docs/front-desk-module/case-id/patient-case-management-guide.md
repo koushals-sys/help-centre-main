@@ -1,6 +1,7 @@
 ---
 title: "Patient Case Management Guide"
 description: "Guide for Patient Case Management Guide"
+pagefind: false
 ---
 
 <video controls src="/videos/patient-case-management-guide.mp4" style="width: 100%"></video>

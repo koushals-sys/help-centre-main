@@ -1,6 +1,7 @@
 ---
 title: "Collecting Co-Pay and Self-Pay Amounts"
 description: "Guide for Collecting Co-Pay and Self-Pay Amounts"
+pagefind: false
 ---
 
 <video controls src="/videos/collecting-co-pay-and-self-pay-amounts.mp4" style="width: 100%"></video>

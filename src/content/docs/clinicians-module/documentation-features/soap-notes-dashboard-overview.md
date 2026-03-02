@@ -1,6 +1,7 @@
 ---
 title: "SOAP Notes Dashboard Overview"
 description: "Guide for SOAP Notes Dashboard Overview"
+pagefind: false
 ---
 
 <video controls src="/videos/soap-notes-dashboard-overview.mp4" style="width: 100%"></video>

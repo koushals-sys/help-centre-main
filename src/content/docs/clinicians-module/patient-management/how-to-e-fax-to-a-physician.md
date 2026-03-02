@@ -1,6 +1,7 @@
 ---
 title: "How to E-fax to a Physician"
 description: "Guide for How to E-fax to a Physician"
+pagefind: false
 ---
 
 <video controls src="/videos/how-to-e-fax-to-a-physician.mp4" style="width: 100%"></video>

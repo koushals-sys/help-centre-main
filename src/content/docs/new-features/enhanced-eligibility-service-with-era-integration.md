@@ -1,6 +1,7 @@
 ---
 title: "Enhanced Eligibility Service with ERA Integration"
 description: "Guide for Enhanced Eligibility Service with ERA Integration"
+pagefind: false
 ---
 
 <video controls src="/videos/enhanced-eligibility-service-with-era-integration.mp4" style="width: 100%"></video>

@@ -89,13 +89,8 @@ const directoryGroups = allEntries
     autogenerate: { directory: dir.name },
   }));
 
-// Combine: loose root pages first (if any), then directory groups
-const sidebar = [
-  ...(rootPages.length > 0
-    ? [{ label: 'General', items: rootPages }]
-    : []),
-  ...directoryGroups,
-];
+// Combine: directory groups only to avoid linking to missing root slugs.
+const sidebar = [...directoryGroups];
 
 // https://astro.build/config
 

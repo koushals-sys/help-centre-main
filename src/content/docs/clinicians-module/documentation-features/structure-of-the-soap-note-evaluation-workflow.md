@@ -1,6 +1,7 @@
 ---
 title: "Structure of the SOAP Note - Evaluation Workflow"
 description: "Guide for Structure of the SOAP Note - Evaluation Workflow"
+pagefind: false
 ---
 
 <video controls src="/videos/structure-of-the-soap-note-evaluation-workflow.mp4" style="width: 100%"></video>

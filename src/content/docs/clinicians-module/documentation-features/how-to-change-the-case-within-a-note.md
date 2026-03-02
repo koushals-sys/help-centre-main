@@ -1,6 +1,7 @@
 ---
 title: "How to change the case within a Note"
 description: "Guide for How to change the case within a Note"
+pagefind: false
 ---
 
 <video controls src="/videos/how-to-change-the-case-within-a-note.mp4" style="width: 100%"></video>

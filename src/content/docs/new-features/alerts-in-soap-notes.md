@@ -1,6 +1,7 @@
 ---
 title: "Alerts in SOAP Notes"
 description: "Guide for Alerts in SOAP Notes"
+pagefind: false
 ---
 
 <video controls src="/videos/alerts-in-soap-notes.mp4" style="width: 100%"></video>

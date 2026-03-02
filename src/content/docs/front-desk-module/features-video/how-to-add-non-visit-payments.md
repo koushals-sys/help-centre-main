@@ -1,6 +1,7 @@
 ---
 title: "How to Add Non-Visit Payments"
 description: "Guide for How to Add Non-Visit Payments"
+pagefind: false
 ---
 
 <video controls src="/videos/how-to-add-non-visit-payments.mp4" style="width: 100%"></video>

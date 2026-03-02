@@ -1,6 +1,7 @@
 ---
 title: "Improved ICD Code Search Functionality"
 description: "Guide for Improved ICD Code Search Functionality"
+pagefind: false
 ---
 
 <video controls src="/videos/improved-icd-code-search-functionality.mp4" style="width: 100%"></video>

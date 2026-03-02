@@ -1,6 +1,7 @@
 ---
 title: "Billing Dashboard Overview"
 description: "Guide for Billing Dashboard Overview"
+pagefind: false
 ---
 
 <video controls src="/videos/billing-dashboard-overview.mp4" style="width: 100%"></video>

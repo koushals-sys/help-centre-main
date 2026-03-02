@@ -1,6 +1,7 @@
 ---
 title: "Patient Registration Process"
 description: "Guide for Patient Registration Process"
+pagefind: false
 ---
 
 <video controls src="/videos/patient-registration-process.mp4" style="width: 100%"></video>

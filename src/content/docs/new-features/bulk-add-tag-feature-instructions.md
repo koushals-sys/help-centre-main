@@ -1,6 +1,7 @@
 ---
 title: "Bulk Add Tag Feature Instructions"
 description: "Guide for Bulk Add Tag Feature Instructions"
+pagefind: false
 ---
 
 <video controls src="/videos/bulk-add-tag-feature-instructions.mp4" style="width: 100%"></video>

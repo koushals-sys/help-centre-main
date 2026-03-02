@@ -1,6 +1,7 @@
 ---
 title: "Structure of the SOAP Note - Daily Note Workflow"
 description: "Guide for Structure of the SOAP Note - Daily Note Workflow"
+pagefind: false
 ---
 
 <video controls src="/videos/structure-of-the-soap-note-daily-note-workflow.mp4" style="width: 100%"></video>

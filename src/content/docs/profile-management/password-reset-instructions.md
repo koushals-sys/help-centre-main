@@ -1,6 +1,7 @@
 ---
 title: "Password Reset Instructions"
 description: "Guide for Password Reset Instructions"
+pagefind: false
 ---
 
 <video controls src="/videos/password-reset-instructions.mp4" style="width: 100%"></video>

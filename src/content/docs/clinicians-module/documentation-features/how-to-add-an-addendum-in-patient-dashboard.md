@@ -1,6 +1,7 @@
 ---
 title: "How to Add an Addendum in Patient Dashboard"
 description: "Guide for How to Add an Addendum in Patient Dashboard"
+pagefind: false
 ---
 
 <video controls src="/videos/how-to-add-an-addendum-in-patient-dashboard.mp4" style="width: 100%"></video>

@@ -1,6 +1,7 @@
 ---
 title: "Adding a User to the Dashboard"
 description: "Guide for Adding a User to the Dashboard"
+pagefind: false
 ---
 
 <video controls src="/videos/adding-a-user-to-the-dashboard.mp4" style="width: 100%"></video>

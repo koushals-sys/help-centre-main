@@ -1,6 +1,7 @@
 ---
 title: "Missed Copay Feature"
 description: "Guide for Missed Copay Feature"
+pagefind: false
 ---
 
 <video controls src="/videos/missed-copay-feature.mp4" style="width: 100%"></video>

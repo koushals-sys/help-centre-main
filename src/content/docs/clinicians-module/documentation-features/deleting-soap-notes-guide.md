@@ -1,6 +1,7 @@
 ---
 title: "Deleting SOAP Notes Guide"
 description: "Guide for Deleting SOAP Notes Guide"
+pagefind: false
 ---
 
 <video controls src="/videos/deleting-soap-notes-guide.mp4" style="width: 100%"></video>

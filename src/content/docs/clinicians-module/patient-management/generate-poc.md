@@ -1,6 +1,7 @@
 ---
 title: "Generate POC"
 description: "Guide for Generate POC"
+pagefind: false
 ---
 
 <video controls src="/videos/generate-poc.mp4" style="width: 100%"></video>

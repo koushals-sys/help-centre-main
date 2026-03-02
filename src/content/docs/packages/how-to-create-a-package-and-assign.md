@@ -1,6 +1,7 @@
 ---
 title: "How to Create A Package  and Assign"
 description: "Guide for How to Create A Package  and Assign"
+pagefind: false
 ---
 
 <video controls src="/videos/how-to-create-a-package-and-assign.mp4" style="width: 100%"></video>

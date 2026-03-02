@@ -1,6 +1,7 @@
 ---
 title: "Accessing SPRY Scribe  from Your EMR"
 description: "Guide for Accessing SPRY Scribe  from Your EMR"
+pagefind: false
 ---
 
 <video controls src="/videos/accessing-spry-scribe-from-your-emr.mp4" style="width: 100%"></video>

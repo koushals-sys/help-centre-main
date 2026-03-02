@@ -1,6 +1,7 @@
 ---
 title: "SPRY AI Fax"
 description: "Guide for SPRY AI Fax"
+pagefind: false
 ---
 
 <video controls src="/videos/spry-ai-fax.mp4" style="width: 100%"></video>

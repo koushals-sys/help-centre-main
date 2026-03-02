@@ -1,6 +1,7 @@
 ---
 title: "Editing Therapist Schedule"
 description: "Guide for Editing Therapist Schedule"
+pagefind: false
 ---
 
 <video controls src="/videos/editing-therapist-schedule.mp4" style="width: 100%"></video>

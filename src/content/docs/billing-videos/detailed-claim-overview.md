@@ -1,6 +1,7 @@
 ---
 title: "Detailed Claim Overview"
 description: "Guide for Detailed Claim Overview"
+pagefind: false
 ---
 
 <video controls src="/videos/detailed-claim-overview.mp4" style="width: 100%"></video>

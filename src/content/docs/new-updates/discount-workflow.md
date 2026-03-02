@@ -1,6 +1,7 @@
 ---
 title: "Discount Workflow"
 description: "Guide for Discount Workflow"
+pagefind: false
 ---
 
 <video controls src="/videos/discount-workflow.mp4" style="width: 100%"></video>

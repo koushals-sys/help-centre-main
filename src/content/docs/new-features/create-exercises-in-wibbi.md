@@ -1,6 +1,7 @@
 ---
 title: "Create Exercises In Wibbi"
 description: "Guide for Create Exercises In Wibbi"
+pagefind: false
 ---
 
 <video controls src="/videos/create-exercises-in-wibbi.mp4" style="width: 100%"></video>

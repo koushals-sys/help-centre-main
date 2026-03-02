@@ -1,6 +1,7 @@
 ---
 title: "eFax Cover Page Template"
 description: "Guide for eFax Cover Page Template"
+pagefind: false
 ---
 
 <video controls src="/videos/efax-cover-page-template.mp4" style="width: 100%"></video>

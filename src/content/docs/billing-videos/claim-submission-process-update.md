@@ -1,6 +1,7 @@
 ---
 title: "Claim Submission Process Update"
 description: "Guide for Claim Submission Process Update"
+pagefind: false
 ---
 
 <video controls src="/videos/claim-submission-process-update.mp4" style="width: 100%"></video>

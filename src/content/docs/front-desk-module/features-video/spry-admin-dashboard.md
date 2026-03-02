@@ -1,6 +1,7 @@
 ---
 title: "Spry Admin Dashboard"
 description: "Guide for Spry Admin Dashboard"
+pagefind: false
 ---
 
 <video controls src="/videos/spry-admin-dashboard.mp4" style="width: 100%"></video>

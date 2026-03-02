@@ -1,6 +1,7 @@
 ---
 title: "HEP - Wibbi Flow"
 description: "Guide for HEP - Wibbi Flow"
+pagefind: false
 ---
 
 <video controls src="/videos/hep-wibbi-flow.mp4" style="width: 100%"></video>

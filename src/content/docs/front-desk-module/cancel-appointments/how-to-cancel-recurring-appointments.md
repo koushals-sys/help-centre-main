@@ -1,6 +1,7 @@
 ---
 title: "How to Cancel Recurring Appointments"
 description: "Guide for How to Cancel Recurring Appointments"
+pagefind: false
 ---
 
 <video controls src="/videos/how-to-cancel-recurring-appointments.mp4" style="width: 100%"></video>

@@ -1,6 +1,7 @@
 ---
 title: "Track Certified POC"
 description: "Guide for Track Certified POC"
+pagefind: false
 ---
 
 <video controls src="/videos/track-certified-poc.mp4" style="width: 100%"></video>

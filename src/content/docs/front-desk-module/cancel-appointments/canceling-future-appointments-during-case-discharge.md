@@ -1,6 +1,7 @@
 ---
 title: "Canceling Future Appointments During Case Discharge"
 description: "Guide for Canceling Future Appointments During Case Discharge"
+pagefind: false
 ---
 
 <video controls src="/videos/canceling-future-appointments-during-case-discharge.mp4" style="width: 100%"></video>

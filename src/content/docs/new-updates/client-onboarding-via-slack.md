@@ -1,6 +1,7 @@
 ---
 title: "Client Onboarding via Slack"
 description: "Guide for Client Onboarding via Slack"
+pagefind: false
 ---
 
 <video controls src="/videos/client-onboarding-via-slack.mp4" style="width: 100%"></video>

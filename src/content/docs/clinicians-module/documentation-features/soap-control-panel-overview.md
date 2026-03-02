@@ -1,6 +1,7 @@
 ---
 title: "SOAP Control Panel Overview"
 description: "Guide for SOAP Control Panel Overview"
+pagefind: false
 ---
 
 <video controls src="/videos/soap-control-panel-overview.mp4" style="width: 100%"></video>

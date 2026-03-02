@@ -1,6 +1,7 @@
 ---
 title: "E-Wallet"
 description: "Guide for E-Wallet"
+pagefind: false
 ---
 
 <video controls src="/videos/e-wallet.mp4" style="width: 100%"></video>

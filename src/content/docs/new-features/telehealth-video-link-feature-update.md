@@ -1,6 +1,7 @@
 ---
 title: "Telehealth Video Link Feature Update"
 description: "Guide for Telehealth Video Link Feature Update"
+pagefind: false
 ---
 
 <video controls src="/videos/telehealth-video-link-feature-update.mp4" style="width: 100%"></video>

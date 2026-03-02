@@ -1,6 +1,7 @@
 ---
 title: "Insurance Card Mapping Tutorial"
 description: "Guide for Insurance Card Mapping Tutorial"
+pagefind: false
 ---
 
 <video controls src="/videos/insurance-card-mapping-tutorial.mp4" style="width: 100%"></video>

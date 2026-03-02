@@ -1,6 +1,7 @@
 ---
 title: "Adjust Balance Amount"
 description: "Guide for Adjust Balance Amount"
+pagefind: false
 ---
 
 <video controls src="/videos/adjust-balance-amount.mp4" style="width: 100%"></video>
