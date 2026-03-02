@@ -4,10 +4,42 @@ import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.ast
 import SidebarSublist from './SidebarSublist.astro';
 
 const { sidebar } = Astro.locals.starlightRoute;
+
+// Exact sequence to show in the sidebar. Any top-level entries not in this
+// list will be hidden.
+const preferredOrder = [
+  'New Login Guide for SPRY Users',
+  'Front Desk Module',
+  "Clinician's Module",
+  'Profile Management',
+  'Billing Videos',
+  'Packages',
+  'New Features',
+  'New Updates',
+];
+
+function getLabel(entry) {
+  if (!entry || !entry.label) return '';
+  const parts = String(entry.label).split('||');
+  return parts[0].trim();
+}
+
+function ordered(list) {
+  if (!Array.isArray(list)) return [];
+  const map = new Map(list.map((e) => [getLabel(e).toLowerCase(), e]));
+  const out = [];
+  for (const key of preferredOrder) {
+    const item = map.get(key.toLowerCase());
+    if (item) out.push(item);
+  }
+  return out;
+}
+
+const orderedSidebar = ordered(sidebar || []);
 ---
 
 <SidebarPersister>
-  <SidebarSublist sublist={sidebar} />
+  <SidebarSublist sublist={orderedSidebar} />
 </SidebarPersister>
 
 <div class="md:sl-hidden">

@@ -406,7 +406,11 @@ export function buildWebflowSidebar(
     }
 
     const targetItems = getOrCreateGroup(pathSegments, labels);
-    targetItems.push({ label: baseLabel, link });
+    // Ensure link is an absolute path. Starlight expects leaf entries
+    // to have a `label` and `link` property (not `href`), so keep that
+    // shape to pass validation.
+    const safeLink = String(link || '').startsWith('/') ? String(link) : `/${String(link)}`;
+    targetItems.push({ label: baseLabel, link: safeLink });
   }
 
   if (generalItems.length > 0) {
