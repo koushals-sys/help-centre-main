@@ -93,6 +93,9 @@ const topLevelModules = new Set([
   'reference',
 ]);
 
+const isLegacyRoute =
+  !!primarySegment && !!secondarySegment && topLevelModules.has(primarySegment);
+
 const effectiveSegment =
   secondarySegment && topLevelModules.has(primarySegment)
     ? secondarySegment
@@ -305,54 +308,56 @@ if (viewMode === 'article' && match?.name && breadcrumbs.length > 0) {
   }}
   sidebar={sidebar}
 >
-  <nav class="spry-breadcrumbs" aria-label="Breadcrumb">
-    <a class="spry-breadcrumb-home" href="/" aria-label="Home">
-      <svg viewBox="0 0 24 24" role="presentation" focusable="false">
-        <path d="M12 3l9 7h-2v9a2 2 0 0 1-2 2h-3v-6H10v6H7a2 2 0 0 1-2-2v-9H3l9-7Z" />
-      </svg>
-    </a>
-    {breadcrumbs.map((crumb) => (
-      <span class="spry-breadcrumb-item">
-        <span class="spry-breadcrumb-sep">›</span>
-        <a href={crumb.href}>{crumb.label}</a>
-      </span>
-    ))}
-  </nav>
-  {viewMode === 'article' && (
-    <h1 class="spry-article-title">{match?.name || match?.slug || 'Article'}</h1>
-  )}
-  {viewMode !== 'article' && viewTitle && (
-    <h1 class="spry-article-title">{viewTitle}</h1>
-  )}
-  {viewMode === 'article' ? (
-    <>
-      {match?.videoUrl && (
-        <section class="spry-video-section">
-          <video controls preload="metadata" src={match.videoUrl}></video>
-        </section>
-      )}
-      <p>
-        <a href="/">&larr; Back to list</a>
-      </p>
-      {match?.body && <div set:html={match.body} />}
-    </>
-  ) : (
-    <section>
-      <h2>{viewMode === 'category' ? 'Subcategories' : 'Articles'}</h2>
-      <div class="spry-card-grid">
-        {cards.map(card => (
-          <a class="spry-card" href={card.href}>
-            {card.thumbnailUrl && (
-              <div class="spry-card-media">
-                <img src={card.thumbnailUrl} alt={card.title} loading="lazy" />
-              </div>
-            )}
-            <h3>{card.title}</h3>
-            <p>{card.description}</p>
-            <span class="spry-card-link">Explore</span>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
+  <div data-pagefind-ignore={isLegacyRoute ? 'all' : undefined}>
+    <nav class="spry-breadcrumbs" aria-label="Breadcrumb">
+      <a class="spry-breadcrumb-home" href="/" aria-label="Home">
+        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+          <path d="M12 3l9 7h-2v9a2 2 0 0 1-2 2h-3v-6H10v6H7a2 2 0 0 1-2-2v-9H3l9-7Z" />
+        </svg>
+      </a>
+      {breadcrumbs.map((crumb) => (
+        <span class="spry-breadcrumb-item">
+          <span class="spry-breadcrumb-sep">›</span>
+          <a href={crumb.href}>{crumb.label}</a>
+        </span>
+      ))}
+    </nav>
+    {viewMode === 'article' && (
+      <h1 class="spry-article-title">{match?.name || match?.slug || 'Article'}</h1>
+    )}
+    {viewMode !== 'article' && viewTitle && (
+      <h1 class="spry-article-title">{viewTitle}</h1>
+    )}
+    {viewMode === 'article' ? (
+      <>
+        {match?.videoUrl && (
+          <section class="spry-video-section">
+            <video controls preload="metadata" src={match.videoUrl}></video>
+          </section>
+        )}
+        <p>
+          <a href="/">&larr; Back to list</a>
+        </p>
+        {match?.body && <div set:html={match.body} />}
+      </>
+    ) : (
+      <section>
+        <h2>{viewMode === 'category' ? 'Subcategories' : 'Articles'}</h2>
+        <div class="spry-card-grid">
+          {cards.map(card => (
+            <a class="spry-card" href={card.href}>
+              {card.thumbnailUrl && (
+                <div class="spry-card-media">
+                  <img src={card.thumbnailUrl} alt={card.title} loading="lazy" />
+                </div>
+              )}
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+              <span class="spry-card-link">Explore</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
 </StarlightPage>
