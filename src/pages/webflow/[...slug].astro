@@ -121,15 +121,47 @@ if (!match) {
     return Astro.redirect('/');
   }
 }
+
+const breadcrumbSegments = segments.filter(Boolean);
+const breadcrumbs = breadcrumbSegments.map((segment, index) => {
+  const href = `/${breadcrumbSegments.slice(0, index + 1).join('/')}`;
+  return { label: formatSegmentLabel(segment), href };
+});
+
+if (viewMode === 'article' && match?.name && breadcrumbs.length > 0) {
+  breadcrumbs[breadcrumbs.length - 1] = {
+    ...breadcrumbs[breadcrumbs.length - 1],
+    label: match.name,
+  };
+}
 ---
 
 <StarlightPage
   frontmatter={{
-    title: viewMode === 'article' ? (match?.name || match?.slug || 'Article') : viewTitle,
+    title: '',
     description: viewMode === 'article' ? (match?.summary || undefined) : viewDescription,
   }}
   sidebar={sidebar}
 >
+  <nav class="spry-breadcrumbs" aria-label="Breadcrumb">
+    <a class="spry-breadcrumb-home" href="/" aria-label="Home">
+      <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+        <path d="M12 3l9 7h-2v9a2 2 0 0 1-2 2h-3v-6H10v6H7a2 2 0 0 1-2-2v-9H3l9-7Z" />
+      </svg>
+    </a>
+    {breadcrumbs.map((crumb) => (
+      <span class="spry-breadcrumb-item">
+        <span class="spry-breadcrumb-sep">›</span>
+        <a href={crumb.href}>{crumb.label}</a>
+      </span>
+    ))}
+  </nav>
+  {viewMode === 'article' && (
+    <h1 class="spry-article-title">{match?.name || match?.slug || 'Article'}</h1>
+  )}
+  {viewMode !== 'article' && viewTitle && (
+    <h1 class="spry-article-title">{viewTitle}</h1>
+  )}
   {viewMode === 'article' ? (
     <>
       {match?.videoUrl && (

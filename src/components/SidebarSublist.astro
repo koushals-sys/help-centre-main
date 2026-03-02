@@ -7,6 +7,11 @@ interface Props {
 }
 
 const { sublist, nested } = Astro.props;
+const currentPath = Astro.url?.pathname || '';
+const currentSegments = currentPath.split('/').filter(Boolean);
+const currentShortPath = currentSegments.length
+  ? `/${currentSegments[currentSegments.length - 1]}`
+  : currentPath;
 
 function flattenSidebar(entries: SidebarEntry[]) {
   const result: SidebarEntry[] = [];
@@ -34,12 +39,70 @@ function normalizeLinkHref(entry: SidebarEntry) {
 
   const href = entry.href || (entry as any).link || '';
   if (!href) return href;
-  if (href.includes('/billing-videos/')) {
-    const parts = href.split('/').filter(Boolean);
-    const last = parts[parts.length - 1] || '';
+  const normalizedHref = href.startsWith('/') ? href : `/${href}`;
+  const topLevelModules = new Set([
+    'front-desk-module',
+    'clinicians-module',
+    'billing-videos',
+    'new-features',
+    'new-updates',
+    'packages',
+    'profile-management',
+    'guides',
+    'reference',
+  ]);
+  const normalizedSegments = normalizedHref.split('/').filter(Boolean);
+  if (normalizedSegments.length > 1 && topLevelModules.has(normalizedSegments[0])) {
+    const tail = normalizedSegments[normalizedSegments.length - 1] || '';
+    const last = tail === 'index'
+      ? (normalizedSegments[normalizedSegments.length - 2] || tail)
+      : tail;
     return `/${last}`;
   }
-  return href.startsWith('/') ? href : `/${href}`;
+  return normalizedHref;
+}
+
+function normalizeGroupHref(href: string) {
+  if (!href) return href;
+  const normalizedHref = href.startsWith('/') ? href : `/${href}`;
+  const topLevelModules = new Set([
+    'front-desk-module',
+    'clinicians-module',
+    'billing-videos',
+    'new-features',
+    'new-updates',
+    'packages',
+    'profile-management',
+    'guides',
+    'reference',
+  ]);
+  const normalizedSegments = normalizedHref.split('/').filter(Boolean);
+  if (normalizedSegments.length > 1 && topLevelModules.has(normalizedSegments[0])) {
+    const tail = normalizedSegments[normalizedSegments.length - 1] || '';
+    const last = tail === 'index'
+      ? (normalizedSegments[normalizedSegments.length - 2] || tail)
+      : tail;
+    return `/${last}`;
+  }
+  return normalizedHref;
+}
+
+function isEntryActive(entry: SidebarEntry): boolean {
+  if (entry.type === 'link') {
+    const normalized = normalizeLinkHref(entry) || '';
+    return normalized === currentPath || normalized === currentShortPath;
+  }
+  if (entry.type === 'group') {
+    const data = splitLabel(entry.label || '');
+    if (data.href) {
+      const groupHref = normalizeGroupHref(data.href) || '';
+      if (groupHref === currentPath || groupHref === currentShortPath) {
+        return true;
+      }
+    }
+    return flattenSidebar(entry.entries).some((child) => isEntryActive(child));
+  }
+  return false;
 }
 
 const iconMap = {
@@ -83,10 +146,10 @@ function getIconKey(label: string) {
       <li>
         {entry.type === 'link' ? (
           <a
-            href={normalizeLinkHref(entry)}
             aria-current={entry.isCurrent ? 'page' : undefined}
             class:list={[{ large: !nested }, entry.attrs.class]}
             {...entry.attrs}
+            href={normalizeLinkHref(entry)}
           >
             {(() => {
               if (nested) return null;
@@ -109,7 +172,7 @@ function getIconKey(label: string) {
           </a>
         ) : (
           <details
-            open={flattenSidebar(entry.entries).some((i) => i.isCurrent) || !entry.collapsed}
+            open={isEntryActive(entry) || !entry.collapsed}
           >
             <summary>
               <span class="group-label">
@@ -129,7 +192,7 @@ function getIconKey(label: string) {
                 {(() => {
                   const data = splitLabel(entry.label);
                   return data.href ? (
-                    <a class="group-link" href={data.href}>
+                    <a class="group-link" href={normalizeGroupHref(data.href)}>
                       <span class="large">{data.text}</span>
                     </a>
                   ) : (
@@ -182,8 +245,8 @@ function getIconKey(label: string) {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: currentColor;
-      opacity: 0.55;
+      color: #3E1150;
+      opacity: 1;
       flex-shrink: 0;
     }
 

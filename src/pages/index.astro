@@ -16,22 +16,38 @@ const sidebar = buildWebflowSidebar(articles, tagMap);
 
 <StarlightPage
   frontmatter={{
-    title: 'SpryHealth Help Centre',
+    title: '',
     description: 'Your one-stop hub for guides, videos, and step-by-step workflows.',
   }}
   sidebar={sidebar}
 >
-  <section style="max-width: 800px; margin: 0 auto; padding: 2rem 0;">
-    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2;">
-      Hello, welcome to your one-stop hub for guides, videos, and step-by-step workflows.
-    </h1>
+  <section class="spry-home spry-home-page">
+    <div class="spry-home-header">
+      <a class="spry-home-pill" href="/" aria-label="Home">
+        <span class="spry-home-pill-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+            <path d="M12 3l9 7h-2v9a2 2 0 0 1-2 2h-3v-6H10v6H7a2 2 0 0 1-2-2v-9H3l9-7Z" />
+          </svg>
+        </span>
+      </a>
+      <h1>Spry Help Center</h1>
+      <p class="spry-home-sub">Home</p>
+      <p class="spry-home-meta">2 guides · 7 sub-collections</p>
+      <div class="spry-home-divider" aria-hidden="true"></div>
+    </div>
 
-    <p style="font-size: 1.25rem; color: var(--sl-color-gray-2); margin-bottom: 2rem; line-height: 1.6;">
-      Here, you'll find everything your team needs to get the most out of SPRY, organized by role and daily tasks.
-    </p>
+    <div class="spry-home-hero">
+      <img src="/assets/download.png" alt="Spry help center" loading="eager" />
+    </div>
 
-    <p style="font-size: 1.125rem; color: var(--sl-color-gray-3); line-height: 1.6;">
-      Use the search bar above to jump right into answers, or browse the categories on the left.
-    </p>
+    <div class="spry-home-copy">
+      <h2>Hello, welcome to your one-stop hub for guides, videos, and step-by-step workflows.</h2>
+      <p>
+        Here, you'll find everything your team needs to get the most out of SPRY, organized by role and daily tasks.
+      </p>
+      <p>
+        Use the search bar above to jump right into answers, or browse the categories on the left.
+      </p>
+    </div>
   </section>
 </StarlightPage>

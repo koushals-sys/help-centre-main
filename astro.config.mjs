@@ -111,12 +111,50 @@ export default defineConfig({
   },
   integrations: [
 		starlight({
-			title: 'SpryHealth Help Centre',
+      title: 'SpryHealth Help Centre',
 			logo: {
 				src: './src/assets/spry-logo.webp',
 				alt: 'SPRY',
 				replacesTitle: true,
 			},
+      head: [
+        {
+          tag: 'title',
+          content: 'SPRY Help Centre',
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'description',
+            content: 'Guides, videos, and step-by-step workflows for getting the most out of SpryHealth.',
+          },
+        },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'icon',
+            href: '/assets/256*256.png',
+            sizes: '256x256',
+            type: 'image/png',
+          },
+        },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'shortcut icon',
+            href: '/assets/256*256.png',
+            type: 'image/png',
+          },
+        },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'apple-touch-icon',
+            href: '/assets/256*256.png',
+            sizes: '256x256',
+          },
+        },
+      ],
 			customCss: ['./src/styles/custom.css'],
       components: {
         Sidebar: './src/components/Sidebar.astro',

@@ -1,5 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getCollection } from 'astro:content';
 import {
   buildWebflowSidebar,
   formatSegmentLabel,
@@ -30,6 +31,7 @@ export async function getStaticPaths() {
 
   const categories = new Set();
   const subcategories = new Set();
+  const legacySubpaths = new Set();
 
   for (const article of articleMeta) {
     if (article.segments.path) {
@@ -37,6 +39,9 @@ export async function getStaticPaths() {
     }
     if (article.segments.subpath) {
       subcategories.add(article.segments.subpath);
+    }
+    if (article.segments.path && article.segments.subpath) {
+      legacySubpaths.add(`${article.segments.path}/${article.segments.subpath}`);
     }
   }
 
@@ -46,6 +51,10 @@ export async function getStaticPaths() {
 
   for (const subcategory of subcategories) {
     paths.push({ params: { slug: subcategory } });
+  }
+
+  for (const legacy of legacySubpaths) {
+    paths.push({ params: { slug: legacy } });
   }
 
   return paths;
@@ -61,6 +70,7 @@ const articles = await getAllArticles();
 const tags = await getAllTags();
 const tagMap = new Map(tags.map(tag => [tag.id, tag]));
 const sidebar = buildWebflowSidebar(articles, tagMap);
+const docs = await getCollection('docs');
 
 const match = articles.find(article => article.slug === articleSlug);
 
@@ -71,8 +81,29 @@ const articleMeta = articles.map(article => ({
   segments: getArticleSegments(article),
 }));
 
-const hasPathSegment = !!primarySegment && articleMeta.some(article => article.segments.path === primarySegment);
+const topLevelModules = new Set([
+  'front-desk-module',
+  'clinicians-module',
+  'billing-videos',
+  'new-features',
+  'new-updates',
+  'packages',
+  'profile-management',
+  'guides',
+  'reference',
+]);
+
+const effectiveSegment =
+  secondarySegment && topLevelModules.has(primarySegment)
+    ? secondarySegment
+    : primarySegment;
+const isModuleRoot = !!primarySegment && !secondarySegment && topLevelModules.has(primarySegment);
+
+const hasPathSegment =
+  !!primarySegment && articleMeta.some(article => article.segments.path === primarySegment);
 const hasSubpathSegment = !!primarySegment && articleMeta.some(article => article.segments.subpath === primarySegment);
+const hasSecondarySubpath =
+  !!secondarySegment && articleMeta.some(article => article.segments.subpath === secondarySegment);
 const hasLegacySubpath =
   !!primarySegment &&
   !!secondarySegment &&
@@ -80,10 +111,48 @@ const hasLegacySubpath =
     article => article.segments.path === primarySegment && article.segments.subpath === secondarySegment
   );
 
+
 let viewMode: 'article' | 'category' | 'subcategory' = 'article';
 let viewTitle = '';
 let viewDescription = '';
 let cards: Array<{ title: string; description: string; href: string }> = [];
+
+function getDocsForModule(moduleSlug: string | undefined) {
+  if (!moduleSlug) return [];
+  const prefix = `${moduleSlug}/`;
+  return docs.filter((entry) => typeof entry.slug === 'string' && entry.slug.startsWith(prefix));
+}
+
+function buildSubcategoryCards(moduleSlug: string | undefined) {
+  const entries = getDocsForModule(moduleSlug);
+  const subpathMap = new Map<string, { title: string; description: string; href: string }>();
+  for (const entry of entries) {
+    const parts = entry.slug.split('/');
+    const subpath = parts[1];
+    if (!subpath) continue;
+    if (!subpathMap.has(subpath)) {
+      subpathMap.set(subpath, {
+        title: formatSegmentLabel(subpath),
+        description: entry.data.description || 'Browse related guides and tutorials.',
+        href: `/${subpath}`,
+      });
+    }
+  }
+  return Array.from(subpathMap.values()).sort((a, b) => a.title.localeCompare(b.title));
+}
+
+function buildArticleCards(moduleSlug: string | undefined, subpath: string | undefined) {
+  if (!moduleSlug || !subpath) return [];
+  const prefix = `${moduleSlug}/${subpath}/`;
+  return docs
+    .filter((entry) => typeof entry.slug === 'string' && entry.slug.startsWith(prefix))
+    .map((entry) => ({
+      title: entry.data.title || entry.slug.split('/').pop() || 'Untitled',
+      description: entry.data.description || 'Read the full guide for details.',
+      href: `/${entry.slug}`,
+    }))
+    .sort((a, b) => a.title.localeCompare(b.title));
+}
 
 if (!match) {
   if (!primarySegment) {
@@ -91,16 +160,58 @@ if (!match) {
   }
 
   if (hasLegacySubpath) {
-    return Astro.redirect(`/${secondarySegment}`);
-  }
-
-  if (hasSubpathSegment) {
     viewMode = 'subcategory';
-    viewTitle = formatSegmentLabel(primarySegment);
+    viewTitle = formatSegmentLabel(secondarySegment);
     viewDescription = 'Browse articles in this subcategory.';
 
     cards = articleMeta
-      .filter(article => article.segments.subpath === primarySegment)
+      .filter(
+        article =>
+          article.segments.path === primarySegment &&
+          article.segments.subpath === secondarySegment
+      )
+      .map(article => ({
+        title: article.name || article.slug,
+        description: article.summary || 'Read the full guide for details.',
+        href: getArticleUrl(article),
+        thumbnailUrl: article.thumbnailUrl,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  if (!hasLegacySubpath && cards.length === 0) {
+    const docsCards = buildArticleCards(primarySegment, secondarySegment);
+    if (docsCards.length > 0) {
+      viewMode = 'subcategory';
+      viewTitle = formatSegmentLabel(secondarySegment);
+      viewDescription = 'Browse articles in this subcategory.';
+      cards = docsCards;
+    }
+  }
+
+  if (!hasLegacySubpath && hasSecondarySubpath) {
+    viewMode = 'subcategory';
+    viewTitle = formatSegmentLabel(secondarySegment);
+    viewDescription = 'Browse articles in this subcategory.';
+
+    cards = articleMeta
+      .filter(article => article.segments.subpath === secondarySegment)
+      .map(article => ({
+        title: article.name || article.slug,
+        description: article.summary || 'Read the full guide for details.',
+        href: getArticleUrl(article),
+        thumbnailUrl: article.thumbnailUrl,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  if (!hasLegacySubpath && !hasSecondarySubpath && effectiveSegment && !isModuleRoot) {
+    viewMode = 'subcategory';
+    viewTitle = formatSegmentLabel(effectiveSegment);
+    viewDescription = 'Browse articles in this subcategory.';
+
+    cards = articleMeta
+      .filter(article => article.segments.subpath === effectiveSegment)
       .map(article => ({
         title: article.name || article.slug,
         description: article.summary || 'Read the full guide for details.',
@@ -131,6 +242,16 @@ if (!match) {
       }
     }
 
+    if (!hasLegacySubpath && !hasSecondarySubpath && cards.length === 0) {
+      const docsCards = buildArticleCards(primarySegment, effectiveSegment);
+      if (docsCards.length > 0) {
+        viewMode = 'subcategory';
+        viewTitle = formatSegmentLabel(effectiveSegment);
+        viewDescription = 'Browse articles in this subcategory.';
+        cards = docsCards;
+      }
+    }
+
     const subpathCards = Array.from(subpathMap.values()).sort((a, b) =>
       a.title.localeCompare(b.title)
     );
@@ -150,19 +271,59 @@ if (!match) {
         }))
         .sort((a, b) => a.title.localeCompare(b.title));
     }
-  } else {
-    return Astro.redirect('/');
+  } else if (cards.length === 0) {
+    const docsCards = buildSubcategoryCards(primarySegment);
+    if (docsCards.length > 0) {
+      viewMode = 'category';
+      viewTitle = formatSegmentLabel(primarySegment);
+      viewDescription = 'Browse subcategories in this section.';
+      cards = docsCards;
+    } else {
+      return Astro.redirect('/');
+    }
   }
+}
+
+const breadcrumbSegments = segments.filter(Boolean);
+const breadcrumbs = breadcrumbSegments.map((segment, index) => {
+  const href = `/${breadcrumbSegments.slice(0, index + 1).join('/')}`;
+  return { label: formatSegmentLabel(segment), href };
+});
+
+if (viewMode === 'article' && match?.name && breadcrumbs.length > 0) {
+  breadcrumbs[breadcrumbs.length - 1] = {
+    ...breadcrumbs[breadcrumbs.length - 1],
+    label: match.name,
+  };
 }
 ---
 
 <StarlightPage
   frontmatter={{
-    title: viewMode === 'article' ? (match?.name || match?.slug || 'Article') : viewTitle,
+    title: '',
     description: viewMode === 'article' ? (match?.summary || undefined) : viewDescription,
   }}
   sidebar={sidebar}
 >
+  <nav class="spry-breadcrumbs" aria-label="Breadcrumb">
+    <a class="spry-breadcrumb-home" href="/" aria-label="Home">
+      <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+        <path d="M12 3l9 7h-2v9a2 2 0 0 1-2 2h-3v-6H10v6H7a2 2 0 0 1-2-2v-9H3l9-7Z" />
+      </svg>
+    </a>
+    {breadcrumbs.map((crumb) => (
+      <span class="spry-breadcrumb-item">
+        <span class="spry-breadcrumb-sep">›</span>
+        <a href={crumb.href}>{crumb.label}</a>
+      </span>
+    ))}
+  </nav>
+  {viewMode === 'article' && (
+    <h1 class="spry-article-title">{match?.name || match?.slug || 'Article'}</h1>
+  )}
+  {viewMode !== 'article' && viewTitle && (
+    <h1 class="spry-article-title">{viewTitle}</h1>
+  )}
   {viewMode === 'article' ? (
     <>
       {match?.videoUrl && (
