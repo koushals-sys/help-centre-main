@@ -53,37 +53,39 @@ const sortedArticles = [...articles].sort((a, b) => {
   }}
   sidebar={sidebar}
 >
-  <section>
-    <h2>Categories</h2>
-    <div class="spry-card-grid">
-      {categoryCards.map(card => (
-        <a class="spry-card" href={card.href}>
-          {card.thumbnailUrl && (
-            <div class="spry-card-media">
-              <img src={card.thumbnailUrl} alt={card.label} loading="lazy" />
-            </div>
-          )}
-          <h3>{card.label}</h3>
-          <p>{card.description}</p>
-          <span class="spry-card-link">Explore</span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section>
-    <h2>All Articles</h2>
-    <ul>
-      {sortedArticles.map(article => (
-        <li>
-          <a href={getArticleUrl(article)}>
-            {article.name || article.slug}
+  <div data-pagefind-ignore="all">
+    <section>
+      <h2>Categories</h2>
+      <div class="spry-card-grid">
+        {categoryCards.map(card => (
+          <a class="spry-card" href={card.href}>
+            {card.thumbnailUrl && (
+              <div class="spry-card-media">
+                <img src={card.thumbnailUrl} alt={card.label} loading="lazy" />
+              </div>
+            )}
+            <h3>{card.label}</h3>
+            <p>{card.description}</p>
+            <span class="spry-card-link">Explore</span>
           </a>
-          {(article.path || article.subpath) && (
-            <span> ({[article.path, article.subpath].filter(Boolean).join(' / ')})</span>
-          )}
-        </li>
-      ))}
-    </ul>
-  </section>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>All Articles</h2>
+      <ul>
+        {sortedArticles.map(article => (
+          <li>
+            <a href={getArticleUrl(article)}>
+              {article.name || article.slug}
+            </a>
+            {(article.path || article.subpath) && (
+              <span> ({[article.path, article.subpath].filter(Boolean).join(' / ')})</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
 </StarlightPage>
