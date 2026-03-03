@@ -128,6 +128,49 @@ const breadcrumbs = breadcrumbSegments.map((segment, index) => {
   return { label: formatSegmentLabel(segment), href };
 });
 
+function getVimeoEmbedUrl(url: string | undefined): string | undefined {
+  if (!url) return undefined;
+  try {
+    const parsed = new URL(url);
+    if (!parsed.hostname.includes('vimeo.com')) return undefined;
+    const match = parsed.pathname.match(/\/(?:video\/)?(\d+)/);
+    if (!match) return undefined;
+    const params = new URLSearchParams({
+      title: '0',
+      byline: '0',
+      portrait: '0',
+      badge: '0',
+      color: '3E1150',
+      autopause: '0',
+      transparent: '0',
+      dnt: '1',
+    });
+    return `https://player.vimeo.com/video/${match[1]}?${params.toString()}`;
+  } catch {
+    return undefined;
+  }
+}
+
+function rewriteVimeoEmbedHtml(html: string): string {
+  const params = new URLSearchParams({
+    title: '0',
+    byline: '0',
+    portrait: '0',
+    badge: '0',
+    color: '3E1150',
+    autopause: '0',
+    transparent: '0',
+    dnt: '1',
+  }).toString();
+  return html.replace(
+    /https:\/\/player\.vimeo\.com\/video\/(\d+)(\?[^"']*)?/g,
+    (_match, id) => `https://player.vimeo.com/video/${id}?${params}`
+  );
+}
+
+const vimeoEmbedUrl = getVimeoEmbedUrl(match?.videoUrl);
+const articleBodyHtml = match?.body ? rewriteVimeoEmbedHtml(match.body) : undefined;
+
 if (viewMode === 'article' && match?.name && breadcrumbs.length > 0) {
   breadcrumbs[breadcrumbs.length - 1] = {
     ...breadcrumbs[breadcrumbs.length - 1],
@@ -167,13 +210,24 @@ if (viewMode === 'article' && match?.name && breadcrumbs.length > 0) {
       <>
         {match?.videoUrl && (
           <section class="spry-video-section">
-            <video controls preload="metadata" src={match.videoUrl}></video>
+            {vimeoEmbedUrl ? (
+              <div class="spry-video-embed">
+                <iframe
+                  src={vimeoEmbedUrl}
+                  title={match?.name || match?.slug || 'Vimeo video'}
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            ) : (
+              <video controls preload="metadata" src={match.videoUrl}></video>
+            )}
           </section>
         )}
         <p>
           <a href="/">&larr; Back to list</a>
         </p>
-        {match?.body && <div set:html={match.body} />}
+        {articleBodyHtml && <div set:html={articleBodyHtml} />}
       </>
     ) : (
       <section>
