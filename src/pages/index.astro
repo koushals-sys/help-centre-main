@@ -3,6 +3,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import {
   buildWebflowSidebar,
   getAllArticles,
+  getArticleSegments,
   getAllTags,
 } from '../lib/webflow';
 
@@ -12,6 +13,78 @@ const articles = await getAllArticles();
 const tags = await getAllTags();
 const tagMap = new Map(tags.map(tag => [tag.id, tag]));
 const sidebar = buildWebflowSidebar(articles, tagMap);
+
+const moduleCards = [
+  {
+    slug: 'front-desk-module',
+    title: 'Front Desk Module',
+    description: 'Master appointment booking, calendar management, and patient check-in workflows',
+    chip: 'Module',
+    icon: 'book',
+  },
+  {
+    slug: 'clinicians-module',
+    title: "Clinician's Module",
+    description: 'Learn documentation features, SOAP notes, and patient management tools',
+    chip: 'Module',
+    icon: 'doc',
+  },
+  {
+    slug: 'billing-videos',
+    title: 'Billing Videos',
+    description: 'Understanding billing dashboard, claims, e-wallet, and financial processes',
+    chip: 'Videos',
+    icon: 'video',
+  },
+  {
+    slug: 'profile-management',
+    title: 'Profile Management',
+    description: 'Configure user settings, permissions, and account preferences',
+    chip: 'Guide',
+    icon: 'help',
+  },
+].map((card) => {
+  const count = articles.filter((article) => getArticleSegments(article).path === card.slug).length;
+  return {
+    ...card,
+    href: `/${card.slug}`,
+    count,
+  };
+});
+
+function pickArticleByKeywords(keywords: string[]) {
+  const lowerKeywords = keywords.map((k) => k.toLowerCase());
+  return articles.find((article) => {
+    const name = String(article.name || '').toLowerCase();
+    const slug = String(article.slug || '').toLowerCase();
+    return lowerKeywords.some((kw) => name.includes(kw) || slug.includes(kw));
+  });
+}
+
+const popularArticles = [
+  {
+    title: 'How to Book an Appointment',
+    match: ['book an appointment', 'appointment-booking', 'appointment'],
+  },
+  {
+    title: 'Understanding SOAP Notes',
+    match: ['soap notes', 'soap-note', 'soap'],
+  },
+  {
+    title: 'Billing Dashboard Overview',
+    match: ['billing dashboard overview', 'billing-dashboard-overview', 'billing-dashboard'],
+  },
+  {
+    title: 'Patient Management Guide',
+    match: ['patient management guide', 'patient-management', 'patient management'],
+  },
+].map((entry) => {
+  const article = pickArticleByKeywords(entry.match);
+  return {
+    title: article?.name || entry.title,
+    href: article?.slug ? `/${article.slug}` : '/',
+  };
+});
 ---
 
 <StarlightPage
@@ -22,32 +95,105 @@ const sidebar = buildWebflowSidebar(articles, tagMap);
   sidebar={sidebar}
 >
   <section class="spry-home spry-home-page">
-    <div class="spry-home-header">
-      <a class="spry-home-pill" href="/" aria-label="Home">
-        <span class="spry-home-pill-icon" aria-hidden="true">
+    <header class="spry-home-header-hero">
+      <div class="spry-home-header-content">
+        <p class="spry-home-version-pill">Help Center v2.0</p>
+        <h1>Hello, welcome to your one-stop hub</h1>
+        <p class="spry-home-header-copy">
+          Here, you'll find everything your team needs to get the most out of SPRY, organized by role and daily workflows.
+        </p>
+        <div class="spry-home-header-actions">
+          <a class="spry-home-btn spry-home-btn-primary" href="/front-desk-module">Get Started</a>
+          <a class="spry-home-btn spry-home-btn-secondary" href="/">Browse Guides</a>
+        </div>
+      </div>
+
+      <div class="spry-home-header-visual" aria-hidden="true">
+        <div class="spry-home-header-visual-inner">
           <svg viewBox="0 0 24 24" role="presentation" focusable="false">
-            <path d="M12 3l9 7h-2v9a2 2 0 0 1-2 2h-3v-6H10v6H7a2 2 0 0 1-2-2v-9H3l9-7Z" />
+            <path d="M12 6.75c-1.7-1.1-3.79-1.75-5.87-1.75A1.89 1.89 0 0 0 4.25 6.9v9.35A1.75 1.75 0 0 0 6 18c2.04 0 4.16.64 5.69 1.71.19.14.41.21.63.21.22 0 .44-.07.63-.21C14.48 18.64 16.6 18 18.64 18a1.75 1.75 0 0 0 1.75-1.75V6.9A1.89 1.89 0 0 0 18.51 5c-2.08 0-4.17.65-5.87 1.75Zm-.75 10.86A13.06 13.06 0 0 0 6 16.25V7.05c1.79.02 3.71.54 5.25 1.43Zm1.5 0V8.48c1.54-.89 3.46-1.41 5.25-1.43v9.2a13.06 13.06 0 0 0-5.25 1.36Z" />
           </svg>
-        </span>
-      </a>
-      <h1>Spry Help Center</h1>
-      <p class="spry-home-sub">Home</p>
-      <p class="spry-home-meta">2 guides · 7 sub-collections</p>
-      <div class="spry-home-divider" aria-hidden="true"></div>
-    </div>
+        </div>
+      </div>
+    </header>
 
-    <div class="spry-home-hero">
-      <img src="/assets/download.png" alt="Spry help center" loading="eager" />
-    </div>
+    <section class="spry-module-section" aria-label="Explore by Module">
+      <div class="spry-module-header">
+        <h2>Explore by Module</h2>
+        <p>Browse comprehensive guides organized by your workflow</p>
+      </div>
 
-    <div class="spry-home-copy">
-      <h2>Hello, welcome to your one-stop hub for guides, videos, and step-by-step workflows.</h2>
-      <p>
-        Here, you'll find everything your team needs to get the most out of SPRY, organized by role and daily tasks.
-      </p>
-      <p>
-        Use the search bar above to jump right into answers, or browse the categories on the left.
-      </p>
-    </div>
+      <div class="spry-module-grid">
+        {moduleCards.map((card) => (
+          <a class="spry-module-card" href={card.href}>
+            <div class="spry-module-card-top">
+              <div class="spry-module-icon" aria-hidden="true">
+                {card.icon === 'book' && (
+                  <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                    <path d="M12 5.75c-1.56-1-3.48-1.6-5.39-1.6A1.73 1.73 0 0 0 4.9 5.9v9.43A1.6 1.6 0 0 0 6.5 16.9c1.87 0 3.82.58 5.23 1.55a.52.52 0 0 0 .54 0c1.41-.97 3.36-1.55 5.23-1.55a1.6 1.6 0 0 0 1.6-1.57V5.9a1.73 1.73 0 0 0-1.71-1.75c-1.91 0-3.83.6-5.39 1.6Zm-.7 10.6a12 12 0 0 0-4.95-1.25V6.1c1.68.04 3.45.54 4.95 1.38Zm1.4 0V7.48c1.5-.84 3.27-1.34 4.95-1.38v8.99a12 12 0 0 0-4.95 1.26Z" />
+                  </svg>
+                )}
+                {card.icon === 'doc' && (
+                  <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                    <path d="M7 3.75h6.6a2 2 0 0 1 1.42.59l1.64 1.64a2 2 0 0 1 .59 1.42v10.85a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-12.5a2 2 0 0 1 2-2Zm0 1.5a.5.5 0 0 0-.5.5v12.5a.5.5 0 0 0 .5.5h8.25a.5.5 0 0 0 .5-.5V7.4l-2.2-2.15Zm2 5h5v1.4H9Zm0 3h5v1.4H9Z" />
+                  </svg>
+                )}
+                {card.icon === 'video' && (
+                  <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                    <path d="M7 6h7.6a2 2 0 0 1 2 2v2.2l2.4-1.55a1 1 0 0 1 1.55.84v5.02a1 1 0 0 1-1.55.84L16.6 13.8V16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 1.5a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h7.6a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.5-.5Z" />
+                  </svg>
+                )}
+                {card.icon === 'help' && (
+                  <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                    <path d="M12 3.75a8.25 8.25 0 1 0 8.25 8.25A8.26 8.26 0 0 0 12 3.75Zm0 15a6.75 6.75 0 1 1 6.75-6.75A6.76 6.76 0 0 1 12 18.75Zm-.15-3.15h1.5v1.5h-1.5Zm.95-8.1a2.6 2.6 0 0 0-2.8 1.45l1.3.66a1.14 1.14 0 0 1 1.22-.63c.65 0 1.13.34 1.13.86 0 .5-.3.8-1.06 1.23-.98.56-1.68 1.1-1.68 2.37v.3h1.5v-.22c0-.72.32-1.04 1.13-1.5.91-.52 1.61-1.1 1.61-2.2 0-1.34-1.16-2.32-2.35-2.32Z" />
+                  </svg>
+                )}
+              </div>
+              <span class="spry-module-chip">{card.chip}</span>
+            </div>
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+            <div class="spry-module-card-footer">
+              <span>{card.count} guides available</span>
+              <span class="spry-module-arrow" aria-hidden="true">›</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="spry-popular-section" aria-label="Popular Articles">
+      <div class="spry-popular-header">
+        <h2>Popular Articles</h2>
+        <p>Quick access to frequently viewed guides</p>
+      </div>
+
+      <div class="spry-popular-grid">
+        {popularArticles.map((article) => (
+          <a class="spry-popular-card" href={article.href}>
+            <span class="spry-popular-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                <path d="M7 3.75h6.6a2 2 0 0 1 1.42.59l1.64 1.64a2 2 0 0 1 .59 1.42v10.85a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-12.5a2 2 0 0 1 2-2Zm0 1.5a.5.5 0 0 0-.5.5v12.5a.5.5 0 0 0 .5.5h8.25a.5.5 0 0 0 .5-.5V7.4l-2.2-2.15Zm2 5h5v1.4H9Zm0 3h5v1.4H9Z" />
+              </svg>
+            </span>
+            <span class="spry-popular-title">{article.title}</span>
+            <span class="spry-popular-arrow" aria-hidden="true">›</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="spry-home-help-section" aria-label="Need help">
+      <h2>Still need help?</h2>
+      <p>Can't find what you're looking for? Our support team is here to assist you.</p>
+      <div class="spry-home-help-actions">
+        <a class="spry-home-help-btn spry-home-help-btn-primary" href="mailto:support@sprypt.com">
+          Contact Support
+        </a>
+        <a class="spry-home-help-btn spry-home-help-btn-secondary" href="/new-features">
+          Request Feature
+        </a>
+      </div>
+    </section>
   </section>
 </StarlightPage>

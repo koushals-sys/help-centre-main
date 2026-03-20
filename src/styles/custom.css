@@ -74,39 +74,49 @@
 
 /* Light mode */
 :root {
-  --sl-color-accent-low:  #e5d4f0;   /* soft lavender tint */
-  --sl-color-accent:      #4B2C68;   /* SPRY logo purple   */
-  --sl-color-accent-high: #2b1840;   /* deep purple        */
+  --sl-color-accent-low: #deccec;
+  --sl-color-accent: #65219c;
+  --sl-color-accent-high: #3e1150;
 }
 
 
 /* ─── Modern UI Pass ─────────────────────────────────────────────────────── */
 :root {
-  --spry-ink: #141a24;
-  --spry-ink-muted: #4a5468;
+  --spry-purple-dark: #3e1150;
+  --spry-purple: #65219c;
+  --spry-purple-medium: #8055c4;
+  --spry-purple-light: #deccec;
+  --spry-ink: #1a1a1a;
+  --spry-ink-muted: #6b6b7b;
   --spry-panel: #ffffff;
-  --spry-panel-border: #e6ebf2;
-  --spry-glow: rgba(20, 26, 36, 0.06);
-  --spry-glow-strong: rgba(20, 26, 36, 0.12);
+  --spry-panel-border: rgba(62, 17, 80, 0.1);
+  --spry-glow: rgba(62, 17, 80, 0.08);
+  --spry-glow-strong: rgba(62, 17, 80, 0.18);
   --spry-sheen: rgba(255, 255, 255, 0.65);
-  --spry-bg: #f0eefb;
-  --spry-bg-alt: #eae7f7;
-  --spry-accent: #4b2c68;
-  --spry-accent-2: #1b7f8a;
-  --spry-radius: 16px;
-  --spry-radius-lg: 20px;
-  --spry-shadow: 0 20px 40px -28px rgba(20, 26, 36, 0.5);
+  --spry-bg: #ffffff;
+  --spry-bg-alt: #f8f6fa;
+  --spry-accent: #65219c;
+  --spry-accent-2: #8055c4;
+  --spry-radius: 14px;
+  --spry-radius-lg: 16px;
+  --spry-shadow: 0 16px 34px -28px rgba(62, 17, 80, 0.42);
 
   /* Starlight theme surface overrides */
   --sl-color-bg: var(--spry-bg);
-  --sl-color-bg-sidebar: var(--spry-bg);
+  --sl-color-bg-sidebar: #fafafe;
   --sl-color-bg-nav: var(--spry-bg);
+  --sl-color-text: var(--spry-ink);
+  --sl-color-gray-1: var(--spry-ink);
+  --sl-color-gray-2: var(--spry-ink-muted);
 }
 
 body {
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--spry-ink);
-  background: var(--spry-bg);
+  background:
+    radial-gradient(circle at 10% -10%, rgba(128, 85, 196, 0.08), transparent 34%),
+    radial-gradient(circle at 100% 0%, rgba(222, 204, 236, 0.35), transparent 28%),
+    var(--spry-bg);
 }
 
 h1, h2 {
@@ -119,9 +129,9 @@ h3, h4, h5, h6 {
 
 .sl-header {
   backdrop-filter: blur(12px);
-  background: var(--spry-bg) !important;
-  border-bottom: 1px solid rgba(75, 44, 104, 0.06);
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-bottom: 1px solid rgba(62, 17, 80, 0.08);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .sl-header img,
@@ -168,21 +178,21 @@ h3, h4, h5, h6 {
 }
 
 .sl-sidebar {
-  background: var(--spry-bg) !important;
-  border-right: 1px solid rgba(75, 44, 104, 0.06);
-  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.6);
+  background: #f2f2f6 !important;
+  border-right: 1px solid rgba(62, 17, 80, 0.08);
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.7);
 }
 
 /* Ensure the header divider shows across the full topbar */
 .sl-topbar,
 .sl-nav {
-  border-bottom: 1px solid rgba(75, 44, 104, 0.06);
+  border-bottom: 1px solid rgba(62, 17, 80, 0.08);
 }
 
 /* Subtle separators in the sidebar */
 .sl-sidebar details > summary,
 .sl-sidebar a {
-  border-bottom: 1px solid rgba(75, 44, 104, 0.04);
+  border-bottom: none;
 }
 
 .sl-sidebar li:last-child > a,
@@ -200,22 +210,170 @@ h3, h4, h5, h6 {
 .sl-topbar,
 .sl-layout,
 .sl-layout > * {
-  background: var(--spry-bg) !important;
+  background: transparent !important;
+}
+
+.sl-sidebar-content,
+.sl-sidebar-panel {
+  background: #f2f2f6 !important;
+}
+
+/* Global layout width reset: remove framework min-width clamps. */
+.sl-layout,
+.sl-container,
+.main-pane,
+.main-frame,
+.sl-content-panel,
+.sl-markdown-content {
+  min-width: 0 !important;
+}
+
+.sl-layout,
+.sl-container,
+.main-pane,
+.main-frame {
+  width: 100%;
+  max-width: none;
+}
+
+.sl-sidebar-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.spry-sidebar-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 7.5rem);
+  padding: 0.45rem 0.45rem 0.75rem;
+}
+
+.spry-sidebar-nav {
+  flex: 1;
 }
 
 .sl-sidebar a {
   color: var(--spry-ink-muted);
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  border-radius: 16px;
+  min-height: 2.25rem;
 }
 
 .sl-sidebar .sidebar-icon {
-  color: #3E1150;
+  color: #202229;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
   opacity: 1;
 }
 
 .sl-sidebar a:hover {
-  color: var(--spry-ink);
-  transform: translateX(2px);
+  color: #202229;
+  background: #d8d2e3;
+}
+
+.sl-sidebar [aria-current='page'] {
+  color: #65219c !important;
+  background-color: color-mix(in oklab, var(--primary, #65219c) 10%, transparent) !important;
+  border: none;
+}
+
+/* Explicit class-targeted override requested for immediate UI effect. */
+.sl-sidebar a.astro-z2zdus5w[aria-current='page'],
+.sl-sidebar .astro-z2zdus5w[aria-current='page'] {
+  background-color: color-mix(in oklab, var(--primary, #65219c) 10%, transparent) !important;
+  color: #65219c !important;
+  border-radius: 16px !important;
+  display: flex !important;
+  width: 100% !important;
+}
+
+.sl-sidebar details > summary:hover {
+  background: #d8d2e3;
+  border-radius: 16px;
+}
+
+.sl-sidebar details[open] > summary {
+  background-color: color-mix(in oklab, var(--primary, #65219c) 10%, transparent);
+  border-radius: 16px;
+}
+
+.sl-sidebar details[open] > summary.astro-z2zdus5w,
+.sl-sidebar details[open] > .astro-z2zdus5w {
+  background-color: color-mix(in oklab, var(--primary, #65219c) 10%, transparent) !important;
+  border-radius: 16px !important;
+}
+
+.sl-sidebar details > summary:has(.astro-z2zdus5w[aria-current='page']) {
+  background-color: color-mix(in oklab, var(--primary, #65219c) 10%, transparent) !important;
+  border-radius: 16px !important;
+}
+
+.sl-sidebar details > summary:has(.group-link[aria-current='page']) {
+  background-color: color-mix(in oklab, var(--primary, #65219c) 10%, transparent) !important;
+  border-radius: 16px !important;
+}
+
+.sl-sidebar details > summary:has(.group-link[aria-current='page']) .caret {
+  color: #65219c !important;
+}
+
+.sl-sidebar details[open] > summary .large,
+.sl-sidebar details[open] > summary .sidebar-icon {
+  color: #65219c;
+}
+
+.spry-support-card {
+  margin-top: auto;
+  border-radius: 1.45rem;
+  padding: 1.3rem 1.05rem 1.05rem;
+  background: linear-gradient(160deg, #65219c, #8055c4);
+  color: #ffffff;
+  box-shadow: 0 18px 30px -24px rgba(62, 17, 80, 0.82);
+}
+
+.spry-support-card h3 {
+  margin: 0 0 0.2rem;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.spry-support-card p {
+  margin: 0 0 0.95rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.35;
+  font-size: 0.9rem;
+}
+
+.spry-support-icon {
+  width: 1.65rem;
+  height: 1.65rem;
+  margin-bottom: 0.45rem;
+  color: #ffffff;
+}
+
+.spry-support-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.spry-support-btn {
+  display: block;
+  text-align: center;
+  border-radius: 1rem;
+  background: #efedf4;
+  color: #65219c;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.spry-support-btn:hover {
+  background: #ffffff;
+  color: #65219c;
 }
 
 .sl-content-panel {
@@ -286,17 +444,794 @@ h3, h4, h5, h6 {
 
 /* ─── Home Hero ─────────────────────────────────────────────────────────── */
 .spry-home {
-  max-width: 900px;
+  max-width: none;
   margin: 0 auto;
-  padding: 1.25rem 0 3rem;
+  padding: 0;
   display: grid;
-  gap: 2rem;
+  gap: 1.75rem;
+}
+
+/* Home page should use the full available viewport area instead of content width. */
+.sl-content-panel:has(.spry-home-page) {
+  max-width: none;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+body:has(.spry-home-page) .main-pane,
+body:has(.spry-home-page) .main-frame,
+body:has(.spry-home-page) .sl-container,
+body:has(.spry-home-page) .sl-content-panel {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+}
+
+body:has(.spry-home-page) .main-pane {
+  --sl-content-margin-inline: 0 !important;
+  --sl-content-pad-top: 0rem !important;
+  margin-inline: 0 !important;
+  padding-top: 0 !important;
+}
+
+body:has(.spry-home-page) .sl-container,
+body:has(.spry-home-page) .sl-markdown-content,
+body:has(.spry-home-page) main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body:has(.spry-home-page) .sl-content-panel:has(.spry-home-page) {
+  margin-top: 0 !important;
+}
+
+/* Starlight-generated wrapper (e.g. content-panel astro-xxxx) is required by the
+   framework, so we flatten it on homepage to avoid extra spacing/layout constraints. */
+body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
+  display: contents;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.sl-content-panel:has(.spry-home-page) .sl-markdown-content {
+  max-width: none;
+  margin: 0;
+}
+
+.spry-home-page {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  padding: 0;
+}
+
+.spry-home-header-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.8rem;
+  padding: 2.4rem 1.75rem 2rem;
+  min-height: 72dvh;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 21% 46%, rgba(124, 57, 210, 0.46), transparent 41%),
+    radial-gradient(circle at 92% 12%, rgba(176, 116, 246, 0.38), transparent 34%),
+    linear-gradient(160deg, #3f0f53 0%, #5f1f92 56%, #7b4ec0 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: none;
+}
+
+.spry-home-header-content h1 {
+  margin: 0.9rem 0 1.15rem;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 4.1vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.spry-home-version-pill {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.42rem 1rem;
+  border-radius: 999px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.spry-home-version-pill::before {
+  content: '';
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.6rem;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.spry-home-header-copy {
+  margin: 0;
+  max-width: 38rem;
+  color: #ffffff;
+  font-size: clamp(0.98rem, 1.35vw, 1.5rem);
+  line-height: 1.5;
+}
+
+.spry-home-header-actions {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.spry-home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 13rem;
+  min-height: 3.95rem;
+  padding: 0.95rem 1.55rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.18s ease, filter 0.2s ease, background-color 0.2s ease;
+}
+
+.spry-home-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.spry-home-btn-primary {
+  background: #f5f2fb;
+  color: #65219c;
+}
+
+.spry-home-btn-primary::after {
+  content: '›';
+  margin-left: 0.62rem;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.spry-home-btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.spry-home-header-content,
+.spry-home-header-content h1,
+.spry-home-header-content p,
+.spry-home-version-pill {
+  color: #ffffff !important;
+}
+
+.spry-home-header-visual {
+  padding: 0.18rem;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(240, 220, 255, 0.16);
+}
+
+.spry-home-header-visual-inner {
+  min-height: 24rem;
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(199, 151, 246, 0.2), rgba(255, 255, 255, 0.08));
+}
+
+.spry-home-header-visual-inner svg {
+  width: min(26%, 8rem);
+  height: auto;
+  fill: #ffffff;
+}
+
+@media (min-width: 64rem) {
+  .spry-home-header-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: 2.15rem;
+    padding: 2.45rem 2rem 1.95rem;
+    align-items: stretch;
+    min-height: 68dvh;
+  }
+
+  .spry-home-header-content {
+    align-self: center;
+  }
+
+  .spry-home-header-visual-inner {
+    min-height: clamp(20rem, 54dvh, 32rem);
+  }
+}
+
+.spry-module-section {
+  padding: 1.4rem 1.5rem 2.5rem;
+  background: transparent;
+}
+
+.spry-module-header h2 {
+  margin: 0;
+  color: #381252;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.spry-module-header p {
+  margin: 0.45rem 0 1.25rem;
+  color: #616779;
+  font-size: 1.15rem;
+}
+
+.spry-module-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.spry-module-card {
+  border: 2px solid #dcd5e6;
+  border-radius: 1.1rem;
+  background: linear-gradient(to bottom, #e4deee 0 60%, #ffffff 60% 100%);
+  text-decoration: none;
+  color: #141a2c;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spry-module-card:hover {
+  border-color: #65219c;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px -22px rgba(62, 17, 80, 0.35);
+}
+
+.spry-module-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.35rem 1.35rem 0;
+}
+
+.spry-module-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #8a1aff;
+  border: 1px solid #ddd8e8;
+  box-shadow: 0 10px 20px -16px rgba(62, 17, 80, 0.45);
+}
+
+.spry-module-icon svg {
+  width: 1.45rem;
+  height: 1.45rem;
+  fill: currentColor;
+}
+
+.spry-module-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.22rem 0.62rem;
+  border-radius: 999px;
+  background: #d0c0df;
+  color: #4b2b67;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.spry-module-card h3 {
+  margin: 1rem 1.35rem 0.4rem;
+  color: #121a2d;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(1.35rem, 2.35vw, 2rem);
+  line-height: 1.2;
+}
+
+.spry-module-card p {
+  margin: 0 1.35rem 1.2rem;
+  color: #374156;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.spry-module-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.35rem;
+  border-top: 1px solid #e2dced;
+  color: #646a7a;
+  font-size: 1rem;
+  background: #ffffff;
+}
+
+.spry-module-arrow {
+  color: #65219c;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+@media (min-width: 64rem) {
+  .spry-module-section {
+    padding: 1.8rem 1.75rem 3rem;
+  }
+
+  .spry-module-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.3rem;
+  }
+
+  .spry-module-card {
+    min-height: 22.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.spry-popular-section {
+  margin: 0 1.5rem 2.8rem;
+  padding: 2rem 1.3rem 1.4rem;
+  border-radius: 1.5rem;
+  border: 2px solid #ddcef2;
+  background: #e7e1ef;
+}
+
+.spry-popular-header h2 {
+  margin: 0;
+  color: #3b1453;
+  font-size: clamp(1.9rem, 3.7vw, 3.1rem);
+  line-height: 1.1;
+  font-weight: 500;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.spry-popular-header p {
+  margin: 0.6rem 0 1.2rem;
+  color: #666d7d;
+  font-size: 1.1rem;
+}
+
+.spry-popular-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+.spry-popular-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 5.35rem;
+  padding: 0.72rem 0.95rem;
+  border-radius: 1.15rem;
+  text-decoration: none;
+  background: #ffffff;
+  color: #20263a;
+  box-shadow: 0 10px 16px -20px rgba(62, 17, 80, 0.35);
+  border: 1px solid #ece7f4;
+}
+
+.spry-popular-icon {
+  width: 2.95rem;
+  height: 2.95rem;
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5dbf3;
+  color: #8a1aff;
+  flex-shrink: 0;
+}
+
+.spry-popular-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.spry-popular-title {
+  color: #1f2434;
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.spry-popular-arrow {
+  margin-left: auto;
+  color: #6f7485;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+/* Article pages: center content with consistent side padding. */
+.spry-article-page {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 64rem) {
+  .spry-popular-section {
+    margin: 0 1.75rem 3.2rem;
+    padding: 2.5rem 1.8rem 1.75rem;
+  }
+
+  .spry-popular-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+
+  .spry-popular-card {
+    min-height: 5.8rem;
+    padding: 0.8rem 1.1rem;
+  }
+}
+
+.spry-home-help-section {
+  margin: 0 1.5rem 3.2rem;
+  padding: 2.3rem 1.5rem 2.4rem;
+  border-radius: 1.7rem;
+  background:
+    radial-gradient(circle at 20% 65%, rgba(128, 73, 202, 0.35), transparent 45%),
+    radial-gradient(circle at 92% 18%, rgba(166, 112, 236, 0.32), transparent 38%),
+    linear-gradient(160deg, #62219a 0%, #6f31a8 52%, #8258c4 100%);
+}
+
+.spry-home-help-section h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.4rem, 4.6vw, 4.1rem);
+  line-height: 1.08;
+  border-bottom: none !important;
+  padding-bottom: 0;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.spry-home-help-section p {
+  margin: 1rem 0 1.6rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(1rem, 1.5vw, 1.8rem);
+  line-height: 1.45;
+  max-width: 62rem;
+}
+
+.spry-home-help-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.spry-home-help-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 13.5rem;
+  min-height: 3.8rem;
+  padding: 0.8rem 1.45rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-size: clamp(1.15rem, 1.35vw, 1.8rem);
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.spry-home-help-btn-primary {
+  background: #f3f3f7;
+  color: #7819d6;
+}
+
+.spry-home-help-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.spry-home-help-btn-secondary:visited,
+.spry-home-help-btn-secondary:hover,
+.spry-home-help-btn-secondary:focus {
+  color: #ffffff !important;
+}
+
+/* ─── Main Category Pages ───────────────────────────────────────────────── */
+.spry-category-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.45rem 1.45rem 2.9rem;
+  background:
+    radial-gradient(circle at 84% 16%, rgba(172, 116, 246, 0.34), transparent 35%),
+    linear-gradient(160deg, #60209a 0%, #6b30a6 55%, #835dc3 100%);
+  color: #ffffff;
+}
+
+.spry-category-hero-icon {
+  width: 3.45rem;
+  height: 3.45rem;
+  border-radius: 0.85rem;
+  background: #ffffff;
+  color: #6b28a2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.spry-category-hero-icon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: currentColor;
+}
+
+.spry-category-hero-content h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 3.8vw, 3.3rem);
+  line-height: 1.1;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.spry-category-hero-content p {
+  margin: 0.55rem 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.06rem;
+  line-height: 1.4;
+}
+
+.spry-category-hero-meta {
+  margin-top: 0.75rem !important;
+  color: rgba(255, 255, 255, 0.76) !important;
+  font-size: 0.98rem !important;
+}
+
+.spry-category-breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.45rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid #e3ddec;
+  background: #fbfbfd;
+}
+
+.spry-category-breadcrumb-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  color: #70758a;
+  font-size: 0.98rem;
+}
+
+.spry-category-breadcrumb-home svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+.spry-category-breadcrumb-sep {
+  color: #8d92a2;
+}
+
+.spry-category-breadcrumb-current {
+  color: #2d3242;
+  font-weight: 600;
+}
+
+.spry-category-content {
+  padding: 1.6rem 1.45rem 2.3rem;
+}
+
+.spry-category-content h2 {
+  margin: 0;
+  color: #3b1453;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.15;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.spry-category-content > p {
+  margin: 0.5rem 0 1.5rem;
+  color: #6a7080;
+  font-size: 1.03rem;
+}
+
+.spry-category-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.spry-category-card {
+  border: 2px solid #e0d9e8;
+  border-radius: 1.05rem;
+  background: #ffffff;
+  text-decoration: none;
+  color: #1f2434;
+  padding: 1.15rem 1rem 0.8rem;
+}
+
+.spry-category-card:hover {
+  border-color: #6d30a7;
+}
+
+.spry-category-card-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: #6f31a8;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spry-category-card-icon svg {
+  width: 1.32rem;
+  height: 1.32rem;
+  fill: currentColor;
+}
+
+.spry-category-card h3 {
+  margin: 0.95rem 0 0.5rem;
+  color: #20263a;
+  font-size: clamp(1.35rem, 1.95vw, 1.95rem);
+  line-height: 1.22;
+  font-weight: 700;
+}
+
+.spry-category-card p {
+  margin: 0 0 1rem;
+  color: #61697b;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.spry-category-card-footer {
+  border-top: 1px solid #ece6f2;
+  padding-top: 0.82rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #6c7386;
+  font-size: 0.98rem;
+}
+
+.spry-category-card-link {
+  margin-left: auto;
+  color: #6d30a7;
+  font-weight: 700;
+}
+
+.spry-category-card-arrow {
+  color: #6d30a7;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+@media (min-width: 64rem) {
+  .spry-category-hero {
+    padding: 1.75rem 1.5rem 3.05rem;
+  }
+
+  .spry-category-content {
+    padding: 1.8rem 1.5rem 2.8rem;
+  }
+
+  .spry-category-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
+
+  .spry-category-card {
+    min-height: 18rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.spry-category-help-section {
+  margin: 0 1.45rem 2.8rem;
+  padding: 1.2rem 1.25rem;
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(173, 118, 238, 0.2), transparent 36%),
+    linear-gradient(165deg, #65219c 0%, #7444b5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.spry-category-help-section h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+  line-height: 1.15;
+  border-bottom: none !important;
+  padding-bottom: 0;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.spry-category-help-section p {
+  margin: 0.35rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.92rem, 1.05vw, 1.1rem);
+  line-height: 1.45;
+}
+
+.spry-category-help-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 11.5rem;
+  min-height: 2.9rem;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #6628a1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 0.95vw, 1.05rem);
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 63.99rem) {
+  .spry-category-help-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .spry-category-help-btn {
+    width: 100%;
+    min-height: 3.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .spry-category-help-section {
+    margin: 0 1.5rem 3.5rem;
+    padding: 1.25rem 1.4rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .spry-home-help-section {
+    margin: 0 1.75rem 4rem;
+    padding: 2.7rem 2rem 2.8rem;
+  }
+
+  .spry-home-help-actions {
+    gap: 1rem;
+  }
 }
 
 .spry-home-header h1 {
   margin: 0.4rem 0 0.25rem;
   font-size: 1.6rem;
   font-weight: 700;
+  color: var(--spry-purple-dark);
 }
 .spry-home-page .sl-markdown-content > h1:first-child,
 .spry-home-page .sl-markdown-content > h1:first-of-type,
@@ -316,7 +1251,8 @@ h3, h4, h5, h6 {
 .spry-home-sub {
   margin: 0;
   font-size: 1rem;
-  color: var(--spry-ink-muted);
+  color: var(--spry-purple);
+  font-weight: 600;
 }
 
 .spry-home-meta {
@@ -327,7 +1263,7 @@ h3, h4, h5, h6 {
 
 .spry-home-divider {
   height: 1px;
-  background: rgba(75, 44, 104, 0.08);
+  background: rgba(62, 17, 80, 0.12);
 }
 
 .spry-home-pill {
@@ -337,10 +1273,10 @@ h3, h4, h5, h6 {
   width: 30px;
   height: 30px;
   border-radius: 10px;
-  border: none;
-  background: rgba(75, 44, 104, 0.1);
-  color: #3E1150;
-  box-shadow: 0 6px 14px -12px rgba(75, 44, 104, 0.35);
+  border: 1px solid rgba(62, 17, 80, 0.14);
+  background: rgba(222, 204, 236, 0.7);
+  color: var(--spry-purple-dark);
+  box-shadow: 0 8px 20px -16px rgba(62, 17, 80, 0.45);
 }
 
 .spry-home-pill-icon {
@@ -353,15 +1289,16 @@ h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   fill: currentColor;
-  color: #3E1150;
+  color: var(--spry-purple-dark);
 }
 
 .spry-home-hero {
-  background: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(75, 44, 104, 0.08);
+  background: linear-gradient(145deg, #ffffff, #f8f6fa);
+  border: 1px solid rgba(62, 17, 80, 0.1);
   border-radius: 16px;
   padding: 1.25rem;
   max-width: 660px;
+  box-shadow: 0 20px 40px -32px rgba(62, 17, 80, 0.42);
 }
 
 .spry-home-hero img {
@@ -374,6 +1311,7 @@ h3, h4, h5, h6 {
   font-size: 2rem;
   line-height: 1.2;
   margin: 0 0 1rem;
+  color: var(--spry-purple-dark);
 }
 
 .spry-home-copy p {
@@ -400,8 +1338,9 @@ h3, h4, h5, h6 {
   width: 28px;
   height: 28px;
   border-radius: 10px;
-  background: rgba(75, 44, 104, 0.12);
-  color: #3E1150;
+  background: rgba(222, 204, 236, 0.62);
+  color: var(--spry-purple-dark);
+  border: 1px solid rgba(62, 17, 80, 0.1);
 }
 
 .spry-breadcrumb-home svg {
@@ -417,7 +1356,7 @@ h3, h4, h5, h6 {
 }
 
 .spry-breadcrumb-sep {
-  color: rgba(75, 44, 104, 0.35);
+  color: rgba(62, 17, 80, 0.35);
 }
 
 .spry-breadcrumb-item a {
@@ -439,7 +1378,7 @@ h3, h4, h5, h6 {
   gap: 8px;
   color: var(--spry-ink);
   text-decoration: none;
-  box-shadow: 0 12px 26px -20px rgba(20, 26, 36, 0.6);
+  box-shadow: 0 10px 24px -22px rgba(62, 17, 80, 0.45);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
@@ -448,9 +1387,9 @@ h3, h4, h5, h6 {
   aspect-ratio: 16 / 9;
   border-radius: 14px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(75, 44, 104, 0.12), rgba(27, 127, 138, 0.08));
+  background: linear-gradient(135deg, rgba(222, 204, 236, 0.72), rgba(248, 246, 250, 0.95));
   margin-bottom: 12px;
-  box-shadow: inset 0 0 0 1px rgba(27, 35, 50, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(62, 17, 80, 0.08);
 }
 
 .spry-card-media img {
@@ -477,7 +1416,7 @@ h3, h4, h5, h6 {
 .spry-card-link {
   margin-top: 8px;
   font-weight: 600;
-  color: var(--spry-accent-2);
+  color: var(--spry-purple);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -485,8 +1424,8 @@ h3, h4, h5, h6 {
 
 .spry-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(75, 44, 104, 0.35);
-  box-shadow: 0 16px 36px -24px rgba(20, 26, 36, 0.7);
+  border-color: rgba(101, 33, 156, 0.35);
+  box-shadow: 0 20px 38px -28px rgba(62, 17, 80, 0.55);
 }
 
 /* ─── Remove "On this page" TOC everywhere ───────────────────────────────── */
