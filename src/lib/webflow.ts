@@ -13,6 +13,8 @@ const labelOverrides: Record<string, string> = {
   'clinicians-module': "Clinician's Module",
   'front-desk-module': 'Front Desk Module',
   'billing-videos': 'Billing Videos',
+  'patient-portal': 'Patient Portal',
+  'reports': 'Reports',
   'new-features': 'New Features',
   'new-updates': 'New Updates',
   'profile-management': 'Profile Management',

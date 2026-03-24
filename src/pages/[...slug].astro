@@ -85,6 +85,8 @@ const topLevelModules = new Set([
   'front-desk-module',
   'clinicians-module',
   'billing-videos',
+  'reports',
+  'patient-portal',
   'new-features',
   'new-updates',
   'packages',
@@ -378,6 +380,23 @@ const moduleSubcollectionCount = isModuleRoot && primarySegment
         .filter(Boolean)
     ).size
   : 0;
+
+function getModuleIconSrc(moduleSlug: string | undefined) {
+  const slug = String(moduleSlug || '').toLowerCase();
+  if (slug === 'front-desk-module') return '/assets/Front desk module.svg';
+  if (slug === 'clinicians-module') return '/assets/Clinicians module.svg';
+  if (slug === 'billing-videos') return '/assets/Billing Videos.svg';
+  if (slug === 'reports') return '/assets/Reports.svg';
+  if (slug === 'patient-portal') return '/assets/patient portal.svg';
+  if (slug === 'packages') return '/assets/Packages.svg';
+  if (slug === 'new-features') return '/assets/New features.svg';
+  if (slug === 'new-updates') return '/assets/New updates.svg';
+  if (slug === 'profile-management') return '/assets/Profile management.svg';
+  if (slug === 'guides') return '/assets/Home.svg';
+  return '';
+}
+
+const moduleHeroIconSrc = isModuleRoot ? getModuleIconSrc(primarySegment) : '';
 ---
 
 <StarlightPage
@@ -395,9 +414,13 @@ const moduleSubcollectionCount = isModuleRoot && primarySegment
       <>
         <header class="spry-category-hero">
           <div class="spry-category-hero-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="presentation" focusable="false">
-              <path d="M12 5.75c-1.56-1-3.48-1.6-5.39-1.6A1.73 1.73 0 0 0 4.9 5.9v9.43A1.6 1.6 0 0 0 6.5 16.9c1.87 0 3.82.58 5.23 1.55a.52.52 0 0 0 .54 0c1.41-.97 3.36-1.55 5.23-1.55a1.6 1.6 0 0 0 1.6-1.57V5.9a1.73 1.73 0 0 0-1.71-1.75c-1.91 0-3.83.6-5.39 1.6Zm-.7 10.6a12 12 0 0 0-4.95-1.25V6.1c1.68.04 3.45.54 4.95 1.38Zm1.4 0V7.48c1.5-.84 3.27-1.34 4.95-1.38v8.99a12 12 0 0 0-4.95 1.26Z" />
-            </svg>
+            {moduleHeroIconSrc ? (
+              <img src={moduleHeroIconSrc} alt="" loading="eager" decoding="async" />
+            ) : (
+              <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                <path d="M12 5.75c-1.56-1-3.48-1.6-5.39-1.6A1.73 1.73 0 0 0 4.9 5.9v9.43A1.6 1.6 0 0 0 6.5 16.9c1.87 0 3.82.58 5.23 1.55a.52.52 0 0 0 .54 0c1.41-.97 3.36-1.55 5.23-1.55a1.6 1.6 0 0 0 1.6-1.57V5.9a1.73 1.73 0 0 0-1.71-1.75c-1.91 0-3.83.6-5.39 1.6Zm-.7 10.6a12 12 0 0 0-4.95-1.25V6.1c1.68.04 3.45.54 4.95 1.38Zm1.4 0V7.48c1.5-.84 3.27-1.34 4.95-1.38v8.99a12 12 0 0 0-4.95 1.26Z" />
+              </svg>
+            )}
           </div>
           <div class="spry-category-hero-content">
             <h1>{viewTitle}</h1>
@@ -535,7 +558,6 @@ const moduleSubcollectionCount = isModuleRoot && primarySegment
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
                 <div class="spry-category-card-footer">
-                  <span>{card.count || 0} articles</span>
                   <span class="spry-category-card-link">View Guide</span>
                   <span class="spry-category-card-arrow" aria-hidden="true">›</span>
                 </div>
@@ -551,7 +573,7 @@ const moduleSubcollectionCount = isModuleRoot && primarySegment
               Contact our support team for personalized assistance with {viewTitle.toLowerCase()} operations.
             </p>
           </div>
-          <a class="spry-category-help-btn" href="mailto:support@sprypt.com">Contact Support</a>
+          <a class="spry-category-help-btn" href="mailto:support@spryhealth.care">Contact Support</a>
         </section>
       </>
     ) : (

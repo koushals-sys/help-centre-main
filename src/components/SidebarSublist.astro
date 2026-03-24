@@ -44,6 +44,8 @@ function normalizeLinkHref(entry: SidebarEntry) {
     'front-desk-module',
     'clinicians-module',
     'billing-videos',
+    'reports',
+    'patient-portal',
     'new-features',
     'new-updates',
     'packages',
@@ -69,6 +71,8 @@ function normalizeGroupHref(href: string) {
     'front-desk-module',
     'clinicians-module',
     'billing-videos',
+    'reports',
+    'patient-portal',
     'new-features',
     'new-updates',
     'packages',
@@ -103,6 +107,28 @@ function isEntryActive(entry: SidebarEntry): boolean {
     return flattenSidebar(entry.entries).some((child) => isEntryActive(child));
   }
   return false;
+}
+
+function normalizeSidebarLabel(label: string) {
+  const text = (label || '').trim();
+  if (!text) return text;
+  if (text.toLowerCase().includes('new login guide')) return 'Home';
+  return text;
+}
+
+function getSidebarIconSrc(label: string) {
+  const text = (label || '').toLowerCase();
+  if (text.includes('home') || text.includes('new login guide')) return '/assets/Home.svg';
+  if (text.includes('front desk')) return '/assets/Front desk module.svg';
+  if (text.includes('clinician')) return '/assets/Clinicians module.svg';
+  if (text.includes('profile')) return '/assets/Profile management.svg';
+  if (text.includes('billing')) return '/assets/Billing Videos.svg';
+  if (text.includes('reports')) return '/assets/Reports.svg';
+  if (text.includes('patient portal')) return '/assets/patient portal.svg';
+  if (text.includes('packages')) return '/assets/Packages.svg';
+  if (text.includes('new features')) return '/assets/New features.svg';
+  if (text.includes('new updates')) return '/assets/New updates.svg';
+  return '';
 }
 
 const iconMap = {
@@ -153,7 +179,16 @@ function getIconKey(label: string) {
           >
             {(() => {
               if (nested) return null;
-              const iconKey = getIconKey(entry.label);
+              const linkLabel = normalizeSidebarLabel(splitLabel(entry.label || '').text || entry.label || '');
+              const iconSrc = getSidebarIconSrc(linkLabel);
+              if (iconSrc) {
+                return (
+                  <span class="sidebar-icon" aria-hidden="true">
+                    <img src={iconSrc} alt="" loading="eager" decoding="async" />
+                  </span>
+                );
+              }
+              const iconKey = getIconKey(linkLabel);
               const icon = iconMap[iconKey as keyof typeof iconMap];
               return icon ? (
                 <span class="sidebar-icon" aria-hidden="true">
@@ -163,7 +198,7 @@ function getIconKey(label: string) {
                 </span>
               ) : null;
             })()}
-            <span>{entry.label}</span>
+            <span>{normalizeSidebarLabel(splitLabel(entry.label || '').text || entry.label || '')}</span>
             {entry.badge && (
               <span class:list={['spry-badge', entry.badge.class]}>
                 {entry.badge.text}
@@ -179,7 +214,16 @@ function getIconKey(label: string) {
                 {(() => {
                   if (nested) return null;
                   const data = splitLabel(entry.label);
-                  const iconKey = getIconKey(data.text || entry.label);
+                  const displayLabel = normalizeSidebarLabel(data.text || entry.label || '');
+                  const iconSrc = getSidebarIconSrc(displayLabel);
+                  if (iconSrc) {
+                    return (
+                      <span class="sidebar-icon" aria-hidden="true">
+                        <img src={iconSrc} alt="" loading="eager" decoding="async" />
+                      </span>
+                    );
+                  }
+                  const iconKey = getIconKey(displayLabel);
                   const icon = iconMap[iconKey as keyof typeof iconMap];
                   return icon ? (
                     <span class="sidebar-icon" aria-hidden="true">
@@ -191,14 +235,15 @@ function getIconKey(label: string) {
                 })()}
                 {(() => {
                   const data = splitLabel(entry.label);
+                  const displayLabel = normalizeSidebarLabel(data.text || entry.label || '');
                   const groupHref = data.href ? normalizeGroupHref(data.href) : '';
                   const groupIsCurrent = groupHref === currentPath || groupHref === currentShortPath;
                   return data.href ? (
                     <a class="group-link" href={groupHref} aria-current={groupIsCurrent ? 'page' : undefined}>
-                      <span class="large">{data.text}</span>
+                      <span class="large">{displayLabel}</span>
                     </a>
                   ) : (
-                    <span class="large">{entry.label}</span>
+                    <span class="large">{displayLabel}</span>
                   );
                 })()}
                 {entry.badge && (
@@ -256,6 +301,13 @@ function getIconKey(label: string) {
       width: 100%;
       height: 100%;
       fill: currentColor;
+    }
+
+    .sidebar-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .group-link {

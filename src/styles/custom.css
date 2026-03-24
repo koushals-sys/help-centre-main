@@ -519,10 +519,7 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   padding: 2.4rem 1.75rem 2rem;
   min-height: 72dvh;
   border-radius: 0;
-  background:
-    radial-gradient(circle at 21% 46%, rgba(124, 57, 210, 0.46), transparent 41%),
-    radial-gradient(circle at 92% 12%, rgba(176, 116, 246, 0.38), transparent 34%),
-    linear-gradient(160deg, #3f0f53 0%, #5f1f92 56%, #7b4ec0 100%);
+  background: linear-gradient(160deg, #3e1150 0%, #65219c 50%, #8055c4 100%);
   color: #ffffff;
   border: none;
   box-shadow: none;
@@ -621,25 +618,35 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 }
 
 .spry-home-header-visual {
-  padding: 0.18rem;
-  border-radius: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(240, 220, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0;
 }
 
 .spry-home-header-visual-inner {
   min-height: 24rem;
-  border-radius: 1.2rem;
+  width: min(100%, 46rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(199, 151, 246, 0.2), rgba(255, 255, 255, 0.08));
+  background: transparent;
 }
 
-.spry-home-header-visual-inner svg {
-  width: min(26%, 8rem);
+.spry-home-header-visual-inner img {
+  width: 100%;
+  max-height: none;
   height: auto;
-  fill: #ffffff;
+  object-fit: contain;
+  transform: scale(1.24);
+  transform-origin: center;
+  filter: drop-shadow(0 28px 42px rgba(47, 14, 66, 0.45));
+}
+
+@media (max-width: 63.99rem) {
+  .spry-home-header-visual-inner img {
+    transform: scale(1.12);
+  }
 }
 
 @media (min-width: 64rem) {
@@ -657,6 +664,7 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 
   .spry-home-header-visual-inner {
     min-height: clamp(20rem, 54dvh, 32rem);
+    width: min(100%, 54rem);
   }
 }
 
@@ -667,15 +675,22 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 
 .spry-module-header h2 {
   margin: 0;
-  color: #381252;
+  color: #3E1150;
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.01em;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.spry-home-page .spry-module-header h2 {
+  font-weight: 700 !important;
 }
 
 .spry-module-header p {
-  margin: 0.45rem 0 1.25rem;
+  margin: 0.9rem 0 1.25rem;
   color: #616779;
   font-size: 1.15rem;
 }
@@ -687,13 +702,29 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 }
 
 .spry-module-card {
-  border: 2px solid #dcd5e6;
+  border: 1px solid #c9c2d5;
   border-radius: 1.1rem;
-  background: linear-gradient(to bottom, #e4deee 0 60%, #ffffff 60% 100%);
+  background: #f7f2ff;
   text-decoration: none;
   color: #141a2c;
   overflow: hidden;
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spry-module-grid .spry-module-card:nth-child(1) {
+  background: linear-gradient(180deg, #faf5ff 0%, #f3e8ff 100%);
+}
+
+.spry-module-grid .spry-module-card:nth-child(2) {
+  background: linear-gradient(180deg, #f3e8ff 0%, #e9d4ff 100%);
+}
+
+.spry-module-grid .spry-module-card:nth-child(3) {
+  background: linear-gradient(180deg, #faf5ff 0%, #e0e7ff 100%);
+}
+
+.spry-module-grid .spry-module-card:nth-child(4) {
+  background: linear-gradient(180deg, #f5f3ff 0%, #f3e8ff 100%);
 }
 
 .spry-module-card:hover {
@@ -734,7 +765,7 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   justify-content: center;
   padding: 0.22rem 0.62rem;
   border-radius: 999px;
-  background: #d0c0df;
+  background: #c7b3df;
   color: #4b2b67;
   font-size: 1rem;
   font-weight: 600;
@@ -742,10 +773,19 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 
 .spry-module-card h3 {
   margin: 1rem 1.35rem 0.4rem;
-  color: #121a2d;
+  color: #101828;
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: clamp(1.35rem, 2.35vw, 2rem);
+  font-weight: 700;
   line-height: 1.2;
+}
+
+.spry-module-card:hover h3 {
+  color: #4b2c68;
+}
+
+.spry-home-page .spry-module-card h3 {
+  font-weight: 700 !important;
 }
 
 .spry-module-card p {
@@ -759,12 +799,19 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   margin-top: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 1rem 1.35rem;
-  border-top: 1px solid #e2dced;
-  color: #646a7a;
-  font-size: 1rem;
-  background: #ffffff;
+  border-top: 1px solid #d5cfdf;
+  background: #f6f5f8;
+}
+
+.spry-module-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #65219c;
+  font-size: 0.98rem;
+  font-weight: 600;
 }
 
 .spry-module-arrow {
@@ -795,7 +842,7 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   padding: 2rem 1.3rem 1.4rem;
   border-radius: 1.5rem;
   border: 2px solid #ddcef2;
-  background: #e7e1ef;
+  background: linear-gradient(180deg, #faf5ff 0%, #f3e8ff 100%);
 }
 
 .spry-popular-header h2 {
@@ -803,8 +850,10 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   color: #3b1453;
   font-size: clamp(1.9rem, 3.7vw, 3.1rem);
   line-height: 1.1;
-  font-weight: 500;
+  font-weight: 700;
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .spry-popular-header p {
@@ -853,8 +902,8 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 
 .spry-popular-title {
   color: #1f2434;
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   line-height: 1.2;
 }
 
@@ -903,6 +952,7 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   margin: 0;
   color: #ffffff;
   font-size: clamp(2.4rem, 4.6vw, 4.1rem);
+  font-weight: 700;
   line-height: 1.08;
   border-bottom: none !important;
   padding-bottom: 0;
@@ -984,6 +1034,12 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   fill: currentColor;
 }
 
+.spry-category-hero-icon img {
+  width: 1.6rem;
+  height: 1.6rem;
+  object-fit: contain;
+}
+
 .spry-category-hero-content h1 {
   margin: 0;
   color: #ffffff;
@@ -1049,6 +1105,8 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   font-size: clamp(1.8rem, 3vw, 2.7rem);
   line-height: 1.15;
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .spry-category-content > p {
@@ -1095,10 +1153,14 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 
 .spry-category-card h3 {
   margin: 0.95rem 0 0.5rem;
-  color: #20263a;
+  color: #000000;
   font-size: clamp(1.35rem, 1.95vw, 1.95rem);
   line-height: 1.22;
   font-weight: 700;
+}
+
+.spry-category-card:hover h3 {
+  color: #4b2c68;
 }
 
 .spry-category-card p {
@@ -1622,7 +1684,7 @@ a[href*='/edit/'],
 
 /* h2 — section divider with subtle purple underline */
 .sl-markdown-content h2 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.3;
@@ -1632,14 +1694,55 @@ a[href*='/edit/'],
   border-bottom: 2px solid var(--sl-color-accent-low);
 }
 
+/* Homepage section titles should not use global markdown h2 underlines. */
+.sl-markdown-content .spry-home-page .spry-module-header h2,
+.sl-markdown-content .spry-home-page .spry-popular-header h2 {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+/* Category pages: keep "All Guides" heading without underline. */
+.sl-markdown-content .spry-category-content h2 {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+/* Listing pages: remove divider under "Articles" / "Subcategories" heading. */
+.sl-markdown-content section:has(> .spry-card-grid) > h2 {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
 /* h3 — step labels: compact, brand-purple, clearly subordinate to h1 */
 .sl-markdown-content h3 {
-  font-size: 1.05rem;          /* ~17px — readable but not oversized   */
-  font-weight: 600;            /* semi-bold: present without being heavy */
+  font-size: 1rem;          /* ~17px — readable but not oversized   */
+  font-weight: 700;
   line-height: 1.4;
   margin-top: 2rem;            /* generous space above each step        */
   margin-bottom: 0.3rem;       /* tight gap before step body text       */
-  color: #4B2C68;              /* SPRY logo purple — pops vs body text  */
+  color: #65219c;
   letter-spacing: 0.01em;
+}
+
+/* Keep category/main-folder card titles black until hover. */
+.sl-markdown-content .spry-category-card h3,
+.sl-markdown-content .spry-card h3 {
+  color: #000000;
+}
+
+.sl-markdown-content .spry-category-card:hover h3,
+.sl-markdown-content .spry-card:hover h3 {
+  color: #4b2c68;
+}
+
+/* Article step labels are rendered as paragraph-leading <strong> text. */
+.sl-markdown-content .spry-article-page p {
+  font-weight: 700;
+  color: #65219c;
+}
+
+.sl-markdown-content .spry-article-page p > strong:first-child {
+  color: #65219c;
+  font-weight: 700;
 }
 
