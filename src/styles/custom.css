@@ -1715,7 +1715,7 @@ a[href*='/edit/'],
 
 /* h3 — step labels: compact, brand-purple, clearly subordinate to h1 */
 .sl-markdown-content h3 {
-  font-size: 1rem;          /* ~17px — readable but not oversized   */
+  font-size: 1.2rem;          /* ~17px — readable but not oversized   */
   font-weight: 700;
   line-height: 1.4;
   margin-top: 2rem;            /* generous space above each step        */
