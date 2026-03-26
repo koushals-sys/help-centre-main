@@ -120,7 +120,7 @@ body {
 }
 
 h1, h2 {
-  font-family: 'Recoleta', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 h3, h4, h5, h6 {
@@ -288,6 +288,13 @@ h3, h4, h5, h6 {
   width: 100% !important;
 }
 
+/* Make the label text (including elements with class `large`) purple when active */
+.sl-sidebar .astro-z2zdus5w[aria-current='page'],
+.sl-sidebar .astro-z2zdus5w[aria-current='page'] .large,
+.sl-sidebar .large.astro-z2zdus5w[aria-current='page'] {
+  color: #65219c !important;
+}
+
 .sl-sidebar details > summary:hover {
   background: #d8d2e3;
   border-radius: 16px;
@@ -318,9 +325,36 @@ h3, h4, h5, h6 {
   color: #65219c !important;
 }
 
+/* Target explicit combination used in markup: `.group-link.astro-z2zdus5w` */
+.sl-sidebar .group-link.astro-z2zdus5w[aria-current='page'],
+.sl-sidebar .group-link.astro-z2zdus5w[aria-current='page'] .large {
+  color: #65219c !important;
+}
+
+/* If the parent summary contains an active `.group-link.astro-z2zdus5w`, ensure the summary and label turn purple */
+.sl-sidebar details > summary:has(.group-link.astro-z2zdus5w[aria-current='page']),
+.sl-sidebar details > summary:has(.group-link.astro-z2zdus5w[aria-current='page']) .group-label,
+.sl-sidebar details > summary:has(.group-link.astro-z2zdus5w[aria-current='page']) .large {
+  color: #65219c !important;
+}
+
 .sl-sidebar details[open] > summary .large,
 .sl-sidebar details[open] > summary .sidebar-icon {
   color: #65219c;
+}
+
+.sl-sidebar details[open] > summary .group-link,
+.sl-sidebar details[open] > summary .group-link .large,
+.sl-sidebar details[open] > summary .caret {
+  color: #65219c !important;
+}
+
+.sl-sidebar details[open] > summary,
+.sl-sidebar details[open] > summary .large,
+.sl-sidebar details[open] > summary .group-label,
+.sl-sidebar details[open] > summary .group-link,
+.sl-sidebar details[open] > summary .group-link .large {
+  color: #65219c !important;
 }
 
 .spry-support-card {
@@ -424,9 +458,11 @@ h3, h4, h5, h6 {
 }
 
 .sl-markdown-content a {
-  color: var(--spry-accent-2);
+  color: #1A1A1A;
   text-decoration: none;
   border-bottom: 1px solid rgba(27, 127, 138, 0.25);
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 .sl-markdown-content a:hover {
@@ -633,15 +669,16 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   background: transparent;
 }
 
-.spry-home-header-visual-inner img {
-  width: 100%;
-  max-height: none;
-  height: auto;
-  object-fit: contain;
-  transform: scale(1.24);
-  transform-origin: center;
-  filter: drop-shadow(0 28px 42px rgba(47, 14, 66, 0.45));
-}
+    .spry-home-header-visual-inner img {
+      width: auto;
+      max-width: 420px; /* keep hero minimal */
+      max-height: none;
+      height: auto;
+      object-fit: contain;
+      transform: none;
+      transform-origin: center;
+      filter: drop-shadow(0 18px 30px rgba(47, 14, 66, 0.35));
+    }
 
 @media (max-width: 63.99rem) {
   .spry-home-header-visual-inner img {
@@ -665,6 +702,10 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   .spry-home-header-visual-inner {
     min-height: clamp(20rem, 54dvh, 32rem);
     width: min(100%, 54rem);
+  }
+
+  .spry-home-header-visual-inner img {
+    max-width: 420px; /* keep hero minimal on large screens */
   }
 }
 
@@ -754,8 +795,8 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 }
 
 .spry-module-icon svg {
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 2.45rem;
+  height: 2.45rem;
   fill: currentColor;
 }
 
@@ -889,15 +930,15 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #e5dbf3;
+  background: #F3E8FF;
   color: #8a1aff;
   flex-shrink: 0;
 }
 
 .spry-popular-icon svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  fill: currentColor;
+  width: 2.25rem;
+  height: 2.25rem;
+  fill: #9810FA;
 }
 
 .spry-popular-title {
@@ -921,6 +962,10 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   padding-inline: clamp(1rem, 3vw, 2.5rem);
 }
 
+body:has(.spry-article-page) {
+  background: #ffffff;
+}
+
 @media (min-width: 64rem) {
   .spry-popular-section {
     margin: 0 1.75rem 3.2rem;
@@ -939,8 +984,6 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 }
 
 .spry-home-help-section {
-  margin: 0 1.5rem 3.2rem;
-  padding: 2.3rem 1.5rem 2.4rem;
   border-radius: 1.7rem;
   background:
     radial-gradient(circle at 20% 65%, rgba(128, 73, 202, 0.35), transparent 45%),
@@ -977,12 +1020,10 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 13.5rem;
-  min-height: 3.8rem;
   padding: 0.8rem 1.45rem;
   border-radius: 1rem;
   text-decoration: none;
-  font-size: clamp(1.15rem, 1.35vw, 1.8rem);
+  font-size: 1rem;
   font-weight: 700;
   border: 1px solid transparent;
 }
@@ -1127,7 +1168,7 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   background: #ffffff;
   text-decoration: none;
   color: #1f2434;
-  padding: 1.15rem 1rem 0.8rem;
+  padding: 1rem 1rem 0.65rem;
 }
 
 .spry-category-card:hover {
@@ -1152,7 +1193,7 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 }
 
 .spry-category-card h3 {
-  margin: 0.95rem 0 0.5rem;
+  margin: 0.75rem 0 0.35rem;
   color: #000000;
   font-size: clamp(1.35rem, 1.95vw, 1.95rem);
   line-height: 1.22;
@@ -1164,15 +1205,15 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 }
 
 .spry-category-card p {
-  margin: 0 0 1rem;
+  margin: 0 0 0.65rem;
   color: #61697b;
   font-size: 1rem;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .spry-category-card-footer {
   border-top: 1px solid #ece6f2;
-  padding-top: 0.82rem;
+  padding-top: 0.55rem;
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -1207,9 +1248,7 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   }
 
   .spry-category-card {
-    min-height: 18rem;
-    display: flex;
-    flex-direction: column;
+    min-height: 0;
   }
 }
 
@@ -1490,6 +1529,69 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   box-shadow: 0 20px 38px -28px rgba(62, 17, 80, 0.55);
 }
 
+/* ─── Article Bottom CTA (Previous/Next) ────────────────────────────────── */
+body:has(.spry-article-page) .pagination-links {
+  margin-top: 1.4rem;
+  gap: 0.9rem;
+}
+
+body:has(.spry-article-page) .pagination-links a {
+  border: 1px solid #e3d8ef;
+  border-radius: 1.2rem;
+  background: #ffffff;
+  box-shadow: 0 12px 22px -22px rgba(62, 17, 80, 0.28);
+  padding: 0.95rem 1.1rem;
+  min-height: 6.6rem;
+  gap: 0.8rem;
+  color: #475467;
+}
+
+body:has(.spry-article-page) .pagination-links a:hover {
+  border-color: #d7c5ea;
+  box-shadow: 0 16px 28px -24px rgba(62, 17, 80, 0.32);
+}
+
+body:has(.spry-article-page) .pagination-links a > span {
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+body:has(.spry-article-page) .pagination-links .link-title {
+  display: inline-block;
+  margin-top: 0.18rem;
+  color: #101828;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(1.05rem, 1.4vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+body:has(.spry-article-page) .pagination-links a > svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0.55rem;
+  border-radius: 0.9rem;
+  background: #eadff5;
+  color: #6d30a7;
+  box-sizing: content-box;
+}
+
+@media (max-width: 63.99rem) {
+  body:has(.spry-article-page) .pagination-links a {
+    min-height: 6rem;
+    padding: 0.85rem 0.95rem;
+    border-radius: 1rem;
+  }
+
+  body:has(.spry-article-page) .pagination-links a > span {
+    font-size: 1rem;
+  }
+
+  body:has(.spry-article-page) .pagination-links .link-title {
+    font-size: clamp(0.98rem, 4vw, 1.25rem);
+  }
+}
+
 /* ─── Remove "On this page" TOC everywhere ───────────────────────────────── */
 starlight-toc,
 .right-sidebar-panel,
@@ -1688,7 +1790,6 @@ a[href*='/edit/'],
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.3;
-  margin-top: 2rem;
   margin-bottom: 0.75rem;
   padding-bottom: 0.35em;
   border-bottom: 2px solid var(--sl-color-accent-low);
@@ -1715,7 +1816,7 @@ a[href*='/edit/'],
 
 /* h3 — step labels: compact, brand-purple, clearly subordinate to h1 */
 .sl-markdown-content h3 {
-  font-size: 1.2rem;          /* ~17px — readable but not oversized   */
+  font-size: 1.3rem;          /* ~17px — readable but not oversized   */
   font-weight: 700;
   line-height: 1.4;
   margin-top: 2rem;            /* generous space above each step        */
@@ -1732,13 +1833,14 @@ a[href*='/edit/'],
 
 .sl-markdown-content .spry-category-card:hover h3,
 .sl-markdown-content .spry-card:hover h3 {
-  color: #4b2c68;
+  color: #772CAD;
 }
 
 /* Article step labels are rendered as paragraph-leading <strong> text. */
 .sl-markdown-content .spry-article-page p {
   font-weight: 700;
   color: #65219c;
+  font-size: 1.2rem;
 }
 
 .sl-markdown-content .spry-article-page p > strong:first-child {

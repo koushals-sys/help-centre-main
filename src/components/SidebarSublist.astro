@@ -342,6 +342,12 @@ function getIconKey(label: string) {
       color: #65219c;
     }
 
+    /* Ensure the visible label text turns purple when the group is active */
+    summary:has(.group-link[aria-current='page']) .large,
+    .group-link[aria-current='page'] .large {
+      color: #65219c;
+    }
+
     .group-link:hover,
     .group-link:focus {
       color: #202229;
