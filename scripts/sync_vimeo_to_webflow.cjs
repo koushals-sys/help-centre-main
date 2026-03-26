@@ -141,6 +141,40 @@ async function getAllVimeoVideos() {
   return allVideos;
 }
 
+async function getAllVimeoFolders() {
+  const all = [];
+  let page = 1;
+  const perPage = 100;
+
+  while (true) {
+    // Projects (folders) endpoint
+    const data = await vimeoRequest(`/me/projects?per_page=${perPage}&page=${page}&fields=uri,name`);
+    const items = data?.data || [];
+    all.push(...items);
+    if (items.length < perPage) break;
+    page += 1;
+  }
+
+  return all;
+}
+
+async function getVideosInFolder(folderUri) {
+  const all = [];
+  let page = 1;
+  const perPage = 100;
+
+  // folderUri often is like "/projects/{id}" or "/users/{id}/projects/{id}"
+  while (true) {
+    const data = await vimeoRequest(`${folderUri}/videos?per_page=${perPage}&page=${page}&fields=uri,name,link`);
+    const items = data?.data || [];
+    all.push(...items);
+    if (items.length < perPage) break;
+    page += 1;
+  }
+
+  return all;
+}
+
 async function updateWebflowItem(itemId, fieldData) {
   await webflowRequest(
     `/collections/${requireEnv(WEBFLOW_ARTICLES_COLLECTION_ID, 'WEBFLOW_ARTICLES_COLLECTION_ID')}/items/${itemId}`,
@@ -181,15 +215,58 @@ async function main() {
     .map(field => field?.slug)
     .filter(Boolean);
 
-  const [videos, items] = await Promise.all([getAllVimeoVideos(), getAllWebflowItems()]);
-
+  const useFolders = !!process.env.VIMEO_USE_FOLDERS;
+  let videos = [];
   const videoMap = new Map();
-  for (const video of videos) {
-    if (!video?.name || !video?.link) continue;
-    const slug = slugify(video.name);
-    if (!slug || videoMap.has(slug)) continue;
-    videoMap.set(slug, video.link);
+
+  if (useFolders) {
+    // Build mapping from folder slug -> first video in folder, and also map videos by name slug.
+    const folders = await getAllVimeoFolders();
+    for (const folder of folders) {
+      const folderName = folder?.name || '';
+      const folderSlug = slugify(folderName);
+      const folderUri = folder?.uri || '';
+      if (!folderUri) continue;
+
+      const folderVideos = await getVideosInFolder(folderUri);
+      // Map each video by its name slug if missing
+      for (const v of folderVideos) {
+        if (!v?.name || !v?.link) continue;
+        const vslug = slugify(v.name);
+        if (vslug && !videoMap.has(vslug)) videoMap.set(vslug, v.link);
+      }
+
+      // If folder name itself matches an article slug, prefer the first video in that folder
+      if (folderSlug && folderVideos.length > 0 && !videoMap.has(folderSlug)) {
+        videoMap.set(folderSlug, folderVideos[0].link);
+      }
+
+      videos.push(...folderVideos);
+    }
+
+    // Also fetch standalone videos (not in folders) to ensure we don't miss anything
+    const fallbackVideos = await getAllVimeoVideos();
+    for (const video of fallbackVideos) {
+      if (!video?.name || !video?.link) continue;
+      const slug = slugify(video.name);
+      if (!slug) continue;
+      if (!videoMap.has(slug)) videoMap.set(slug, video.link);
+    }
+
+    // Flatten videos list for logging
+    videos = Array.from(new Set(videos.concat(fallbackVideos || [])));
+  } else {
+    videos = await getAllVimeoVideos();
+    for (const video of videos) {
+      if (!video?.name || !video?.link) continue;
+      const slug = slugify(video.name);
+      if (!slug || videoMap.has(slug)) continue;
+      videoMap.set(slug, video.link);
+    }
   }
+
+  // Fetch all Webflow items once
+  const items = await getAllWebflowItems();
 
   let updated = 0;
   let skipped = 0;
