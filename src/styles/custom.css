@@ -552,57 +552,139 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1.8rem;
-  padding: 2.4rem 1.75rem 2rem;
+  padding: clamp(2.2rem, 5vw, 3.2rem) clamp(1.2rem, 5vw, 3.2rem);
   min-height: 72dvh;
   border-radius: 0;
-  background: linear-gradient(160deg, #3e1150 0%, #65219c 50%, #8055c4 100%);
+  background:
+    radial-gradient(circle at 84% 14%, rgba(212, 174, 255, 0.28), transparent 44%),
+    radial-gradient(circle at 18% 85%, rgba(142, 70, 206, 0.24), transparent 42%),
+    linear-gradient(160deg, #3b0f52 0%, #5f1f96 52%, #3f145c 100%);
   color: #ffffff;
   border: none;
   box-shadow: none;
 }
 
+.spry-home-header-content {
+  max-width: 42rem;
+}
+
 .spry-home-header-content h1 {
-  margin: 0.9rem 0 1.15rem;
+  margin: 1.15rem 0 1.25rem;
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: clamp(2rem, 4.1vw, 3.75rem);
-  line-height: 1.04;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  font-size: clamp(1.95rem, 4.6vw, 4.15rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-weight: 900;
   color: #ffffff;
+}
+
+.spry-home-gradient-text {
+  background: linear-gradient(92deg, #f2e8ff 0%, #cfb8ff 42%, #9bb0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
 }
 
 .spry-home-version-pill {
   display: inline-flex;
   align-items: center;
   margin: 0;
-  padding: 0.42rem 1rem;
+  padding: 0.43rem 1rem;
   border-radius: 999px;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.1);
-  font-size: 0.92rem;
-  font-weight: 600;
+  color: #f8f8ff;
+  border: 1px solid rgba(228, 210, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.88rem;
+  font-weight: 500;
 }
 
 .spry-home-version-pill::before {
   content: '';
-  width: 0.55rem;
-  height: 0.55rem;
+  width: 0.52rem;
+  height: 0.52rem;
   margin-right: 0.6rem;
   border-radius: 50%;
-  background: #ffffff;
+  background: #9cff72;
+  box-shadow: 0 0 12px rgba(156, 255, 114, 0.8);
 }
 
 .spry-home-header-copy {
   margin: 0;
-  max-width: 38rem;
+  max-width: 35rem;
+  color: rgba(245, 235, 255, 0.88);
+  font-size: 1.2rem;
+  line-height: 1.42;
+  font-weight: 400;
+}
+
+.spry-home-role-chips {
+  margin-top: 1.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.spry-home-page .spry-home-role-chips .spry-home-role-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.48rem;
+  min-height: 2.1rem;
+  padding: 0.35rem 1.05rem;
+  border-radius: 999px;
+  text-decoration: none;
   color: #ffffff;
-  font-size: clamp(0.98rem, 1.35vw, 1.5rem);
-  line-height: 1.5;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.spry-home-role-chip-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  line-height: 0;
+  color: inherit;
+  flex: 0 0 auto;
+}
+
+.spry-home-role-chip-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* Specific hero-only icon styling: ensure icons are rendered white */
+.spry-home-hero-icon {
+  color: #ffffff;
+}
+
+.spry-home-hero-icon img {
+  filter: brightness(0) invert(1);
+}
+
+/* If inline SVG is used inside the hero icon, make strokes/fills white */
+.spry-home-hero-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.spry-home-page .spry-home-role-chips .spry-home-role-chip:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.95);
+  color: #ffffff;
 }
 
 .spry-home-header-actions {
-  margin-top: 1.8rem;
+  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -612,15 +694,27 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 13rem;
-  min-height: 3.95rem;
-  padding: 0.95rem 1.55rem;
-  border-radius: 1rem;
-  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  min-width: 10rem;
+  min-height: 3.1rem;
+  padding: 0.82rem 1.5rem;
+  border-radius: 0.9rem;
+  font-size: 1.02rem;
   font-weight: 700;
   text-decoration: none;
   border: 1px solid transparent;
   transition: transform 0.18s ease, filter 0.2s ease, background-color 0.2s ease;
+}
+
+.spry-home-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 15%, rgba(255, 255, 255, 0.68) 50%, transparent 85%);
+  transform: translateX(-135%) skewX(-18deg);
+  transition: transform 0.55s ease;
+  pointer-events: none;
 }
 
 .spry-home-btn:hover {
@@ -628,9 +722,15 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   filter: brightness(1.03);
 }
 
+.spry-home-btn:hover::before {
+  transform: translateX(135%) skewX(-18deg);
+}
+
 .spry-home-btn-primary {
-  background: #f5f2fb;
-  color: #65219c;
+  background: #ffffff;
+  color: #7b1cf9;
+  border-color: #ffffff;
+  box-shadow: 0 10px 26px -14px rgba(22, 4, 34, 0.9);
 }
 
 .spry-home-btn-primary::after {
@@ -638,6 +738,18 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   margin-left: 0.62rem;
   font-size: 1.25rem;
   line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.spry-home-btn-primary {
+  isolation: isolate;
+}
+
+.spry-home-btn-primary,
+.spry-home-btn-primary span {
+  position: relative;
+  z-index: 1;
 }
 
 .spry-home-btn-secondary {
@@ -657,28 +769,27 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem 0;
+  padding: 0.4rem 0 0;
 }
 
 .spry-home-header-visual-inner {
-  min-height: 24rem;
-  width: min(100%, 46rem);
+  min-height: 20rem;
+  width: min(100%, 44rem);
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
 }
 
-    .spry-home-header-visual-inner img {
-      width: auto;
-      max-width: 420px; /* keep hero minimal */
-      max-height: none;
-      height: auto;
-      object-fit: contain;
-      transform: none;
-      transform-origin: center;
-      filter: drop-shadow(0 18px 30px rgba(47, 14, 66, 0.35));
-    }
+.spry-home-header-visual-inner img {
+  width: 100%;
+  max-width: 40rem;
+  height: auto;
+  object-fit: contain;
+  transform: none;
+  transform-origin: center;
+  filter: drop-shadow(0 20px 34px rgba(28, 8, 42, 0.45));
+}
 
 @media (max-width: 63.99rem) {
   .spry-home-header-visual-inner img {
@@ -688,10 +799,10 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
 
 @media (min-width: 64rem) {
   .spry-home-header-hero {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-    gap: 2.15rem;
-    padding: 2.45rem 2rem 1.95rem;
-    align-items: stretch;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+    gap: 2rem;
+    padding: clamp(2.2rem, 4vw, 3.2rem) clamp(1.6rem, 4vw, 3.4rem);
+    align-items: center;
     min-height: 68dvh;
   }
 
@@ -699,13 +810,32 @@ body:has(.spry-home-page) .content-panel:has(.spry-home-page) {
     align-self: center;
   }
 
+  .spry-home-header-visual {
+    justify-content: flex-end;
+  }
+
   .spry-home-header-visual-inner {
-    min-height: clamp(20rem, 54dvh, 32rem);
-    width: min(100%, 54rem);
+    min-height: clamp(22rem, 56dvh, 40rem);
+    width: min(100%, 48rem);
   }
 
   .spry-home-header-visual-inner img {
-    max-width: 420px; /* keep hero minimal on large screens */
+    max-width: 44rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .spry-home-header-content h1 {
+    line-height: 1.01;
+  }
+
+  .spry-home-role-chip {
+    font-size: 0.86rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  .spry-home-btn {
+    min-width: 9.2rem;
   }
 }
 
@@ -1776,7 +1906,7 @@ a[href*='/edit/'],
 
 /* h1 — clear primary focus, large and bold */
 .sl-markdown-content h1 {
-  font-size: 2.2rem;
+  font-size: 3.2rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
