@@ -1,0 +1,64 @@
+---
+import MobileMenuFooter from 'virtual:starlight/components/MobileMenuFooter';
+import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
+import SidebarSublist from './SidebarSublist.astro';
+
+const { sidebar } = Astro.locals.starlightRoute;
+
+// Exact sequence to show in the sidebar. Any top-level entries not in this
+// list will be hidden.
+const preferredOrder = [
+  'New Login Guide for SPRY Users',
+  'Front Desk Module',
+  "Clinician's Module",
+  'Profile Management',
+  'Billing',
+  'Reports',
+  'Patient Portal',
+  'Packages',
+  'New Features',
+  'New Updates',
+];
+
+function getLabel(entry) {
+  if (!entry || !entry.label) return '';
+  const parts = String(entry.label).split('||');
+  return parts[0].trim();
+}
+
+function ordered(list) {
+  if (!Array.isArray(list)) return [];
+  const map = new Map(list.map((e) => [getLabel(e).toLowerCase(), e]));
+  const out = [];
+  for (const key of preferredOrder) {
+    const item = map.get(key.toLowerCase());
+    if (item) out.push(item);
+  }
+  return out;
+}
+
+const orderedSidebar = ordered(sidebar || []);
+---
+
+<SidebarPersister>
+  <div class="spry-sidebar-shell">
+    <div class="spry-sidebar-nav">
+      <SidebarSublist sublist={orderedSidebar} />
+    </div>
+
+    <aside class="spry-support-card" aria-label="Need help">
+      <div class="spry-support-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+          <path d="M6.5 17.5a8 8 0 1 1 3.8 2.3L6 21l1.1-3.5c-.2 0-.4 0-.6 0Zm5.5-12a6 6 0 0 0-4.9 9.5l.4.6-.5 1.7 1.8-.5.6.4A6 6 0 1 0 12 5.5Z" />
+        </svg>
+      </div>
+      <h3>Need Help?</h3>
+      <p>Our support team is here to assist you</p>
+      <a class="spry-support-btn" href="mailto:support@spryhealth.care">Contact Support</a>
+    </aside>
+  </div>
+</SidebarPersister>
+
+<div class="md:sl-hidden">
+  <MobileMenuFooter />
+</div>

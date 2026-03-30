@@ -1,0 +1,252 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import {
+  buildWebflowSidebar,
+  formatSegmentLabel,
+  getAllArticles,
+  getAllTags,
+  getArticleSegments,
+  getArticleUrl,
+} from '../../lib/webflow';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const articles = await getAllArticles();
+  return articles.map(article => ({
+    params: { slug: article.slug },
+  }));
+}
+
+const slugParam = Astro.params.slug;
+const segments = Array.isArray(slugParam)
+  ? slugParam
+  : String(slugParam || '').split('/');
+const articleSlug = segments.filter(Boolean).pop() || '';
+
+const articles = await getAllArticles();
+const tags = await getAllTags();
+const tagMap = new Map(tags.map(tag => [tag.id, tag]));
+const sidebar = buildWebflowSidebar(articles, tagMap);
+
+const match = articles.find(article => article.slug === articleSlug);
+
+const categorySegments = segments.filter(Boolean);
+const [primarySegment, secondarySegment] = categorySegments;
+const articleMeta = articles.map(article => ({
+  ...article,
+  segments: getArticleSegments(article),
+}));
+
+const hasPathSegment = !!primarySegment && articleMeta.some(article => article.segments.path === primarySegment);
+const hasSubpathSegment = !!primarySegment && articleMeta.some(article => article.segments.subpath === primarySegment);
+const hasLegacySubpath =
+  !!primarySegment &&
+  !!secondarySegment &&
+  articleMeta.some(
+    article => article.segments.path === primarySegment && article.segments.subpath === secondarySegment
+  );
+
+let viewMode: 'article' | 'category' | 'subcategory' = 'article';
+let viewTitle = '';
+let viewDescription = '';
+let cards: Array<{ title: string; description: string; href: string }> = [];
+
+if (!match) {
+  if (!primarySegment) {
+    return Astro.redirect('/');
+  }
+
+  if (hasLegacySubpath) {
+    return Astro.redirect(`/${secondarySegment}`);
+  }
+
+  if (hasSubpathSegment) {
+    viewMode = 'subcategory';
+    viewTitle = formatSegmentLabel(primarySegment);
+    viewDescription = 'Browse articles in this subcategory.';
+
+    cards = articleMeta
+      .filter(article => article.segments.subpath === primarySegment)
+      .map(article => ({
+        title: article.name || article.slug,
+        description: article.summary || 'Read the full guide for details.',
+        href: getArticleUrl(article),
+        thumbnailUrl: article.thumbnailUrl,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title));
+  } else if (hasPathSegment) {
+    viewMode = 'category';
+    viewTitle = formatSegmentLabel(primarySegment);
+    viewDescription = 'Browse subcategories in this section.';
+
+    const subpathMap = new Map();
+    for (const article of articleMeta) {
+      if (article.segments.path !== primarySegment) continue;
+      const subpath = article.segments.subpath || '';
+      const tagLabel = (article.tagIds || [])
+        .map(tagId => tagMap.get(tagId)?.name)
+        .find(Boolean);
+      const label = tagLabel || formatSegmentLabel(subpath || 'General');
+      if (!subpathMap.has(subpath)) {
+        subpathMap.set(subpath, {
+          title: label,
+          description: article.summary || 'Browse related guides and tutorials.',
+          href: subpath ? `/${subpath}` : `/${primarySegment}`,
+          thumbnailUrl: article.thumbnailUrl,
+        });
+      }
+    }
+
+    const subpathCards = Array.from(subpathMap.values()).sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+
+    const hasRealSubpaths = Array.from(subpathMap.keys()).some((key) => key !== '');
+    if (hasRealSubpaths) {
+      cards = subpathCards;
+    } else {
+      viewDescription = 'Browse articles in this category.';
+      cards = articleMeta
+        .filter(article => article.segments.path === primarySegment)
+        .map(article => ({
+          title: article.name || article.slug,
+          description: article.summary || 'Read the full guide for details.',
+          href: getArticleUrl(article),
+          thumbnailUrl: article.thumbnailUrl,
+        }))
+        .sort((a, b) => a.title.localeCompare(b.title));
+    }
+  } else {
+    return Astro.redirect('/');
+  }
+}
+
+const breadcrumbSegments = segments.filter(Boolean);
+const breadcrumbs = breadcrumbSegments.map((segment, index) => {
+  const href = `/${breadcrumbSegments.slice(0, index + 1).join('/')}`;
+  return { label: formatSegmentLabel(segment), href };
+});
+
+function getVimeoEmbedUrl(url: string | undefined): string | undefined {
+  if (!url) return undefined;
+  try {
+    const parsed = new URL(url);
+    if (!parsed.hostname.includes('vimeo.com')) return undefined;
+    const match = parsed.pathname.match(/\/(?:video\/)?(\d+)/);
+    if (!match) return undefined;
+    const params = new URLSearchParams({
+      title: '0',
+      byline: '0',
+      portrait: '0',
+      badge: '0',
+      color: '3E1150',
+      autopause: '0',
+      transparent: '0',
+      dnt: '1',
+    });
+    return `https://player.vimeo.com/video/${match[1]}?${params.toString()}`;
+  } catch {
+    return undefined;
+  }
+}
+
+function rewriteVimeoEmbedHtml(html: string): string {
+  const params = new URLSearchParams({
+    title: '0',
+    byline: '0',
+    portrait: '0',
+    badge: '0',
+    color: '3E1150',
+    autopause: '0',
+    transparent: '0',
+    dnt: '1',
+  }).toString();
+  return html.replace(
+    /https:\/\/player\.vimeo\.com\/video\/(\d+)(\?[^"']*)?/g,
+    (_match, id) => `https://player.vimeo.com/video/${id}?${params}`
+  );
+}
+
+const vimeoEmbedUrl = getVimeoEmbedUrl(match?.videoUrl);
+const articleBodyHtml = match?.body ? rewriteVimeoEmbedHtml(match.body) : undefined;
+
+if (viewMode === 'article' && match?.name && breadcrumbs.length > 0) {
+  breadcrumbs[breadcrumbs.length - 1] = {
+    ...breadcrumbs[breadcrumbs.length - 1],
+    label: match.name,
+  };
+}
+---
+
+<StarlightPage
+  frontmatter={{
+    title: '',
+    description: viewMode === 'article' ? (match?.summary || undefined) : viewDescription,
+  }}
+  sidebar={sidebar}
+>
+  <div data-pagefind-ignore="all">
+    <nav class="spry-breadcrumbs" aria-label="Breadcrumb">
+      <a class="spry-breadcrumb-home" href="/" aria-label="Home">
+        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+          <path d="M12 3l9 7h-2v9a2 2 0 0 1-2 2h-3v-6H10v6H7a2 2 0 0 1-2-2v-9H3l9-7Z" />
+        </svg>
+      </a>
+      {breadcrumbs.map((crumb) => (
+        <span class="spry-breadcrumb-item">
+          <span class="spry-breadcrumb-sep">›</span>
+          <a href={crumb.href}>{crumb.label}</a>
+        </span>
+      ))}
+    </nav>
+    {viewMode === 'article' && (
+      <h1 class="spry-article-title">{match?.name || match?.slug || 'Article'}</h1>
+    )}
+    {viewMode !== 'article' && viewTitle && (
+      <h1 class="spry-article-title">{viewTitle}</h1>
+    )}
+    {viewMode === 'article' ? (
+      <>
+        {match?.videoUrl && (
+          <section class="spry-video-section">
+            {vimeoEmbedUrl ? (
+              <div class="spry-video-embed">
+                <iframe
+                  src={vimeoEmbedUrl}
+                  title={match?.name || match?.slug || 'Vimeo video'}
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            ) : (
+              <video controls preload="metadata" src={match.videoUrl}></video>
+            )}
+          </section>
+        )}
+        <p>
+          <a href="/">&larr; Back to list</a>
+        </p>
+        {articleBodyHtml && <div set:html={articleBodyHtml} />}
+      </>
+    ) : (
+      <section>
+        <h2>{viewMode === 'category' ? 'Subcategories' : 'Articles'}</h2>
+        <div class="spry-card-grid">
+          {cards.map(card => (
+            <a class="spry-card" href={card.href}>
+              {card.thumbnailUrl && (
+                <div class="spry-card-media">
+                  <img src={card.thumbnailUrl} alt={card.title} loading="lazy" />
+                </div>
+              )}
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+              <span class="spry-card-link">Explore</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</StarlightPage>

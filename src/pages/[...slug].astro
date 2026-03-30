@@ -1,0 +1,599 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getCollection } from 'astro:content';
+import {
+  buildWebflowSidebar,
+  formatSegmentLabel,
+  getAllArticles,
+  getAllTags,
+  getArticleSegments,
+  getArticleUrl,
+} from '../lib/webflow';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const articles = await getAllArticles();
+  const paths = [];
+
+  // Add article paths
+  for (const article of articles) {
+    if (article.slug) {
+      paths.push({ params: { slug: article.slug } });
+    }
+  }
+
+  // Add category and subcategory paths
+  const articleMeta = articles.map(article => ({
+    ...article,
+    segments: getArticleSegments(article),
+  }));
+
+  const categories = new Set();
+  const subcategories = new Set();
+  const legacySubpaths = new Set();
+
+  for (const article of articleMeta) {
+    if (article.segments.path) {
+      categories.add(article.segments.path);
+    }
+    if (article.segments.subpath) {
+      subcategories.add(article.segments.subpath);
+    }
+    if (article.segments.path && article.segments.subpath) {
+      legacySubpaths.add(`${article.segments.path}/${article.segments.subpath}`);
+    }
+  }
+
+  for (const category of categories) {
+    paths.push({ params: { slug: category } });
+  }
+
+  for (const subcategory of subcategories) {
+    paths.push({ params: { slug: subcategory } });
+  }
+
+  for (const legacy of legacySubpaths) {
+    paths.push({ params: { slug: legacy } });
+  }
+
+  return paths;
+}
+
+const slugParam = Astro.params.slug;
+const segments = Array.isArray(slugParam)
+  ? slugParam
+  : String(slugParam || '').split('/');
+const articleSlug = segments.filter(Boolean).pop() || '';
+
+const articles = await getAllArticles();
+const tags = await getAllTags();
+const tagMap = new Map(tags.map(tag => [tag.id, tag]));
+const sidebar = buildWebflowSidebar(articles, tagMap);
+const docs = await getCollection('docs');
+
+const match = articles.find(article => article.slug === articleSlug);
+
+const categorySegments = segments.filter(Boolean);
+const [primarySegment, secondarySegment] = categorySegments;
+const articleMeta = articles.map(article => ({
+  ...article,
+  segments: getArticleSegments(article),
+}));
+
+const topLevelModules = new Set([
+  'front-desk-module',
+  'clinicians-module',
+  'billing-videos',
+  'reports',
+  'patient-portal',
+  'new-features',
+  'new-updates',
+  'packages',
+  'profile-management',
+  'guides',
+  'reference',
+]);
+
+const isLegacyRoute =
+  !!primarySegment && !!secondarySegment && topLevelModules.has(primarySegment);
+
+const effectiveSegment =
+  secondarySegment && topLevelModules.has(primarySegment)
+    ? secondarySegment
+    : primarySegment;
+const isModuleRoot = !!primarySegment && !secondarySegment && topLevelModules.has(primarySegment);
+
+const hasPathSegment =
+  !!primarySegment && articleMeta.some(article => article.segments.path === primarySegment);
+const hasSubpathSegment = !!primarySegment && articleMeta.some(article => article.segments.subpath === primarySegment);
+const hasSecondarySubpath =
+  !!secondarySegment && articleMeta.some(article => article.segments.subpath === secondarySegment);
+const hasLegacySubpath =
+  !!primarySegment &&
+  !!secondarySegment &&
+  articleMeta.some(
+    article => article.segments.path === primarySegment && article.segments.subpath === secondarySegment
+  );
+
+
+let viewMode: 'article' | 'category' | 'subcategory' = 'article';
+let viewTitle = '';
+let viewDescription = '';
+let cards: Array<{
+  title: string;
+  description: string;
+  href: string;
+  count?: number;
+  thumbnailUrl?: string;
+  icon?: string;
+}> = [];
+
+function getGuideIconKey(text: string) {
+  const value = String(text || '').toLowerCase();
+  if (value.includes('appointment') || value.includes('booking')) return 'calendar';
+  if (value.includes('calendar') || value.includes('schedule')) return 'calendar-check';
+  if (value.includes('billing') || value.includes('invoice') || value.includes('payment')) return 'billing';
+  if (value.includes('patient') || value.includes('profile')) return 'user';
+  if (value.includes('soap') || value.includes('scribe') || value.includes('documentation')) return 'clipboard';
+  if (value.includes('feature') || value.includes('update')) return 'spark';
+  if (value.includes('package')) return 'box';
+  return 'doc';
+}
+
+function getDocsForModule(moduleSlug: string | undefined) {
+  if (!moduleSlug) return [];
+  const prefix = `${moduleSlug}/`;
+  return docs.filter((entry) => typeof entry.slug === 'string' && entry.slug.startsWith(prefix));
+}
+
+function buildSubcategoryCards(moduleSlug: string | undefined) {
+  const entries = getDocsForModule(moduleSlug);
+  const subpathMap = new Map<string, { title: string; description: string; href: string }>();
+  for (const entry of entries) {
+    const parts = entry.slug.split('/');
+    const subpath = parts[1];
+    if (!subpath) continue;
+    if (!subpathMap.has(subpath)) {
+      subpathMap.set(subpath, {
+        title: formatSegmentLabel(subpath),
+        description: entry.data.description || 'Browse related guides and tutorials.',
+        href: `/${subpath}`,
+      });
+    }
+  }
+  return Array.from(subpathMap.values()).sort((a, b) => a.title.localeCompare(b.title));
+}
+
+function buildArticleCards(moduleSlug: string | undefined, subpath: string | undefined) {
+  if (!moduleSlug || !subpath) return [];
+  const prefix = `${moduleSlug}/${subpath}/`;
+  return docs
+    .filter((entry) => typeof entry.slug === 'string' && entry.slug.startsWith(prefix))
+    .map((entry) => ({
+      title: entry.data.title || entry.slug.split('/').pop() || 'Untitled',
+      description: entry.data.description || 'Read the full guide for details.',
+      href: `/${entry.slug}`,
+    }))
+    .sort((a, b) => a.title.localeCompare(b.title));
+}
+
+if (!match) {
+  if (!primarySegment) {
+    return Astro.redirect('/');
+  }
+
+  if (hasLegacySubpath) {
+    viewMode = 'subcategory';
+    viewTitle = formatSegmentLabel(secondarySegment);
+    viewDescription = 'Browse articles in this subcategory.';
+
+    cards = articleMeta
+      .filter(
+        article =>
+          article.segments.path === primarySegment &&
+          article.segments.subpath === secondarySegment
+      )
+      .map(article => ({
+        title: article.name || article.slug,
+        description: article.summary || 'Read the full guide for details.',
+        href: getArticleUrl(article),
+        thumbnailUrl: article.thumbnailUrl,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  if (!hasLegacySubpath && cards.length === 0) {
+    const docsCards = buildArticleCards(primarySegment, secondarySegment);
+    if (docsCards.length > 0) {
+      viewMode = 'subcategory';
+      viewTitle = formatSegmentLabel(secondarySegment);
+      viewDescription = 'Browse articles in this subcategory.';
+      cards = docsCards;
+    }
+  }
+
+  if (!hasLegacySubpath && hasSecondarySubpath) {
+    viewMode = 'subcategory';
+    viewTitle = formatSegmentLabel(secondarySegment);
+    viewDescription = 'Browse articles in this subcategory.';
+
+    cards = articleMeta
+      .filter(article => article.segments.subpath === secondarySegment)
+      .map(article => ({
+        title: article.name || article.slug,
+        description: article.summary || 'Read the full guide for details.',
+        href: getArticleUrl(article),
+        thumbnailUrl: article.thumbnailUrl,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  if (!hasLegacySubpath && !hasSecondarySubpath && effectiveSegment && !isModuleRoot) {
+    viewMode = 'subcategory';
+    viewTitle = formatSegmentLabel(effectiveSegment);
+    viewDescription = 'Browse articles in this subcategory.';
+
+    cards = articleMeta
+      .filter(article => article.segments.subpath === effectiveSegment)
+      .map(article => ({
+        title: article.name || article.slug,
+        description: article.summary || 'Read the full guide for details.',
+        href: getArticleUrl(article),
+        thumbnailUrl: article.thumbnailUrl,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title));
+  } else if (hasPathSegment) {
+    viewMode = 'category';
+    viewTitle = formatSegmentLabel(primarySegment);
+    viewDescription = 'Browse subcategories in this section.';
+
+    const subpathMap = new Map();
+    for (const article of articleMeta) {
+      if (article.segments.path !== primarySegment) continue;
+      const subpath = article.segments.subpath || '';
+      const tagLabel = (article.tagIds || [])
+        .map(tagId => tagMap.get(tagId)?.name)
+        .find(Boolean);
+      const label = tagLabel || formatSegmentLabel(subpath || 'General');
+      if (!subpathMap.has(subpath)) {
+        subpathMap.set(subpath, {
+          title: label,
+          description: article.summary || 'Browse related guides and tutorials.',
+          href: subpath ? `/${subpath}` : `/${primarySegment}`,
+          thumbnailUrl: article.thumbnailUrl,
+          count: 0,
+          icon: getGuideIconKey(`${label} ${article.summary || ''}`),
+        });
+      }
+      const bucket = subpathMap.get(subpath);
+      bucket.count = (bucket.count || 0) + 1;
+    }
+
+    if (!hasLegacySubpath && !hasSecondarySubpath && cards.length === 0) {
+      const docsCards = buildArticleCards(primarySegment, effectiveSegment);
+      if (docsCards.length > 0) {
+        viewMode = 'subcategory';
+        viewTitle = formatSegmentLabel(effectiveSegment);
+        viewDescription = 'Browse articles in this subcategory.';
+        cards = docsCards;
+      }
+    }
+
+    const subpathCards = Array.from(subpathMap.values()).sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+
+    const hasRealSubpaths = Array.from(subpathMap.keys()).some((key) => key !== '');
+    if (hasRealSubpaths) {
+      cards = subpathCards;
+    } else {
+      viewDescription = 'Browse articles in this category.';
+      cards = articleMeta
+        .filter(article => article.segments.path === primarySegment)
+        .map(article => ({
+          title: article.name || article.slug,
+          description: article.summary || 'Read the full guide for details.',
+          href: getArticleUrl(article),
+          thumbnailUrl: article.thumbnailUrl,
+        }))
+        .sort((a, b) => a.title.localeCompare(b.title));
+    }
+  } else if (cards.length === 0) {
+    const docsCards = buildSubcategoryCards(primarySegment);
+    if (docsCards.length > 0) {
+      viewMode = 'category';
+      viewTitle = formatSegmentLabel(primarySegment);
+      viewDescription = 'Browse subcategories in this section.';
+      cards = docsCards;
+    } else {
+      return Astro.redirect('/');
+    }
+  }
+}
+
+const breadcrumbSegments = segments.filter(Boolean);
+const breadcrumbs = breadcrumbSegments.map((segment, index) => {
+  const href = `/${breadcrumbSegments.slice(0, index + 1).join('/')}`;
+  return { label: formatSegmentLabel(segment), href };
+});
+
+function getVimeoEmbedUrl(url: string | undefined): string | undefined {
+  if (!url) return undefined;
+  try {
+    const parsed = new URL(url);
+    if (!parsed.hostname.includes('vimeo.com')) return undefined;
+    const match = parsed.pathname.match(/\/(?:video\/)?(\d+)/);
+    if (!match) return undefined;
+    const params = new URLSearchParams({
+      title: '0',
+      byline: '0',
+      portrait: '0',
+      badge: '0',
+      color: '3E1150',
+      autopause: '0',
+      transparent: '0',
+      dnt: '1',
+    });
+    return `https://player.vimeo.com/video/${match[1]}?${params.toString()}`;
+  } catch {
+    return undefined;
+  }
+}
+
+function rewriteVimeoEmbedHtml(html: string): string {
+  const params = new URLSearchParams({
+    title: '0',
+    byline: '0',
+    portrait: '0',
+    badge: '0',
+    color: '3E1150',
+    autopause: '0',
+    transparent: '0',
+    dnt: '1',
+  }).toString();
+  return html.replace(
+    /https:\/\/player\.vimeo\.com\/video\/(\d+)(\?[^"']*)?/g,
+    (_match, id) => `https://player.vimeo.com/video/${id}?${params}`
+  );
+}
+
+const vimeoEmbedUrl = getVimeoEmbedUrl(match?.videoUrl);
+const articleBodyHtml = match?.body ? rewriteVimeoEmbedHtml(match.body) : undefined;
+
+if (viewMode === 'article' && match?.name && breadcrumbs.length > 0) {
+  breadcrumbs[breadcrumbs.length - 1] = {
+    ...breadcrumbs[breadcrumbs.length - 1],
+    label: match.name,
+  };
+}
+
+const moduleGuideCount = isModuleRoot && primarySegment
+  ? articleMeta.filter((article) => article.segments.path === primarySegment).length
+  : 0;
+
+const moduleSubcollectionCount = isModuleRoot && primarySegment
+  ? new Set(
+      articleMeta
+        .filter((article) => article.segments.path === primarySegment)
+        .map((article) => article.segments.subpath)
+        .filter(Boolean)
+    ).size
+  : 0;
+
+function getModuleIconSrc(moduleSlug: string | undefined) {
+  const slug = String(moduleSlug || '').toLowerCase();
+  if (slug === 'front-desk-module') return '/assets/Front desk module.svg';
+  if (slug === 'clinicians-module') return '/assets/Clinicians module.svg';
+  if (slug === 'billing-videos') return '/assets/Billing Videos.svg';
+  if (slug === 'reports') return '/assets/Reports.svg';
+  if (slug === 'patient-portal') return '/assets/patient portal.svg';
+  if (slug === 'packages') return '/assets/Packages.svg';
+  if (slug === 'new-features') return '/assets/New features.svg';
+  if (slug === 'new-updates') return '/assets/New updates.svg';
+  if (slug === 'profile-management') return '/assets/Profile management.svg';
+  if (slug === 'guides') return '/assets/Home.svg';
+  return '';
+}
+
+const moduleHeroIconSrc = isModuleRoot ? getModuleIconSrc(primarySegment) : '';
+---
+
+<StarlightPage
+  frontmatter={{
+    title: '',
+    description: viewMode === 'article' ? (match?.summary || undefined) : viewDescription,
+  }}
+  sidebar={sidebar}
+>
+  <div
+    data-pagefind-ignore={isLegacyRoute ? 'all' : undefined}
+    class:list={{ 'spry-article-page': viewMode === 'article' }}
+  >
+    {isModuleRoot && viewMode !== 'article' ? (
+      <>
+        <header class="spry-category-hero">
+          <div class="spry-category-hero-icon" aria-hidden="true">
+            {moduleHeroIconSrc ? (
+              <img src={moduleHeroIconSrc} alt="" loading="eager" decoding="async" />
+            ) : (
+              <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                <path d="M12 5.75c-1.56-1-3.48-1.6-5.39-1.6A1.73 1.73 0 0 0 4.9 5.9v9.43A1.6 1.6 0 0 0 6.5 16.9c1.87 0 3.82.58 5.23 1.55a.52.52 0 0 0 .54 0c1.41-.97 3.36-1.55 5.23-1.55a1.6 1.6 0 0 0 1.6-1.57V5.9a1.73 1.73 0 0 0-1.71-1.75c-1.91 0-3.83.6-5.39 1.6Zm-.7 10.6a12 12 0 0 0-4.95-1.25V6.1c1.68.04 3.45.54 4.95 1.38Zm1.4 0V7.48c1.5-.84 3.27-1.34 4.95-1.38v8.99a12 12 0 0 0-4.95 1.26Z" />
+              </svg>
+            )}
+          </div>
+          <div class="spry-category-hero-content">
+            <h1>{viewTitle}</h1>
+            <p>
+              {viewDescription || `Master ${viewTitle.toLowerCase()} workflows with organized, role-based guides.`}
+            </p>
+            <p class="spry-category-hero-meta">
+              {moduleSubcollectionCount} sub-collections • {moduleGuideCount}+ guides
+            </p>
+          </div>
+        </header>
+
+        <nav class="spry-category-breadcrumb-bar" aria-label="Breadcrumb">
+          <a class="spry-category-breadcrumb-home" href="/">
+            <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+              <path d="M12 3l9 7h-2v9a2 2 0 0 1-2 2h-3v-6H10v6H7a2 2 0 0 1-2-2v-9H3l9-7Z" />
+            </svg>
+            <span>Home</span>
+          </a>
+          <span class="spry-category-breadcrumb-sep">›</span>
+          <span class="spry-category-breadcrumb-current">{viewTitle}</span>
+        </nav>
+      </>
+    ) : (
+      <nav class="spry-breadcrumbs" aria-label="Breadcrumb">
+        <a class="spry-breadcrumb-home" href="/" aria-label="Home">
+          <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+            <path d="M12 3l9 7h-2v9a2 2 0 0 1-2 2h-3v-6H10v6H7a2 2 0 0 1-2-2v-9H3l9-7Z" />
+          </svg>
+        </a>
+        {breadcrumbs.map((crumb) => (
+          <span class="spry-breadcrumb-item">
+            <span class="spry-breadcrumb-sep">›</span>
+            <a href={crumb.href}>{crumb.label}</a>
+          </span>
+        ))}
+      </nav>
+    )}
+    {viewMode === 'article' && (
+      <h1 class="spry-article-title">{match?.name || match?.slug || 'Article'}</h1>
+    )}
+    {viewMode !== 'article' && viewTitle && !isModuleRoot && (
+      <h1 class="spry-article-title">{viewTitle}</h1>
+    )}
+    {viewMode === 'article' ? (
+      <>
+        {match?.videoUrl && (
+          <section class="spry-video-section">
+            {vimeoEmbedUrl ? (
+              <div class="spry-video-embed">
+                <iframe
+                  src={vimeoEmbedUrl}
+                  title={match?.name || match?.slug || 'Vimeo video'}
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            ) : (
+              <video controls preload="metadata" src={match.videoUrl}></video>
+            )}
+          </section>
+        )}
+        <p>
+          <a href="/">&larr; Back to list</a>
+        </p>
+        {articleBodyHtml && <div set:html={articleBodyHtml} />}
+      </>
+    ) : isModuleRoot ? (
+      <>
+        <section class="spry-category-content">
+          <h2>All Guides</h2>
+          <p>Select a topic to view detailed guides and tutorials</p>
+          <div class="spry-category-grid">
+            {cards.map((card) => (
+              <a class="spry-category-card" href={card.href}>
+                <div class="spry-category-card-icon" aria-hidden="true">
+                  {(() => {
+                    const icon = card.icon || getGuideIconKey(`${card.title} ${card.description || ''}`);
+                    if (icon === 'calendar') {
+                      return (
+                        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                          <path d="M7 3v2H5.75A2.75 2.75 0 0 0 3 7.75v10.5A2.75 2.75 0 0 0 5.75 21h12.5A2.75 2.75 0 0 0 21 18.25V7.75A2.75 2.75 0 0 0 18.25 5H17V3h-1.5v2h-7V3Zm11.25 7.5H5.75v7.75c0 .69.56 1.25 1.25 1.25h11.25c.69 0 1.25-.56 1.25-1.25Z" />
+                        </svg>
+                      );
+                    }
+                    if (icon === 'calendar-check') {
+                      return (
+                        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                          <path d="M7 3v2H5.75A2.75 2.75 0 0 0 3 7.75v10.5A2.75 2.75 0 0 0 5.75 21h12.5A2.75 2.75 0 0 0 21 18.25V7.75A2.75 2.75 0 0 0 18.25 5H17V3h-1.5v2h-7V3Zm8.98 9.47-4 4a.75.75 0 0 1-1.06 0l-2-2 1.06-1.06 1.47 1.47 3.47-3.47Z" />
+                        </svg>
+                      );
+                    }
+                    if (icon === 'billing') {
+                      return (
+                        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                          <path d="M4 5.75A2.75 2.75 0 0 1 6.75 3h10.5A2.75 2.75 0 0 1 20 5.75V8H4Zm16 4.25v8.25A2.75 2.75 0 0 1 17.25 21H6.75A2.75 2.75 0 0 1 4 18.25V10Zm-9.5 5h7v1.5h-7Z" />
+                        </svg>
+                      );
+                    }
+                    if (icon === 'user') {
+                      return (
+                        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                          <path d="M12 3.5A4.5 4.5 0 1 1 7.5 8 4.5 4.5 0 0 1 12 3.5Zm0 10.5c4.28 0 7.75 2.08 7.75 4.65V21H4.25v-2.35C4.25 16.08 7.72 14 12 14Z" />
+                        </svg>
+                      );
+                    }
+                    if (icon === 'clipboard') {
+                      return (
+                        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                          <path d="M9 3h6a2 2 0 0 1 2 2v1h1.25A2.75 2.75 0 0 1 21 8.75v10.5A2.75 2.75 0 0 1 18.25 22H5.75A2.75 2.75 0 0 1 3 19.25V8.75A2.75 2.75 0 0 1 5.75 6H7V5a2 2 0 0 1 2-2Zm0 4.5h6V5h-2.1a1 1 0 0 1-1.8 0H9ZM8 11h8v1.5H8Zm0 3h8v1.5H8Z" />
+                        </svg>
+                      );
+                    }
+                    if (icon === 'spark') {
+                      return (
+                        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                          <path d="M12 2.5 14 7l4.5 2L14 11l-2 4.5L10 11 5.5 9 10 7ZM5 13l1.1 2.5L8.5 16l-2.4 1L5 19.5 3.9 17 1.5 16l2.4-.5Zm13 2 1.3 3 3 .7-3 1.3L18 23l-1.3-3-3-.7 3-1.3Z" />
+                        </svg>
+                      );
+                    }
+                    if (icon === 'box') {
+                      return (
+                        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                          <path d="M12 2 3 7v10l9 5 9-5V7Zm0 1.73L19.2 7 12 10.27 4.8 7ZM4.5 8.2l6.75 3.08v8.22L4.5 15.8Zm8.25 11.3v-8.22L19.5 8.2v7.6Z" />
+                        </svg>
+                      );
+                    }
+                    return (
+                      <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                        <path d="M7 3.75h6.6a2 2 0 0 1 1.42.59l1.64 1.64a2 2 0 0 1 .59 1.42v10.85a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-12.5a2 2 0 0 1 2-2Zm0 1.5a.5.5 0 0 0-.5.5v12.5a.5.5 0 0 0 .5.5h8.25a.5.5 0 0 0 .5-.5V7.4l-2.2-2.15Zm2 5h5v1.4H9Zm0 3h5v1.4H9Z" />
+                      </svg>
+                    );
+                  })()}
+                </div>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+                <div class="spry-category-card-footer">
+                  <span class="spry-category-card-link">View Guide</span>
+                  <span class="spry-category-card-arrow" aria-hidden="true">›</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section class="spry-category-help-section" aria-label="Need additional help">
+          <div>
+            <h2>Need additional help?</h2>
+            <p>
+              Contact our support team for personalized assistance with {viewTitle.toLowerCase()} operations.
+            </p>
+          </div>
+          <a class="spry-category-help-btn" href="mailto:support@spryhealth.care">Contact Support</a>
+        </section>
+      </>
+    ) : (
+      <section>
+        <h2>{viewMode === 'category' ? 'Subcategories' : 'Articles'}</h2>
+        <div class="spry-card-grid">
+          {cards.map(card => (
+            <a class="spry-card" href={card.href}>
+              {card.thumbnailUrl && (
+                <div class="spry-card-media">
+                  <img src={card.thumbnailUrl} alt={card.title} loading="lazy" />
+                </div>
+              )}
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+              <span class="spry-card-link">Explore</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</StarlightPage>

@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.help.sprypt.com"
+        }
+      ],
+      "destination": "https://help.sprypt.com/:path*",
+      "permanent": true
+    }
+  ]
+}
