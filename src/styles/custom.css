@@ -1181,6 +1181,7 @@ body:has(.spry-article-page) {
   align-items: flex-start;
   gap: 0.9rem;
   padding: 1.45rem 1.45rem 2.9rem;
+
   background:
     radial-gradient(circle at 84% 16%, rgba(172, 116, 246, 0.34), transparent 35%),
     linear-gradient(160deg, #60209a 0%, #6b30a6 55%, #835dc3 100%);
@@ -1197,6 +1198,9 @@ body:has(.spry-article-page) {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  align-self: flex-start;
+  position: relative;
+  top: 0.6rem;
 }
 
 .spry-category-hero-icon svg {
