@@ -10,6 +10,16 @@
       ],
       "destination": "https://help.sprypt.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/telehealth-video-link-feature-update",
+      "destination": "/guide/telehealth-video-link-feature-update",
+      "permanent": true
+    },
+    {
+      "source": "/telehealth-video-link-feature-update/",
+      "destination": "/guide/telehealth-video-link-feature-update",
+      "permanent": true
     }
   ]
 }
