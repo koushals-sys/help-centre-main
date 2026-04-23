@@ -12,13 +12,8 @@
       "permanent": true
     },
     {
-      "source": "/telehealth-video-link-feature-update",
-      "destination": "/guide/telehealth-video-link-feature-update",
-      "permanent": true
-    },
-    {
-      "source": "/telehealth-video-link-feature-update/",
-      "destination": "/guide/telehealth-video-link-feature-update",
+      "source": "/guide/telehealth-video-link-feature-update",
+      "destination": "/telehealth-video-link-feature-update/",
       "permanent": true
     }
   ]
