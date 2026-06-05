@@ -106,7 +106,7 @@ export default defineConfig({
   },
   integrations: [
 		starlight({
-      title: 'SpryHealth Help Centre',
+      title: 'SpryHealth Help Center',
 			logo: {
 				src: './src/assets/spry-logo.webp',
 				alt: 'SPRY',
@@ -115,7 +115,7 @@ export default defineConfig({
       head: [
         {
           tag: 'title',
-          content: 'SPRY Help Centre',
+          content: 'SPRY Help Center',
         },
         {
           tag: 'meta',
